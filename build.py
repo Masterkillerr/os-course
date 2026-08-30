@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 VAULT = ROOT / "Robles"
-HTML = ROOT / "OS-course.html"
+HTML = ROOT / "index.html"
 
 # (filename stem in Robles/, sidebar title, unit heading). Index 0 is always
 # the Índice and has no unit heading.
