@@ -80,6 +80,16 @@ graph TD
 | **Software** | Emulado por SO | TPM 2.0 de Windows | Baja (solo desarrollo) |
 | **vTPM** | Dentro de VM | Hyper-V, VMware, QEMU | Media |
 
+> [!info] Captura del profesor: TPM físico
+> La diapositiva "Físicamente" muestra dos fotos de hardware real, lado a lado:
+> - **Izquierda, etiquetada "TPN Integrado"** (TPM integrado): una placa pequeña
+>   suelta con un chip cuadrado central, tornillos/pines dorados, marcada
+>   "MADE IN CHINA".
+> - **Derecha, etiquetada "TPM Discreto"**: una esquina de motherboard mostrando
+>   un chip TPM soldado junto a los puertos USB (etiquetados "USB910"/"USB1112"
+>   en la placa), con un pin-header de 20 pines cerca — el punto de conexión
+>   físico para un módulo TPM discreto add-on.
+
 > [!warning] Nota histórica
 > Intel Pluton y AMD fTPM surgieron como respuesta a vulnerabilidades encontradas en implementaciones anteriores de TPM discreto, donde se detectaron canales de comunicación entre el TPM y otros componentes que podían ser explotados.
 
@@ -212,6 +222,33 @@ Allí puedes ver:
 - Cumplimiento TCG
 - Estado (activo/inactivo)
 
+> [!info] Captura del profesor: "Detalles del procesador de seguridad"
+> La pantalla de **Seguridad de Windows → Seguridad del dispositivo → Procesador de
+> seguridad → Detalles del procesador de seguridad** muestra, en el ejemplo de la
+> diapositiva:
+>
+> | Campo | Valor de ejemplo |
+> |---|---|
+> | **Fabricante** | Nuvoton Technology (NTC) |
+> | **Versión del fabricante** | 7.2.1.0 |
+> | **Versión de especificación** | 2.0 |
+> | **Versión de especificación de PPP** (Platform Profile Parameters) | 1.3 |
+> | **Subversión de la especificación del TPM** | 1.38 (lunes 8 enero 2018) |
+> | **Versión del cliente del equipo** | 1.03 |
+> | **Atestación** | Listo |
+> | **Almacenamiento** | Listo |
+>
+> **PPP (Platform Profile Parameters):** detalles específicos de una versión de
+> perfil TPM — definen cómo se configura y comporta el TPM en un sistema concreto
+> (parámetros y ajustes que determinan capacidades y compatibilidad).
+>
+> La misma diapositiva también documenta el panel **Aislamiento del núcleo**
+> (activado desde *Seguridad del dispositivo*): toggle **Integridad de memoria**
+> (aparece "Desactivado" en el ejemplo, con botón "Examinar de nuevo" y enlace
+> "Revisar controladores incompatibles"), sección **Protección de acceso a
+> memoria** (protege contra DMA vía Thunderbolt/USB4/CFexpress), y **Lista de
+> bloqueados de controladores vulnerables de Microsoft** (toggle "Activado").
+
 ### Clave de recuperación y BitLocker To Go
 
 Al activar BitLocker se ofrecen tres formas de guardar la clave de recuperación:
@@ -339,6 +376,32 @@ manage-bde -status                      :: estado de las unidades
 manage-bde -on F: -RecoveryPassword     :: activar BitLocker en F:
 manage-bde -off F:                      :: desactivar BitLocker en F:
 ```
+
+> [!info] Captura del profesor: salida real de `manage-bde -status`
+> La diapositiva muestra la consola `Administrador: Símbolo del sistema` tras
+> ejecutar `manage-bde.exe -status`, con dos volúmenes reales:
+>
+> **Volumen C: [Windows]** (volumen del sistema operativo)
+> - Tamaño: 951,65 GB · Versión de BitLocker: 2.0
+> - Estado de conversión: Cifrado solo de espacio usado (100,0%)
+> - Método de cifrado: **XTS-AES 128**
+> - Estado de protección: Protección activada · Estado de bloqueo: Desbloqueado
+> - Protectores de clave: **Contraseña numérica** + **TPM**
+>
+> **Volumen D: [BLACK1TB]** (volumen de datos)
+> - Tamaño: 931,50 GB · Método de cifrado: AES 128
+> - Desbloqueo automático: Deshabilitado
+> - Protectores de clave: **Contraseña** + **Contraseña numérica** (sin TPM — es
+>   un volumen de datos, no el de arranque)
+>
+> La diapositiva también muestra `manage-bde /?` completo (lista de parámetros:
+> `-status -on -off -pause -resume -lock -unlock -autounlock -protectors
+> -SetIdentifier -ForceRecovery -changepassword -changepin -changekey
+> -KeyPackage -upgrade -WipeFreeSpace -ComputerName`) con ejemplos reales:
+> ```cmd
+> manage-bde -on C: -RecoveryPassword -RecoveryKey F:\
+> manage-bde -unlock E: -RecoveryKey F:\84E151C1...7A62067A512.bek
+> ```
 
 ---
 
