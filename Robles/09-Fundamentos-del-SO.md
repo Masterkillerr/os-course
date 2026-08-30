@@ -136,6 +136,37 @@ La **HAL** (Hardware Abstraction Layer) traduce el hardware para el SO: le dice 
 > Kernel — ambos en **modo kernel (Ring 0)**, por debajo de toda la pila de
 > gestores, subsistemas y procesos de modo usuario descritos arriba.
 
+> [!warning] Para memorizar — probable diagrama en blanco de examen
+> Si el profesor pide llenar este diagrama de memoria, el orden de abajo hacia
+> arriba es la forma más fácil de reconstruirlo sin olvidar una capa:
+>
+> ```
+> Hardware interfaces (buses, I/O, interrupts, timers, DMA, memory cache)
+> Hardware Abstraction Layer (HAL)         ← Ring 0 / Kernel mode
+> Kernel                                    ← Ring 0 / Kernel mode
+> [System Service Dispatcher] + [Kernel mode callable interfaces]:
+>     I/O Mgr (Device & File Sys. Drivers) | File System Cache | Object Mgr
+>     Plug and Play Mgr | Security Reference Monitor | Virtual Memory
+>     Threads & Processes | Configuration Mgr (registry) | Local Procedure Call
+>     — aparte: Windows USER, GDI + Graphics drivers
+> System threads → entra al Dispatcher
+> ─────────────────────── NTDLL.DLL ─────────────────────── ← línea User/Kernel mode
+> System Processes | Services | Applications | Environment Subsystems
+>   Service ctrl mgr.   SvcHost.exe    Task Manager    Windows / OS2 / POSIX
+>   LSASS               WinMgt.exe     Explorer          (sobre Windows DLLs)
+>   Winlogon             SpoolSv.exe    User application
+>   Session manager      Services.exe   Subsystem DLLs
+> ```
+>
+> Trucos para no confundirse:
+> - **HAL siempre pegada al hardware**, nunca junto a los subsistemas de arriba.
+> - **NTDLL.DLL es la frontera**, no un gestor — todo lo de encima es modo
+>   usuario, todo lo de abajo (incluido el Dispatcher) es modo kernel.
+> - Los 3 subsistemas de entorno (**Windows, OS/2, POSIX**) van en la columna
+>   más a la derecha de modo usuario, no dentro del kernel.
+> - **Windows USER/GDI + Graphics drivers** están aparte del resto de gestores
+>   del kernel — no los mezcles con I/O Mgr, Object Mgr, etc.
+
 ### Llamada al sistema (syscall)
 
 La API **no** toca el kernel directamente: la API llama a la **syscall**, y la syscall es quien habla con el kernel.
