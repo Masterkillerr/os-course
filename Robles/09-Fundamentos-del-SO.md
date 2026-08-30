@@ -104,6 +104,38 @@ La **HAL** (Hardware Abstraction Layer) traduce el hardware para el SO: le dice 
 > simplificada de 5 capas (HW → KERNEL → API → SHELL → APLICACIONES, mismos
 > colores) antes de expandirla a las 9 capas de arriba.
 
+> [!info] Captura del profesor: diagrama oficial de arquitectura de Windows NT
+> Dos diapositivas después (misma fuente, `1 Introducción General.pdf`, tras la
+> explicación de **NTDLL.DLL**), el profesor muestra el diagrama clásico de
+> Microsoft (citado de `learn.microsoft.com/.../overview-of-windows-components`
+> y `social.technet.microsoft.com/.../architecture-of-windows-10.aspx`), de
+> arriba a abajo:
+>
+> - **Fila superior, modo usuario**, 4 columnas de procesos apilados:
+>   **System Processes** (Service control mgr., LSASS, Winlogon, Session
+>   manager) · **Services** (SvcHost.exe, WinMgt.exe, SpoolSv.exe,
+>   Services.exe) · **Applications** (Task Manager, Explorer, User
+>   application, Subsystem DLLs) · **Environment Subsystems** (recuadros
+>   **Windows**, **OS/2**, **POSIX** sobre "Windows DLLs").
+> - Todas esas columnas bajan a una barra ancha **NTDLL.DLL** — la línea
+>   **User mode / Kernel mode** pasa justo debajo de esa barra.
+> - En modo kernel: **System threads** entra por la izquierda al
+>   **System Service Dispatcher**, que reparte a una fila de "Kernel mode
+>   callable interfaces": **I/O Mgr** (con "Device & File Sys. Drivers"
+>   debajo), **File System Cache**, **Object Mgr**, **Plug and Play Mgr**,
+>   **Security Reference Monitor**, **Virtual Memory**, **Threads &
+>   Processes**, **Configuration Mgr (registry)**, **Local Procedure Call**
+>   — y, aparte a la derecha, **Windows USER, GDI** + **Graphics drivers**.
+> - Todo ese bloque se apoya sobre una caja **Kernel**, y esa a su vez sobre
+>   **Hardware Abstraction Layer (HAL)** — la fila más baja del diagrama.
+> - Debajo de HAL: **"Hardware interfaces (buses, I/O devices, interrupts,
+>   interval timers, DMA, memory cache control, etc.)"**.
+>
+> Esta es la referencia **oficial de Microsoft** para dónde vive exactamente
+> la HAL en Windows: justo encima del hardware físico y justo debajo del
+> Kernel — ambos en **modo kernel (Ring 0)**, por debajo de toda la pila de
+> gestores, subsistemas y procesos de modo usuario descritos arriba.
+
 ### Llamada al sistema (syscall)
 
 La API **no** toca el kernel directamente: la API llama a la **syscall**, y la syscall es quien habla con el kernel.
