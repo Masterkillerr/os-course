@@ -179,6 +179,102 @@ Get-Alias
 > [!tip] Ayuda integrada
 > `Get-Help <cmdlet>` (o `help`) abre la documentación, incluso conectándose a la web. `Get-Alias` lista todos los alias disponibles.
 
+### Tabla completa de alias PowerShell → cmdlet
+
+> [!info] Del documento fuente
+> Captura de `Get-Alias` en una instalación estándar de Windows PowerShell (referencia completa).
+
+| Alias | Cmdlet | | Alias | Cmdlet |
+|---|---|---|---|---|
+| `%` | `ForEach-Object` | | `gsv` | `Get-Service` |
+| `?` | `Where-Object` | | `gtz` | `Get-TimeZone` |
+| `ac` | `Add-Content` | | `gu` | `Get-Unique` |
+| `asnp` | `Add-PSSnapin` | | `gv` | `Get-Variable` |
+| `cat` | `Get-Content` | | `gwmi` | `Get-WmiObject` |
+| `cd` | `Set-Location` | | `h` / `history` | `Get-History` |
+| `chdir` | `Set-Location` | | `icm` | `Invoke-Command` |
+| `clc` | `Clear-Content` | | `iex` | `Invoke-Expression` |
+| `clear` | `Clear-Host` | | `ihy` | `Invoke-History` |
+| `cli` | `Clear-Item` | | `ii` | `Invoke-Item` |
+| `cls` | `Clear-Host` | | `ipal` | `Import-Alias` |
+| `clv` | `Clear-Variable` | | `ipcsv` | `Import-Csv` |
+| `compare` | `Compare-Object` | | `ipmo` | `Import-Module` |
+| `copy` / `cp` / `cpi` | `Copy-Item` | | `irm` | `Invoke-RestMethod` |
+| `curl` / `iwr` / `wget` | `Invoke-WebRequest` | | `ise` | `powershell_ise.exe` |
+| `del` / `erase` / `rd` / `ri` / `rm` / `rmdir` | `Remove-Item` | | `kill` | `Stop-Process` |
+| `diff` | `Compare-Object` | | `ls` / `dir` / `gci` | `Get-ChildItem` |
+| `echo` / `write` | `Write-Output` | | `man` | `help` |
+| `epal` | `Export-Alias` | | `md` / `mkdir` | (función) |
+| `epcsv` | `Export-Csv` | | `measure` | `Measure-Object` |
+| `fc` | `Format-Custom` | | `mi` / `move` / `mv` | `Move-Item` |
+| `fl` | `Format-List` | | `mount` | `New-PSDrive` |
+| `foreach` | `ForEach-Object` | | `ni` | `New-Item` |
+| `ft` | `Format-Table` | | `nv` | `New-Variable` |
+| `fw` | `Format-Wide` | | `ogv` | `Out-GridView` |
+| `gal` | `Get-Alias` | | `popd` / `pushd` | `Pop-/Push-Location` |
+| `gc` / `type` | `Get-Content` | | `ps` / `gps` | `Get-Process` |
+| `gcb` | `Get-Clipboard` | | `pwd` / `gl` | `Get-Location` |
+| `gcm` | `Get-Command` | | `r` | `Invoke-History` |
+| `gi` | `Get-Item` | | `rni` / `ren` | `Rename-Item` |
+| `gin` | `Get-ComputerInfo` | | `sajb` | `Start-Job` |
+| `gjb` | `Get-Job` | | `sal` | `Set-Alias` |
+| `gm` | `Get-Member` | | `saps` / `start` | `Start-Process` |
+| `gmo` | `Get-Module` | | `sasv` | `Start-Service` |
+| `gp` / `gpv` | `Get-ItemProperty(Value)` | | `sc` | `Set-Content` |
+| `group` | `Group-Object` | | `select` | `Select-Object` |
+| `set` / `sv` | `Set-Variable` | | `shcm` | `Show-Command` |
+| `si` | `Set-Item` | | `sl` | `Set-Location` |
+| `sleep` | `Start-Sleep` | | `sls` | `Select-String` |
+| `sort` | `Sort-Object` | | `sp` | `Set-ItemProperty` |
+| `spjb` / `spps` / `spsv` | `Stop-Job/Process/Service` | | `tee` | `Tee-Object` |
+| `where` | `Where-Object` | | `wjb` | `Wait-Job` |
+
+### Herramientas y comandos adicionales de PowerShell
+
+- **Historial persistente:** PowerShell recuerda 4096 comandos en texto plano, por usuario, en
+  `%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt`.
+  Consultar su configuración: `Get-PSReadlineOption | select HistoryNoDuplicates, MaximumHistoryCount, HistorySearchCursorMovesToEnd, HistorySearchCaseSensitive, HistorySavePath, HistorySaveStyle`.
+- **Extraer el serial de Windows:**
+  ```powershell
+  (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+  ```
+  o desde CMD: `wmic path softwarelicensingservice get OA3xOriginalProductKey`.
+- **Información del equipo:** `systeminfo.exe` (CMD) o `Get-ComputerInfo` (PowerShell).
+- **PowerShell ISE** (`powershell_ise.exe`): editor gráfico para escribir y guardar scripts `.ps1` con varios comandos.
+- **Diagnóstico de RAM:** `MdSched.exe` (Diagnóstico de memoria de Windows, desde Windows 7). Ofrece
+  reiniciar y testear de inmediato, o testear en el próximo reinicio; el resultado se muestra tras reiniciar.
+
+> [!info] Imágenes de referencia (documento fuente)
+> El PDF de origen incluye capturas de: la tabla de alias de `Get-Alias`, la ruta del historial en el
+> explorador de archivos, la ventana de **Diagnóstico de memoria de Windows** con sus dos opciones, y el
+> resultado del test de RAM sin errores.
+
+---
+
+## Comandos DOS heredados (legado, referencia rápida)
+
+> [!note] Cultura general
+> Documento fuente: *"3 clase Comandos SIMBOLO, POWER SHELL y SOFTWARE.pdf"*. Ayuda para cualquiera:
+> `HELP <comando>` (nuevos Windows) o `<comando> /?` (método tradicional). La mayoría son reliquias de
+> MS-DOS que ya no se usan a diario, pero aparecen en exámenes de cultura general de la materia.
+
+| Comando | Qué hace |
+|---|---|
+| `ASSOC` | Muestra/modifica asociaciones de extensión de archivo con programas |
+| `ATTRIB` | Muestra/modifica atributos de archivos |
+| `AT` | Programa ejecución de comandos a una hora/fecha (requiere el servicio de programación) |
+| `ANSI.SYS` | Carga el código ANSI vía `Device=` en `Config.sys` |
+| `APPEND` | Indica en qué directorios buscar archivos de datos (complementa `PATH`) |
+| `ASSIGN` | Redirige un disco a otro (eliminado desde DOS 6) |
+| `BACKUP` / `RESTORE` | Copia de seguridad de archivos y su restauración (eliminado desde DOS 6) |
+| `BASIC` | Invoca el lenguaje BASIC de IBM en DOS IBM |
+| `.BAT` | Extensión de archivos de procedimientos (ej. `AUTOEXEC.BAT`, se ejecuta al arrancar) |
+| `BREAK` | Activa/desactiva interrupción con Ctrl+Pausa |
+| `BUFFERS` | En `config.sys`, define capacidad del búfer de disco |
+| `CALL` | Llama a otro `.bat` como subprograma desde un `.bat` |
+| `CD` / `CHDIR` | Cambia de directorio |
+| `CHCP` | Selecciona la tabla de códigos de caracteres |
+
 ---
 
 ## Programador de tareas (Task Scheduler)
@@ -214,6 +310,10 @@ schtasks /delete /tn "Backup"
 
 > [!warning] Auditoría
 > Habilita el **historial** de tareas programadas: es clave para auditorías y para saber por qué algo corrió (o no).
+
+> [!info] Imágenes de referencia (documento fuente)
+> El PDF *"4 programador de tareas.pdf"* muestra capturas paso a paso de cada pestaña del asistente
+> (General, Desencadenadores, Acciones, Condiciones, Configuración) con los campos reales de Windows.
 
 ---
 
