@@ -360,9 +360,64 @@ schtasks /delete /tn "Backup"
 > [!warning] Auditoría
 > Habilita el **historial** de tareas programadas: es clave para auditorías y para saber por qué algo corrió (o no).
 
-> [!info] Imágenes de referencia (documento fuente)
-> El PDF *"4 programador de tareas.pdf"* muestra capturas paso a paso de cada pestaña del asistente
-> (General, Desencadenadores, Acciones, Condiciones, Configuración) con los campos reales de Windows.
+> [!info] Captura del profesor: arranque y entorno del Programador de tareas
+> El PDF *"4 programador de tareas.pdf"* abre con el diálogo **Ejecutar** mostrando
+> `taskschd.msc` como comando de arranque. Luego muestra la consola **Programador
+> de tareas** de tres columnas: izquierda = árbol "Programador de tareas (local)"
+> → "Biblioteca del Programador de tareas"; centro = "Resumen del Programador de
+> tareas" con estado de tareas ejecutadas en últimas 24h (ejemplo real: 0 total,
+> 0 en ejecución, 0 sin errores, 0 detenido, 0 con errores); derecha = panel
+> **Acciones** (Conectarse a otro equipo, Crear tarea básica, Crear tarea,
+> Importar tarea, Mostrar todas las tareas en ejecución, Deshabilitar el
+> historial de todas las tareas, Configuración de cuenta de servicio AT).
+> La Biblioteca lista tareas reales del sistema (`MicrosoftEdgeUpdateTaskMachineCore`,
+> `GoogleUpdateTaskMachineCore`, `OneDrive Reporting`, `OneDrive Backup`, etc.) con
+> columnas Estado/Desencadenadores/Hora próxima ejecución/Hora última ejecución/
+> Resultados.
+
+> [!info] Captura del profesor: pestaña por pestaña — ventana "Crear tarea"
+> Ejemplo real usado en el PDF: una tarea llamada **EJEMPLO** para reproducir un
+> video a ciertas horas.
+> - **General**: campos Nombre (`EJEMPLO`), Ubicación (`\`), Autor
+>   (`DIRTIC\SISTEMAS`), Descripción (`TAREAS EJEMPLO PARA EJECUTAR UN VIDEO A
+>   CIERTAS HORAS DEL DÍA`); radios "Ejecutar solo cuando el usuario haya
+>   iniciado sesión" / "Ejecutar tanto si el usuario inició sesión como si no";
+>   checkbox "Ejecutar con los privilegios más altos"; dropdown "Configurar
+>   para: Windows Vista™, Windows Server™ 2008".
+> - **Desencadenadores**: lista vacía + botones Nuevo/Editar/Eliminar. La
+>   ventana "Nuevo desencadenador" muestra dropdown "Iniciar la tarea" con
+>   opciones **Según una programación, Al iniciar la sesión, Al iniciar el
+>   sistema, Al estar inactivo, Al producirse un evento, Al crear o modificar
+>   tarea, Al conectarse a una sesión de usuario, Al desconectarse de una
+>   sesión de usuario, Al bloquearse/desbloquearse la estación de trabajo**.
+>   Con "Según una programación" elegido: radios Una vez/Diariamente/
+>   **Semanalmente**/Mensualmente — el ejemplo semanal muestra Inicio
+>   `21/02/2024 9:00:00 a.m.`, "Repetir cada: 1 semanas en:" con los 7 días de
+>   la semana marcados. Sección "Configuración avanzada": Retraso máx.
+>   (retraso aleatorio), Repetir cada 1 hora durante 1 día, Detener tarea si
+>   se ejecuta más de 3 días, Expiración, checkbox Habilitado.
+> - **Acciones**: dropdown "Acción" con **Iniciar un programa / Enviar un
+>   correo electrónico (desusado) / Mostrar un mensaje (desusado)**. Ejemplo
+>   real de "Programa o script": `"D:\Instalación NVMe.mp4"` (campos
+>   Agregar argumentos / Iniciar en, ambos opcionales).
+> - **Condiciones**: sección "Inactivo" (iniciar solo si el equipo está
+>   inactivo X minutos, detener si deja de estar inactivo, reiniciar si se
+>   reanuda inactividad); sección "Energía" (iniciar solo con corriente
+>   alterna ✓, detener si empieza a usar batería ✓, activar el equipo para
+>   ejecutar esta tarea ✓); sección "Red" (iniciar solo si hay conexión de
+>   red disponible, dropdown "Cualquier conexión").
+> - **Configuración**: checkboxes Permitir que la tarea se ejecute a
+>   petición ✓, Ejecutar tarea lo antes posible si no hubo inicio programado,
+>   Si la tarea no se ejecuta reiniciarla cada 1 minuto (máx. 3 veces),
+>   Detener la tarea si se ejecuta más de 3 días, Detener tarea en ejecución
+>   si no finaliza cuando se solicite, Eliminar tareas no reprogramadas
+>   después de 30 días; dropdown "Aplicar la siguiente regla si la tarea ya
+>   está en ejecución": **Ejecutar una instancia nueva en paralelo**.
+>
+> Tras Aceptar, la tarea EJEMPLO aparece en la Biblioteca con su próxima
+> ejecución calculada ("A las 9:00 a. m. cada Domingo, Martes, Miércoles...").
+> El PDF cierra recordando `schtasks /query /tn "NombreDeLaTarea"` y
+> `schtasks /delete /tn "NombreDeLaTarea"` para gestionar la tarea por consola.
 
 ---
 
