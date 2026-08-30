@@ -1,3 +1,7 @@
 *.pdf
+*.pptx
+*.png
+*.mp4
+*.exe
 audios/
 .obsidian/
