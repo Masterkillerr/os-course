@@ -61,6 +61,49 @@ graph TD
 > [!warning] Regla de oro
 > Todo se carga en la **RAM** (área de trabajo del procesador). Si la RAM se llena, el sistema se vuelve lento.
 
+> [!info] Captura del profesor: arquitectura y flujo de arranque de Microsoft Pluton
+> Fuente: `2 TPM introducción y seguridd del dispositivo.pdf`, diapositiva
+> "Flujo de Carga del FIRMWARE". Dos diagramas:
+>
+> **Diagrama de arquitectura** (dos bloques apilados con doble flecha entre
+> ellos):
+> - **Bloque de software** (arriba): caja "Sistema operativo Windows"
+>   contiene dos sub-cajas lado a lado: `Controladores de Plutón` y
+>   `Firmware de Plutón`. Nota al lado: *"Durante el inicio de Windows, se
+>   utiliza en su lugar la última versión del firmware de Plutón, si está
+>   disponible."*
+> - **Bloque de hardware y firmware** (abajo): caja "CPU (sistema en chip)"
+>   contiene: `Procesador de seguridad Plutón`, un icono de `CPU Núcleos`, y
+>   (resaltado en naranja) `Firmware de Microsoft Plutón`. Nota al lado:
+>   *"En el arranque del sistema, el firmware de Microsoft Plutón se carga
+>   desde el almacenamiento Flash."*
+>
+> **Flujo de arranque** (secuencia lineal con una decisión):
+> ```
+> [Encender] (ícono de power)
+>       ↓
+> Hardware de Plutón e Inicialización de ROM
+>       ↓
+> Cargar Firmware de Plutón del almacenamiento flash SPI
+>       ↓
+> UEFI: Arranque en CPU
+>       ↓
+> Entrega de UEFI a Boot Manager y winload (cargador del SO)
+>       ↓
+> ¿Versión actualizada de firmware de Plutón disponible en Windows? (decisión)
+>       ├─ Sí → Cargar Firmware Plutón de Windows ──┐
+>       └─ No → Usar el firmware de Plutón de flash SPI ─┤
+>                                                          ↓
+>                                                   Iniciar en Windows
+> ```
+
+> [!warning] Para memorizar — orden exacto del flujo Pluton
+> El orden es: **Hardware Plutón + ROM → Firmware desde SPI flash → UEFI en
+> CPU → Boot Manager/winload → decisión de versión de firmware → Windows**.
+> El punto que más se confunde: la decisión ocurre **después** de que UEFI
+> entrega el control a winload, no antes — es decir, el sistema ya está
+> arrancando Windows cuando decide qué firmware de Plutón usar.
+
 ---
 
 ## ROM BIOS vs UEFI

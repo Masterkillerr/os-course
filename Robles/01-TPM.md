@@ -258,8 +258,41 @@ Al activar BitLocker se ofrecen tres formas de guardar la clave de recuperación
 
 El archivo contiene el **identificador** del disco (SSD/HDD), la clave de recuperación y un enlace de gestión. En unidades **extraíbles** (BitLocker To Go) siempre se pide contraseña o tarjeta inteligente (p. ej. YubiKey) al conectarse.
 
+> [!info] Captura del profesor: pantalla real de clave de recuperación
+> **Corrección**: a diferencia de lo que se pensó en una revisión anterior, sí
+> existe una captura de la clave de recuperación en el material fuente — está
+> en `2 TPM introducción y seguridd del dispositivo.pdf` (no en el PDF
+> separado de Bitlocker). Dos pantallas reales:
+> - **Diálogo "Guardar clave de recuperación de BitLocker como"**: explorador
+>   de archivos mostrando las unidades del equipo (Windows (C:), BLACK1TB
+>   (D:)), con el nombre de archivo pre-rellenado en el formato
+>   `Clave de recuperación de BitLocker F...-...-...-...` y tipo
+>   `Archivos de texto (*.txt)`.
+> - **El documento de texto impreso/guardado en sí**, con el formato oficial:
+>   título "Clave de recuperación de Cifrado de unidad BitLocker", un campo
+>   **Identificador** (dos bloques alfanuméricos) para verificar que coincide
+>   con el que muestra el equipo, y la **Clave de recuperación** propiamente
+>   dicha: **8 grupos de 6 dígitos** (el formato estándar de 48 dígitos de
+>   BitLocker), más un enlace a `go.microsoft.com` si el identificador no
+>   coincide.
+> - **Pantalla de desbloqueo** (`BitLocker (E:)`): campo de contraseña, enlaces
+>   "Menos opciones" / "Escribir clave de recuperación", checkbox
+>   "Desbloquear automáticamente en este equipo", botón "Desbloquear".
+
 > [!warning] BitLocker no es infalible
 > En equipos vulnerables un atacante puede extraer la *Volume Master Key* (VMK) mediante **sniffing de hardware** durante el arranque (p. ej. con una Raspberry Pi Pico en ~43 s). Mitígalo con TPM 2.0 + Secure Boot + arranque medido y firmware actualizado.
+>
+> **Evidencia citada por el profesor** (mismo PDF): captura de
+> `blog.elhacker.net` ("Rompen el cifrado BitLocker de Windows 10 y Windows 11
+> en solo 43 segundos con una Raspberry Pi Pico") junto a una terminal real
+> mostrando la salida de la herramienta de sniffing:
+> ```
+> Ready to sniff!
+> +] BitLocker Volume Master Key found:
+> +] 50 a7 10 14 d4 c8 2a 55  52 f6 d8 39 23 37 a3 26
+> +] ce 65 03 c3 1a e2 5a 3c  d7 9c 5d 4f a1 00 29 f3
+> ```
+> (VMK de ejemplo/demostración, no una clave real de producción.)
 
 ### Habilitar TPM en el BIOS/UEFI por fabricante
 
