@@ -77,6 +77,33 @@ graph TD
 
 La **HAL** (Hardware Abstraction Layer) traduce el hardware para el SO: le dice *"aquí hay teclado, aquí hay disco…"* para que monte los *drivers* adecuados **sin** tener que conocer de antemano cada componente. Sin HAL, el SO tendría que saber exactamente qué hardware hay en cada equipo.
 
+> [!info] Captura del profesor: las 9 capas (robelstecnologia.com)
+> El PDF *"1 Introducción General.pdf"* muestra un diagrama de **9 discos concéntricos
+> apilados** (vista 3D tipo torta/pastel), de centro a borde exterior:
+>
+> | # | Capa | Color |
+> |---|------|-------|
+> | 1 | **HW** | Celeste/cian (disco central) |
+> | 2 | **FIRMWARE** | Gris azulado |
+> | 3 | **HAL** | Púrpura/magenta |
+> | 4 | **DRIVERS** | Verde |
+> | 5 | **KERNEL** | Amarillo |
+> | 6 | **SYSCALL** | Rojo |
+> | 7 | **API** | Amarillo-verdoso |
+> | 8 | **SHELL** | Rojo oscuro |
+> | 9 | **APPLICATIONS** | Azul (disco exterior/base) |
+>
+> Debajo del diagrama, el profesor traza el corte privilegio/no-privilegio
+> directamente sobre estas 9 capas:
+> - **Mode Kernel → Layer 3-5 / Ring 0** (HAL, Drivers, Kernel)
+> - **Mode User → Layer 6-9 / Ring 3** (Syscall, API, Shell, Applications)
+>
+> Nótese que aquí la **syscall se ubica en modo usuario** (capa 6, frontera
+> inmediatamente sobre el kernel) — es la puerta de entrada al modo kernel,
+> no parte de él. Una diapositiva anterior en el mismo PDF muestra una versión
+> simplificada de 5 capas (HW → KERNEL → API → SHELL → APLICACIONES, mismos
+> colores) antes de expandirla a las 9 capas de arriba.
+
 ### Llamada al sistema (syscall)
 
 La API **no** toca el kernel directamente: la API llama a la **syscall**, y la syscall es quien habla con el kernel.
