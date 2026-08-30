@@ -1,5 +1,8 @@
 ---
 title: "🔐 TPM — Trusted Platform Module"
+sidebar_title: "🔐 TPM"
+order: 60
+unit: null
 clase: 2
 tema: "Trusted Platform Module"
 profesor: "Fabián Robles"

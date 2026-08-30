@@ -1,5 +1,8 @@
 ---
 title: "📊 Mercado de Sistemas Operativos"
+sidebar_title: "📊 Mercado de OS"
+order: 90
+unit: null
 clase: 2
 tema: "Mercado de Sistemas Operativos (cuota, tendencias, geopolítica)"
 profesor: "Fabián Robles"

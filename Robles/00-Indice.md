@@ -1,5 +1,8 @@
 ---
 title: "🗂️ Índice — Curso de Sistemas Operativos"
+sidebar_title: "🗂️ Índice"
+order: 0
+unit: null
 clase: 2
 tema: "TPM, File Systems, Boot y Seguridad"
 profesor: "Fabián Robles"

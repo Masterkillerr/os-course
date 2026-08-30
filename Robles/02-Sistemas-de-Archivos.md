@@ -1,5 +1,8 @@
 ---
 title: "💾 Sistemas de Archivos"
+sidebar_title: "💾 Sistemas de Archivos"
+order: 30
+unit: "Unidad 2 — Almacenamiento y Arranque"
 clase: 2
 tema: "Sistemas de Archivos (FAT, NTFS, ReFS, exFAT)"
 profesor: "Fabián Robles"

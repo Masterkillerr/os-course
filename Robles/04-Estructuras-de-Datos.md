@@ -1,5 +1,8 @@
 ---
 title: "📊 Estructuras de Datos y Sistemas de Archivos"
+sidebar_title: "📊 Estructuras de Datos"
+order: 40
+unit: null
 clase: 2
 tema: "Estructuras de Datos aplicadas a Sistemas de Archivos"
 profesor: "Fabián Robles"

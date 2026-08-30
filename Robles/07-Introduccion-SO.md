@@ -1,5 +1,8 @@
 ---
 title: "📘 Introducción a los Sistemas Operativos"
+sidebar_title: "📘 Introducción a los S.O."
+order: 10
+unit: "Unidad 1 — Fundamentos"
 clase: 1
 tema: "Introducción general, definición, clasificación y ecosistema Windows"
 profesor: "Fabián Robles"

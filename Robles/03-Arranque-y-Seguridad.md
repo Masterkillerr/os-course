@@ -1,5 +1,8 @@
 ---
 title: "🛡️ Arranque y Seguridad"
+sidebar_title: "🛡️ Arranque y Seguridad"
+order: 50
+unit: null
 clase: 2
 tema: "Arranque y Seguridad (POST, UEFI, Secure Boot, BitLocker)"
 profesor: "Fabián Robles"

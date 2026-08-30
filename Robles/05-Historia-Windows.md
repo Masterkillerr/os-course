@@ -1,5 +1,8 @@
 ---
 title: "🪟 Historia de Windows"
+sidebar_title: "🪟 Historia de Windows"
+order: 80
+unit: "Unidad 4 — Contexto de Industria"
 clase: 2
 tema: "Historia de Windows (Desktop y Server)"
 profesor: "Fabián Robles"

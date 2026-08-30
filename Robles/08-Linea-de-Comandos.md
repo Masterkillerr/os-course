@@ -1,3 +1,10 @@
+---
+title: "⌨️ Línea de comandos, PowerShell y automatización"
+sidebar_title: "⌨️ Línea de comandos"
+order: 70
+unit: "Unidad 3 — Herramientas"
+---
+
 # ⌨️ Línea de comandos, PowerShell y automatización
 
 > [!info] Objetivo

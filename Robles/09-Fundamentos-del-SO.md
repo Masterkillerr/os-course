@@ -1,3 +1,10 @@
+---
+title: "🧠 Fundamentos del Sistema Operativo"
+sidebar_title: "🧠 Fundamentos del SO"
+order: 20
+unit: null
+---
+
 # 🧠 Fundamentos del Sistema Operativo
 
 > [!info] Objetivo
