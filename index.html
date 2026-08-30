@@ -547,7 +547,8 @@ function resolveWikilinks(text) {
     // same-page anchor link: [[#slug]]
     if (A.startsWith('#')) {
       const anchor = slugify(A.slice(1));
-      return `<a href="#" class="anchor-link" onclick="scrollToAnchor('${anchor}');return false;">${B || A}</a>`;
+      const display = B || A.slice(1).replace(/-/g, ' ');
+      return `<a href="#" class="anchor-link" onclick="scrollToAnchor('${anchor}');return false;">${display}</a>`;
     }
     const aIdx = WIKIMAP[A];
     const bIdx = B !== null ? WIKIMAP[B] : undefined;
