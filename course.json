@@ -1,0 +1,96 @@
+{
+  "pages": [
+    {
+      "stem": "00-Indice",
+      "title": "🗂️ Índice",
+      "unit": null
+    },
+    {
+      "stem": "07-Introduccion-SO",
+      "title": "📘 Introducción a los S.O.",
+      "unit": "Unidad 1 — Fundamentos"
+    },
+    {
+      "stem": "09-Fundamentos-del-SO",
+      "title": "🧠 Fundamentos del SO",
+      "unit": null
+    },
+    {
+      "stem": "02-Sistemas-de-Archivos",
+      "title": "💾 Sistemas de Archivos",
+      "unit": "Unidad 2 — Almacenamiento y Arranque"
+    },
+    {
+      "stem": "04-Estructuras-de-Datos",
+      "title": "📊 Estructuras de Datos",
+      "unit": null
+    },
+    {
+      "stem": "03-Arranque-y-Seguridad",
+      "title": "🛡️ Arranque y Seguridad",
+      "unit": null
+    },
+    {
+      "stem": "01-TPM",
+      "title": "🔐 TPM",
+      "unit": null
+    },
+    {
+      "stem": "08-Linea-de-Comandos",
+      "title": "⌨️ Línea de comandos",
+      "unit": "Unidad 3 — Herramientas"
+    },
+    {
+      "stem": "05-Historia-Windows",
+      "title": "🪟 Historia de Windows",
+      "unit": "Unidad 4 — Contexto de Industria"
+    },
+    {
+      "stem": "06-Mercado-OS",
+      "title": "📊 Mercado de OS",
+      "unit": null
+    }
+  ],
+  "wikimap": {
+    "🗂️ Índice": 0,
+    "🗂️-Índice": 0,
+    "indice": 0,
+    "00-Indice": 0,
+    "📘 Introducción a los S.O.": 1,
+    "📘-Introducción-a-los-S.O.": 1,
+    "introduccion-a-los-s-o": 1,
+    "07-Introduccion-SO": 1,
+    "🧠 Fundamentos del SO": 2,
+    "🧠-Fundamentos-del-SO": 2,
+    "fundamentos-del-so": 2,
+    "09-Fundamentos-del-SO": 2,
+    "💾 Sistemas de Archivos": 3,
+    "💾-Sistemas-de-Archivos": 3,
+    "sistemas-de-archivos": 3,
+    "02-Sistemas-de-Archivos": 3,
+    "📊 Estructuras de Datos": 4,
+    "📊-Estructuras-de-Datos": 4,
+    "estructuras-de-datos": 4,
+    "04-Estructuras-de-Datos": 4,
+    "🛡️ Arranque y Seguridad": 5,
+    "🛡️-Arranque-y-Seguridad": 5,
+    "arranque-y-seguridad": 5,
+    "03-Arranque-y-Seguridad": 5,
+    "🔐 TPM": 6,
+    "🔐-TPM": 6,
+    "tpm": 6,
+    "01-TPM": 6,
+    "⌨️ Línea de comandos": 7,
+    "⌨️-Línea-de-comandos": 7,
+    "linea-de-comandos": 7,
+    "08-Linea-de-Comandos": 7,
+    "🪟 Historia de Windows": 8,
+    "🪟-Historia-de-Windows": 8,
+    "historia-de-windows": 8,
+    "05-Historia-Windows": 8,
+    "📊 Mercado de OS": 9,
+    "📊-Mercado-de-OS": 9,
+    "mercado-de-os": 9,
+    "06-Mercado-OS": 9
+  }
+}

@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
-"""Rebuild OS-course.html from Robles/*.md.
+"""Rebuild the nav sidebar in index.html and course.json from Robles/*.md.
 
 Usage: python3 build.py
 
 To add a class/topic: drop a new Robles/NN-Topic.md file (Obsidian frontmatter
-optional, stripped automatically), add its filename + emoji title + unit to
+optional, stripped client-side), add its filename + emoji title + unit to
 PAGES below, then rerun. Everything else (nav, wikimap, page count) follows.
+
+Page markdown itself is NOT embedded into index.html — the browser fetches
+Robles/<stem>.md lazily per page (see index.html's loadPage()). This script
+only needs to update the sidebar links and the course.json manifest that
+supplies titles/wikimap to the client.
 """
+import json
 import re
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 VAULT = ROOT / "Robles"
 HTML = ROOT / "index.html"
+MANIFEST = ROOT / "course.json"
 
 # (filename stem in Robles/, sidebar title, unit heading). Index 0 is always
 # the Índice and has no unit heading.
@@ -29,11 +37,12 @@ PAGES = [
     ("06-Mercado-OS", "📊 Mercado de OS", None),
 ]
 
-FRONTMATTER_RE = re.compile(r"^---\n.*?\n---\n\s*", re.S)
 
-
-def strip_frontmatter(md: str) -> str:
-    return FRONTMATTER_RE.sub("", md, count=1)
+def slug_key(s: str) -> str:
+    s = unicodedata.normalize("NFD", s.lower())
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s
 
 
 def build_nav(pages):
@@ -51,12 +60,16 @@ def build_nav(pages):
     return "\n".join(lines)
 
 
-def build_md_scripts(pages):
-    out = []
-    for i, (stem, _, _) in enumerate(pages):
-        md = strip_frontmatter((VAULT / f"{stem}.md").read_text(encoding="utf-8")).strip()
-        out.append(f'<script type="text/markdown" id="md-{i}" data-file="{stem}">\n{md}\n</script>')
-    return "\n".join(out)
+def build_manifest(pages):
+    entries = []
+    wikimap = {}
+    for i, (stem, title, unit) in enumerate(pages):
+        clean_title = re.sub(r"^\s*\d+\s*", "", title).strip()
+        entries.append({"stem": stem, "title": clean_title, "unit": unit})
+        for key in (clean_title, clean_title.replace(" ", "-"), slug_key(clean_title), stem):
+            if key:
+                wikimap[key] = i
+    return {"pages": entries, "wikimap": wikimap}
 
 
 def main():
@@ -68,16 +81,16 @@ def main():
         lambda _: nav_html,
         html, count=1, flags=re.S,
     )
-
-    md_html = build_md_scripts(PAGES)
-    html = re.sub(
-        r'<script type="text/markdown" id="md-0".*?</script>(\n<script type="text/markdown".*?</script>)*',
-        lambda _: md_html,
-        html, count=1, flags=re.S,
-    )
-
     HTML.write_text(html, encoding="utf-8")
-    print(f"Rebuilt {HTML.name} from {len(PAGES)} pages in Robles/.")
+
+    manifest = build_manifest(PAGES)
+    MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    for stem, _, _ in PAGES:
+        if not (VAULT / f"{stem}.md").exists():
+            print(f"warning: {stem}.md not found in Robles/")
+
+    print(f"Rebuilt nav in {HTML.name} and {MANIFEST.name} from {len(PAGES)} pages.")
 
 
 if __name__ == "__main__":
