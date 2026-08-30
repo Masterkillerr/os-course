@@ -167,6 +167,92 @@ La **HAL** (Hardware Abstraction Layer) traduce el hardware para el SO: le dice 
 > - **Windows USER/GDI + Graphics drivers** están aparte del resto de gestores
 >   del kernel — no los mezcles con I/O Mgr, Object Mgr, etc.
 
+### Arquitecturas oficiales por sistema operativo
+
+El mismo PDF, tras el diagrama de Windows NT, recorre las arquitecturas
+"oficiales" (fuente citada en cada diapositiva) de los demás sistemas
+operativos mayores — todas siguen el mismo patrón de capas apiladas de
+aplicación (arriba) a hardware (abajo).
+
+> [!info] Captura del profesor: Android (Complete Android Framework and Linux Kernel Integration)
+> 4 bandas horizontales, de arriba a abajo:
+> - **APPLICATIONS** (lila): `Home` · `Browser` · `Other Apps` · `CUI` (naranja)
+> - **APPLICATIONS FRAMEWORK** (lila claro): fila superior con 10 managers en
+>   azul oscuro (`Activity Manager`, `Window Manager`, `Content Providers`,
+>   `View System`, `Package Manager`, `Telephony Manager`, `Resource Manager`,
+>   `Location Manager`, `Notification Manager`) más `SQLite`, `Windows
+>   Manager`, `Telephony Manager`, `SMS Manager` y `Communication Services
+>   Interface` (naranja) a la derecha
+> - **LIBRARIES** (verde): `Surface Manager` · `Media Framework` · `SQLite` ·
+>   `OpenGL ES` · `FreeType` · `WebKit` · `SGL` · `SSL` · `libc`, más el
+>   bloque **Android Runtime** (amarillo: `Core Libraries` + `Dalvik Virtual
+>   Machine`) y `VoLTE/RCS Protocols Suite` (naranja)
+> - **LINUX KERNEL** (azul): `Binder (IPC) Driver` · `Flash Memory Driver` ·
+>   `RIL` · `Display Driver` · `Camera Driver` · `Bluetooth Driver` · `GSM
+>   Driver` · `USB Driver` · `Keypad Driver` · `WiFi Driver` · `Power
+>   Management` · `Media Engine` (naranja) · `Audio Drivers`
+
+> [!info] Captura del profesor: Linux (slideserve.com/ruby/estructura-del-sistema-operativo)
+> De arriba a abajo, con la línea divisoria **modo usuario / núcleo** marcada
+> en el margen derecho:
+> - Rosa: **"Interfaz de llamadas de alto nivel"** — Modo usuario
+> - Azul: **"Validación de argumentos de las llamadas al sistema"** — Alto nivel del núcleo
+> - Azul oscuro: **"Conmutador de sistemas de archivo"**
+> - Fila de cajas celestes: `Manejador de memoria` · `Manejador de procesos` ·
+>   `Sistemas de archivo` (2 sub-cajas verticales: "Sistemas"/"de"/"archivo") ·
+>   `Manejador de terminales` · `Pila de red` · `Interfaz de sockets y
+>   streams` · `Bibliotecas del kernel` (vertical) — y a la derecha, en verde
+>   azulado: `Manejador de callouts` · `Estructuras del núcleo (alto nivel)` ·
+>   `Estructuras de datos compartidas entre el alto y el bajo nivel`
+> - Roja: **"Manejadores de dispositivo"**
+> - Fila verde-azulada inferior — **Bajo nivel del núcleo**: `Manejador de
+>   interrupciones` / `Manejador de traps de llamadas al sistema` / `Manejador
+>   de excepciones` (3 líneas en una caja) · `Tabla de dispatch` · `Manejador
+>   de procesos de bajo nivel` · `Callout de bajo nivel` · `Cambio de contexto`
+> - Negra: **"HARDWARE"**
+
+> [!info] Captura del profesor: Mac OS X (youtu.be/xl_Bz-hjnCQ)
+> 4 bandas horizontales dentro de una caja "Arquitectura Mac OS X":
+> - Naranja **"Interfaz de usuario"**: `Aqua` · `Dashboard` · `Spotlight` · `Accesibilidad`
+> - Verde **"Entornos de aplicación"**: `Cocoa` · `Carbon` · `Java`
+> - Azul claro **"Gráficos y medios"**: `Core Animation` · `Core Image` ·
+>   `Core Video` · `Quick Time` (fila superior) + `OpenGL` · `Quartz` ·
+>   `Core Audio` (fila inferior)
+> - Azul oscuro **"Core"**: `Darwin`
+>
+> El mismo PDF resume la ruta textual completa (misma fuente): `Aplicaciones
+> → Frameworks (AppKit, SwiftUI, Metal) → Core Services → Core OS → Darwin →
+> XNU Kernel → Mach + BSD + IOKit → Hardware`.
+
+> [!info] Captura del profesor: iOS vs macOS, dos pilas paralelas (Arquitectura APPLE)
+> El profesor dibuja ambas rutas textuales lado a lado para mostrar dónde
+> divergen (íconos: logo Windows arriba-izquierda "Arquitectura IBM", pingüino
+> Linux debajo, ícono mitad-Mac/mitad-genérico al centro separando ambas
+> columnas):
+>
+> | Capa | iOS | macOS |
+> |---|---|---|
+> | Aplicaciones | Aplicaciones (Swift / Objective-C) | Aplicaciones |
+> | Frameworks | Frameworks (UIKit, Foundation) | Frameworks (AppKit, SwiftUI, Metal) |
+> | — | Core OS | Core Services |
+> | — | Darwin | Core OS |
+> | — | XNU Kernel | Darwin |
+> | — | Mach + BSD | XNU Kernel |
+> | — | *(no IOKit)* | Mach + BSD + **IOKit** |
+>
+> **Diferencia clave:** macOS tiene una capa extra "Core Services" que iOS no
+> tiene, y termina en "Mach + BSD **+ IOKit**" (drivers de dispositivo)
+> mientras iOS termina en "Mach + BSD" sin IOKit explícito en el diagrama.
+
+> [!info] Captura del profesor: tabla comparativa Windows / macOS / Linux
+> Con los 3 logos (Windows, mitad-Mac, pingüino Linux) sobre una tabla de 4 columnas:
+>
+> | Sistema | Kernel | Capa gráfica base | Entorno |
+> |---|---|---|---|
+> | Windows | NT | GDI / DirectX | Explorer |
+> | macOS | XNU | Quartz / Metal | Aqua |
+> | Linux | Linux | X11 o Wayland | GNOME / KDE / etc |
+
 ### Llamada al sistema (syscall)
 
 La API **no** toca el kernel directamente: la API llama a la **syscall**, y la syscall es quien habla con el kernel.
@@ -424,6 +510,67 @@ graph LR
 > [!note] ¿En qué lenguaje está escrito Windows?
 > Es un híbrido de **C, C++, C# / Visual C++**; el **núcleo es C**. (Para contraste: Java desciende de C++.)
 
+> [!info] Captura del profesor: Monolítico vs MicroKernel, con logos reales (naps.com.mx)
+> Dos diagramas lado a lado, cada uno con 3 filas horizontales (de arriba abajo):
+>
+> **Monolítico** (logos **MS-DOS, Linux (pingüino), Unix, Android** junto al
+> título):
+> - Fila amarilla **"Procesos (modo usuario)"**: `Compilador` · `Aplicación` · `Navegador`
+> - Fila roja **"Núcleo (modo privilegiado)"**, 2 sub-filas: `Comunicación entre
+>   procesos` · `Controlador de video` · `Subsistema de red` — y debajo:
+>   `Sistema de archivos` · `Planificador de procesos` · `Manejo de
+>   interrupciones` · `Memoria virtual`
+> - Fila gris **"Hardware"**: `Disco duro` · `Procesador` · `Tarjeta de video`
+>   · `Memoria` · `Tarjeta de red`
+> - Texto bajo el título: *"La modificación de cualquier componente de un
+>   núcleo monolítico implica que sea necesario compilar el núcleo por
+>   completo."*
+>
+> **MicroKernel** (logos **Genode, QNX, Symbian**):
+> - Fila amarilla **"Procesos (modo usuario)"**: `Compilador` · `Aplicación` ·
+>   `Navegador` (idéntica a la de Monolítico)
+> - Fila naranja **"Software de sistema"** (capa que NO existe en el
+>   monolítico): `Sistema de archivos` · `Controlador de video` ·
+>   `Comunicación entre procesos` · `Subsistema de red`
+> - Fila roja **"Núcleo (modo privilegiado)"**, mucho más pequeña: solo
+>   `Manejo de interrupciones` · `Planificador de procesos` · `Memoria virtual`
+> - Fila gris **"Hardware"**: `Disco duro` · `Tarjeta de video` · `Procesador`
+>   · `Memoria` · `Tarjeta de red` (mismos 5 componentes, orden distinto)
+>
+> **La diferencia clave visual**: en Monolítico, "Sistema de archivos",
+> "Controlador de video", "Comunicación entre procesos" y "Subsistema de red"
+> están DENTRO de la fila roja (núcleo); en MicroKernel esos mismos 4
+> elementos se sacan a su propia fila naranja de "Software de sistema",
+> fuera del núcleo — dejando el núcleo con solo 3 elementos.
+
+> [!info] Captura del profesor: los 4 tipos de kernel en un solo diagrama (pchardwarepro.com)
+> Cuadrícula 2×2, cada tipo con su propia caja "Kernel" (celeste) y flechas
+> hacia/desde una caja "Software" (rosa):
+> - **Micronúcleo** (arriba-izq): `Kernel` ↕ `Servers` ↔ `Software`, con
+>   doble flecha punteada horizontal etiquetada **"IPC"** entre `Servers` y
+>   `Software` — el kernel se comunica con Servers y con Software por
+>   separado (flechas verticales), y Servers se comunica con Software vía IPC.
+> - **Mononúcleo** (arriba-der): `Kernel` ↕ `Software` directo — sin caja
+>   intermedia.
+> - **Híbrido** (abajo-izq): una caja `Kernel` que **contiene** una sub-caja
+>   `Servers` dentro de sí misma (Servers vive dentro del rectángulo del
+>   Kernel), y de ahí baja a `Software`.
+> - **Exonúcleo** (abajo-der): `Kernel` ↕ 3 cajas `Library` en paralelo
+>   (`Library` · `Library` · `Library`) ↕ `Software` — las bibliotecas
+>   median entre kernel y software.
+>
+> Pie de diapositiva: *"Leer documento COMPLEMENTO — TIPOS DE KERNEL"*.
+
+> [!warning] Para memorizar — riesgo de examen (fill-in-the-blank)
+> Si piden dibujar estos 4 de memoria, el detalle que más se confunde es
+> **dónde vive la caja intermedia**:
+> - Micronúcleo → intermediario = **Servers**, comunicado con Software por
+>   **IPC** (flecha doble punteada).
+> - Mononúcleo → **sin intermediario**, Kernel habla directo con Software.
+> - Híbrido → Servers está **dentro** del Kernel (anidado), no al lado.
+> - Exonúcleo → el intermediario son **Libraries** (plural, 3 cajas en
+>   paralelo), no un único bloque.
+
 ---
 
 ## Mono vs Multi (proceso, tarea, usuario)
@@ -436,6 +583,40 @@ graph LR
 
 > [!info] Windows es multiusuario
 > Aunque en tu equipo eres tú, Windows soporta varias sesiones abiertas. Por eso al apagar a veces avisa: *"hay otro usuario con sesión abierta"*.
+
+### Modos de ejecución: los 4 conceptos con ejemplos reales
+
+> [!info] Captura del profesor: Monoprogramación / Monoprocesamiento / Multiprogramación / Multiprocesamiento
+> Diagrama de 4 cajas verdes en cuadrícula 2×2, con flecha horizontal
+> Monoprogramación→Monoprocesamiento y Multiprogramación→Multiprocesamiento:
+>
+> | Concepto | Definición literal de la diapositiva | Ejemplo |
+> |---|---|---|
+> | **Monoprogramación** | 1 programa en memoria, 1 CPU | MS-DOS |
+> | **Monoprocesamiento** | 1 CPU ejecuta 1 o varios programas | Intel 8086 |
+> | **Multiprogramación** | Varios programas en memoria, 1 CPU los intercambia | UNIX, Win95 |
+> | **Multiprocesamiento** | Varios programas, múltiples CPUs | Intel i7, Servidores |
+>
+> Bajo "Monoprogramación" el profesor lista sus características: *un solo
+> programa en memoria · no existe planificación compleja · no existe cambio
+> de contexto · muy bajo aprovechamiento del procesador · gran tiempo ocioso
+> de la CPU*.
+
+> [!info] Captura del profesor: la analogía del mesero/restaurante
+> Misma cuadrícula 2×2, ahora con dibujos de mesero(s) y mesa(s):
+> - **Monoprogramación**: 1 mesero, 1 mesa (1 solo cliente sentado).
+> - **Monoprocesamiento**: 1 mesero (marcado "CPU"), pero ahora 2 mesas — el
+>   mesero atiende ambas alternando (números 1 y 2 sobre las mesas).
+> - **Multiprogramación**: varios meseros, 1 grupo de mesas juntas.
+> - **Multiprocesamiento**: varios meseros, varios grupos de mesas separados.
+
+> [!info] Captura del profesor: comparación 50% vs 100% de utilización (P1/P2)
+> Dos líneas de tiempo apiladas, la de arriba **sin multiprogramación**: el
+> Proceso P1 corre completo (Inicio → Inactivo/Espera ×3 → Fin) y **solo
+> cuando P1 termina** arranca P2 ("En espera" ocupa todo el ancho de P1) —
+> **Utilización: 50%**. La de abajo **con multiprogramación**: P1 y P2 se
+> intercalan con flechas cruzadas verticales entre ambas líneas — cuando uno
+> queda "Inactivo; Espera" el otro toma la CPU — **Utilización: 100%**.
 
 ---
 
