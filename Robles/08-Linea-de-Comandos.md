@@ -113,6 +113,7 @@ graph LR
 | `driverquery` | Controladores instalados | `driverquery /v /fo list` |
 | `chkdsk` | Revisar y reparar discos | `chkdsk C: /F /R` |
 | `sfc` | Archivos de sistema | `sfc /scannow` |
+| `dism` | Reparar la imagen de Windows | `DISM /Online /Cleanup-Image /RestoreHealth` |
 | `diskpart` | Discos y particiones | `diskpart` → `list disk` |
 | `powercfg` | Energía/batería | `powercfg /batteryreport` |
 | `fsutil` | Sistema de archivos avanzado | `fsutil volume diskfree C:` |
@@ -178,6 +179,15 @@ Get-Alias
 
 > [!tip] Ayuda integrada
 > `Get-Help <cmdlet>` (o `help`) abre la documentación, incluso conectándose a la web. `Get-Alias` lista todos los alias disponibles.
+
+### Actualizar PowerShell con `winget`
+
+```cmd
+winget install --id Microsoft.Powershell.Preview --source winget
+```
+
+Alternativa: descargar el instalador de la última versión directamente desde la
+[documentación oficial de instalación](https://learn.microsoft.com/es-es/powershell/scripting/install/installing-powershell-on-windows).
 
 ### Tabla completa de alias PowerShell → cmdlet
 
@@ -248,6 +258,45 @@ Get-Alias
 > El PDF de origen incluye capturas de: la tabla de alias de `Get-Alias`, la ruta del historial en el
 > explorador de archivos, la ventana de **Diagnóstico de memoria de Windows** con sus dos opciones, y el
 > resultado del test de RAM sin errores.
+
+---
+
+## SFC, DISM y CHKDSK — diagnóstico y reparación (Taller No. 1)
+
+Tres herramientas de mantenimiento, con un **orden de ejecución que importa**:
+
+1. **`sfc /scannow`** (System File Checker) — repara archivos de sistema individuales dañados o
+   modificados. Se puede correr desde CMD o PowerShell.
+2. Si `sfc` falla con un error como *"La protección de recursos de Windows encontró archivos
+   corruptos pero no pudo reparar algunos de ellos"* → **`DISM`** (Deployment Image Servicing and
+   Management), que repara el **almacén de componentes** (la imagen base) del que `sfc` depende
+   para reparar:
+   ```cmd
+   DISM /Online /Cleanup-Image /CheckHealth
+   DISM /Online /Cleanup-Image /ScanHealth
+   DISM /Online /Cleanup-Image /RestoreHealth
+   ```
+3. **`chkdsk C: /F /R`** (CHKDSK) — verifica y repara el **disco** en sí: marca sectores dañados y
+   recupera datos. Se ejecuta al final porque opera a un nivel más bajo (el medio físico), no los
+   archivos del SO.
+
+> [!important] Por qué ese orden
+> `sfc` depende de que la imagen de Windows (que `DISM` repara) esté sana; si el propio disco tiene
+> sectores dañados (lo que `chkdsk` detecta), ni `sfc` ni `DISM` pueden garantizar una reparación
+> confiable. Por eso: primero intenta `sfc` (rápido, específico) → si falla, sube de nivel a `DISM`
+> (imagen del SO) → `chkdsk` ataca el disco físico, el nivel más bajo.
+
+### Switches adicionales de `sfc`
+
+| Switch | Efecto |
+|---|---|
+| `/scannow` | Analiza y repara todos los archivos de sistema protegidos. |
+| `/verifyonly` | Solo escanea (no repara). |
+| `/scanfile <archivo>` | Analiza y repara un archivo específico. |
+| `/verifyfile <archivo>` | Solo verifica un archivo específico (no repara). |
+| `/offwindir <dir>` | Ubicación del directorio de Windows para reparación sin conexión. |
+| `/offbootdir <dir>` | Ubicación del directorio de arranque para reparación sin conexión. |
+| `/offlogfile=<ruta>` | Dónde guardar el archivo de registro de la operación. |
 
 ---
 

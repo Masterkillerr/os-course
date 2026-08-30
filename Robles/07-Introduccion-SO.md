@@ -216,6 +216,24 @@ graph TD
 
 ## Clasificación general del S.O.
 
+Hay dos taxonomías distintas de "clasificación del S.O." vistas en el curso — no son la misma
+pregunta, no las confundas: una clasifica **por tipo de sistema operativo** (uso previsto), la
+otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
+
+### Por tipo de sistema operativo (clasificación clásica)
+
+| Tipo | Uso | Ejemplos |
+|------|-----|----------|
+| **Tiempo Real (RTOS)** | Aplicaciones que requieren respuesta inmediata y control en tiempo real | Sistemas de control industrial, sistemas de navegación |
+| **Usuario Único (Single-user)** | Un solo usuario con acceso a todo el sistema a la vez | Computadoras personales |
+| **De Red** | Administra recursos y comunicación entre computadoras en red | Servidores, routers |
+
+> [!important] Pregunta típica de examen
+> No confundir esta clasificación (tipo de SO) con la del perfil Comunidad/Empresas/Desarrolladores/Educación
+> más abajo — son dos ejes distintos de "clasificación del sistema operativo".
+
+### Por perfil de usuario (ecosistema Microsoft)
+
 ```mermaid
 graph TD
     SO[Sistema Operativo] --> C[Comunidad en general]

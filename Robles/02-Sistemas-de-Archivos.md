@@ -60,6 +60,14 @@ graph TD
     style D fill:#95a5a6
 ```
 
+### Métodos de acceso a archivos
+
+| Método | Cómo funciona |
+|---|---|
+| **Secuencial** | Se lee/escribe en orden, desde el principio, byte a byte o registro a registro (ej. cintas magnéticas, logs). |
+| **Directo (aleatorio)** | Se accede directamente a cualquier posición del archivo sin recorrer las anteriores (posible gracias a que el disco es direccionable por bloque). |
+| **Indexado** | Un índice separado guarda punteros a bloques del archivo, permitiendo búsquedas rápidas sin recorrerlo completo (ej. bases de datos). |
+
 ---
 
 ## ¿Por qué 500 GB no son 500 GB?

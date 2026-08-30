@@ -162,6 +162,81 @@ Task Manager clasifica los procesos en:
 > [!note] Finalizar vs reiniciar
 > *Finalizar* un proceso mata la tarea; *reiniciar* cierra y vuelve a abrir (p. ej. el Explorador).
 
+#### Task Manager — el resto de las pestañas (Taller No. 1)
+
+Más allá de Procesos, el Administrador de tareas tiene varias pestañas con valor práctico y de
+diagnóstico:
+
+| Pestaña | Qué muestra |
+|---|---|
+| **Rendimiento** | Gráficas de CPU, Memoria, Memoria auxiliar (HDD/SSD), Ethernet/Wi-Fi y GPU en tiempo real. |
+| **Historial de aplicaciones** | Consumo de recursos por aplicación desde una fecha definida — útil, por ejemplo, para saber cuánto tiempo usa un empleado cada app. |
+| **Aplicaciones de inicio** (arranque) | Qué programas cargan al iniciar Windows y si están Habilitados/Deshabilitados; permite ver propiedades y abrir la ubicación del archivo. |
+| **Usuarios** | Qué usuarios tienen sesión activa, qué procesos ejecuta cada uno y cuántos recursos consume; permite desconectar un usuario. |
+| **Detalles** | Todos los procesos con: PID, estado, usuario que lo ejecuta, RAM consumida, arquitectura y una descripción corta. |
+| **Servicios** | Listado completo de los servicios del sistema operativo. |
+
+> [!info] Memoria reservada para hardware
+> Parte de la RAM se bloquea para el hardware — forma parte de la **VRAM** (memoria compartida
+> con la GPU), archivos temporales y caché. Para ver cuánta VRAM usa el controlador de pantalla:
+> `Ejecutar → dxdiag.exe`. También se puede ajustar desde BIOS/UEFI o `msconfig` (cantidad máxima
+> de memoria).
+
+#### RESMON (Monitor de recursos) y PERFMON (Monitor de rendimiento)
+
+`resmon.exe` da una vista más detallada que Task Manager, en particular de la pestaña **Memoria**:
+
+| Métrica RAM (RESMON) | Significado |
+|---|---|
+| **En uso** | Consumida por el SO a nivel de kernel/shell y gestión de procesos-hardware. |
+| **Modificada** | Datos cambiados desde que se cargaron del disco pero aún no guardados (ej. portapapeles). |
+| **En espera** | Datos leídos recientemente del disco que se mantienen en RAM por si se vuelven a pedir (buffer de caché); **no cuenta como "en uso"**, pero mejora el rendimiento — se puede liberar para dejar más RAM libre. |
+| **Libre** | RAM sin utilizar. |
+
+`perfmon.exe` (Monitor de rendimiento) es una herramienta adicional y más completa; `perfmon /report`
+genera un informe con secciones: Resultados del diagnóstico, Configuración de software/hardware,
+CPU, Red, Disco, Memoria y Estadísticas.
+
+> [!tip] Liberar la memoria en espera vía PowerShell
+> Termina los 20 procesos que más memoria consumen (⚠️ úsalo con cuidado, cierra procesos activos):
+> ```powershell
+> Get-Process | Sort-Object -Property WorkingSet64 -Descending | Select-Object -First 20 |
+>   ForEach-Object { Start-Process -FilePath 'taskkill.exe' -ArgumentList '/F', '-PID', $_.Id }
+> ```
+> `taskkill.exe /F /PID <id>` fuerza (`/F`) la terminación de un proceso por su PID.
+
+#### Herramientas de optimización y benchmark
+
+- **Windows PC Manager** (Microsoft) — optimizador oficial: limpieza, salud del sistema,
+  aceleración de arranque, todo configurable desde una sola app.
+- **Cinebench** — benchmark de estrés de CPU/GPU; útil para observar en vivo cómo suben CPU,
+  memoria y GPU en Rendimiento/RESMON bajo carga máxima, y comparar el resultado (puntaje) entre
+  equipos.
+
+#### Administrador de tareas del navegador y Service Workers
+
+> [!info] Del Taller No. 1
+> La mayoría de navegadores tienen **su propio administrador de tareas**, independiente del de
+> Windows, con distinta información: Chrome (`⋮` → Más herramientas → Administrador de tareas)
+> muestra CPU, memoria, red y proceso por pestaña; **Firefox es más limitado** (solo CPU y RAM).
+> Cada pestaña/extensión de Chrome corre como su propio proceso — se puede ver a qué pestaña
+> corresponde cada entrada.
+
+Un **Service Worker** es un script que el navegador ejecuta **en segundo plano**, independiente
+de la pestaña que lo registró, para dar capacidades que una página normal no tiene:
+
+- **Gestión de caché** — guarda HTML/CSS/JS/imágenes localmente para cargar más rápido (o
+  funcionar offline) en visitas futuras.
+- **Notificaciones push** — el sitio puede notificar al usuario aunque no esté abierto.
+- **Background sync** — sincroniza datos con el servidor aunque el usuario no esté usando el sitio.
+- **Actualizaciones automáticas** — mantiene la app web al día en segundo plano.
+- **Trabajo offline** — sirve recursos cacheados con red lenta o sin conexión.
+
+> [!tip] Por qué importa para un ingeniero de sistemas
+> Un Service Worker es, en esencia, un **proceso en segundo plano gestionado por el navegador**,
+> igual en concepto a un servicio de Windows: consume recursos, corre sin interacción directa del
+> usuario, y aparece en el administrador de tareas del navegador — no en el de Windows.
+
 ---
 
 ## Gestión de memoria
