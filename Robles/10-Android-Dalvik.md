@@ -50,9 +50,14 @@ graph LR
     NAT --> OS[Sistema Operativo]
 ```
 
-> [!info] Imagen de referencia (documento fuente)
-> El PDF *"Arquitectura Android y Dalvik.pdf"* incluye un diagrama de este flujo
-> (fuente: arquitecturajava.com), reproducido arriba como esquema equivalente.
+> [!info] Captura del profesor: diagrama JVM (arquitecturajava.com)
+> El PDF muestra una caja apaisada en forma de "U" etiquetada **"Java Virtual
+> Machine"**: entra `.java (source code)` (celda azul) arriba, baja a `.class
+> (binary code)` (celda verde) dentro de la U, sale hacia abajo a `Native Code`
+> (celda gris) y de ahí a una caja final `Operating System`. El mismo esquema
+> se repite para Dalvik con una caja intermedia extra `.dev (binary code)`
+> (verde oscuro) dentro de la U "Android Virtual Machine (Dalvik)", terminando
+> en `Linux Kernel` en vez de `Operating System` genérico.
 
 ---
 
@@ -128,9 +133,16 @@ Los paquetes del JDK, vistos desde Android, se dividen en tres categorías:
 | Implementados parcialmente | 🔵 Azul | Subconjunto de la API disponible |
 | No implementados | 🔴 Rojo | Ausentes del Android SDK |
 
-> [!info] Imagen de referencia (documento fuente)
-> El PDF incluye el gráfico de cobertura de paquetes JDK por color (verde/azul/rojo) mencionado
-> arriba — no reproducido pixel a pixel aquí, pero resumido en la tabla.
+> [!info] Captura del profesor: diagrama de cobertura JDK por color
+> El PDF muestra dos cajas tituladas **"Java JDK"**, cada una con 4 paquetes de
+> ejemplo en una cuadrícula 2×2: `java.lang`, `java.swing`, `java.net`, `java.xml`.
+> - **Primera caja** (JDK completo): los 4 paquetes en **verde** — todo
+>   implementado.
+> - **Segunda caja** (vista desde Android): `java.lang` en **azul**
+>   (implementado parcialmente), `java.net` y `java.xml` en **verde**
+>   (implementados completamente), y `java.swing` en **rojo** (no
+>   implementado) — Swing es justamente el ejemplo textual que da el
+>   documento de un paquete que "sobra por completo" en un SDK móvil.
 
 > [!important] Conclusión
 > Android está basado en Java, pero **no es Java**: puede que una clase del JDK estándar que se
