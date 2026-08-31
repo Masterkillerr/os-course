@@ -7,6 +7,8 @@ clase: 2
 tema: "TPM, File Systems, Boot y Seguridad"
 profesor: "Fabián Robles"
 tags: [indice, clase-2, sistemas-operativos]
+prerequisitos: []
+tiempo_clase: null
 ---
 
 # 🗂️ Índice — Curso de Sistemas Operativos

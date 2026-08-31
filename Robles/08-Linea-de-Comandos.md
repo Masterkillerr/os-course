@@ -3,6 +3,12 @@ title: "⌨️ Línea de comandos, PowerShell y automatización"
 sidebar_title: "⌨️ Línea de comandos"
 order: 70
 unit: "Unidad 3 — Herramientas"
+clase: 2
+tema: "Línea de comandos, PowerShell y automatización"
+profesor: "Fabián Robles"
+tags: [cmd, powershell, automatización, linea-comandos, sistemas-operativos]
+prerequisitos: ["Conceptos básicos de Windows"]
+tiempo_clase: null
 ---
 
 # ⌨️ Línea de comandos, PowerShell y automatización

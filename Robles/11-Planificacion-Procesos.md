@@ -3,10 +3,12 @@ title: "📅 Planificación de Procesos — Ejercicios Gantt"
 sidebar_title: "📅 Planificación (Gantt)"
 order: 22
 unit: null
+clase: 2
 tema: "Ejercicios de planificación: monoprogramado, multiprogramación, quantum, multiproceso"
 profesor: "Fabián Robles"
 tags: [planificacion, gantt, monoprogramacion, multiprogramacion, quantum, multiproceso, sistemas-operativos]
 prerequisitos: ["Fundamentos del SO", "Mono vs Multi (proceso, tarea, usuario)"]
+tiempo_clase: null
 ---
 
 # 📅 Planificación de Procesos — Ejercicios Gantt

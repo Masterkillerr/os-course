@@ -8,6 +8,7 @@ tema: "Introducción general, definición, clasificación y ecosistema Windows"
 profesor: "Fabián Robles"
 tags: [introduccion, sistemas-operativos, windows, insider, sysinternals, clase-1]
 prerequisitos: ["Nociones de uso de computador"]
+tiempo_clase: null
 ---
 
 # 📘 Introducción a los Sistemas Operativos

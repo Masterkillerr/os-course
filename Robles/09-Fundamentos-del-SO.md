@@ -3,6 +3,12 @@ title: "🧠 Fundamentos del Sistema Operativo"
 sidebar_title: "🧠 Fundamentos del SO"
 order: 20
 unit: null
+clase: 2
+tema: "Fundamentos del SO (procesos, memoria, E/S, sincronización, virtualización, tipos de kernel)"
+profesor: "Fabián Robles"
+tags: [fundamentos, procesos, memoria, sincronización, virtualización, kernel, sistemas-operativos]
+prerequisitos: ["Conceptos básicos de sistemas operativos"]
+tiempo_clase: null
 ---
 
 # 🧠 Fundamentos del Sistema Operativo

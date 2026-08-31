@@ -285,12 +285,65 @@ html[data-theme="dark"] .co-quote, html[data-theme="dark"] .co-quote-2 { --callo
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px;
+  cursor: zoom-in;
+  transition: box-shadow .15s;
+}
+.mermaid:hover {
+  box-shadow: 0 0 0 2px var(--accent);
 }
 .mermaid svg { max-width: 100%; height: auto; }
 .mermaid .nodeLabel, .mermaid .edgeLabel, .mermaid foreignObject div { color: #1a1a1a !important; }
 html[data-theme="dark"] .mermaid .nodeLabel,
 html[data-theme="dark"] .mermaid .edgeLabel,
 html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; }
+
+.mermaid-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .2s;
+  cursor: zoom-out;
+}
+.mermaid-modal-overlay.open {
+  opacity: 1;
+}
+.mermaid-modal-overlay svg {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  transform: scale(0.9);
+  transition: transform .25s ease;
+}
+.mermaid-modal-overlay.open svg {
+  transform: scale(1);
+}
+.mermaid-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.mermaid-modal-close:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.6);
+}
 
 /* TOC box */
 .toc {
@@ -632,6 +685,8 @@ function postProcess(pageEl) {
       } catch (e) { console.warn('mermaid:', e); }
     }
   }
+  // Wrap rendered mermaid SVGs in clickable zoom triggers
+  wrapMermaidZoom(pageEl);
   // highlight non-mermaid code
   if (window.hljs) {
     pageEl.querySelectorAll('pre > code:not(.language-mermaid)').forEach(b => {
@@ -649,6 +704,69 @@ function postProcess(pageEl) {
         throwOnError: false
       });
     } catch (e) { console.warn(e); }
+  }
+}
+
+// Wrap each .mermaid svg in a clickable trigger; open a zoom modal on click.
+function wrapMermaidZoom(pageEl) {
+  pageEl.querySelectorAll('.mermaid svg').forEach(svg => {
+    if (svg.dataset.zoomWrapped) return;
+    svg.dataset.zoomWrapped = '1';
+    const trigger = document.createElement('div');
+    trigger.className = 'mermaid-zoom-trigger';
+    trigger.setAttribute('role', 'button');
+    trigger.setAttribute('tabindex', '0');
+    trigger.setAttribute('aria-label', 'Zoom diagram');
+    trigger.addEventListener('click', () => openMermaidModal(svg));
+    trigger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMermaidModal(svg); } });
+    svg.parentNode.insertBefore(trigger, svg);
+    trigger.appendChild(svg);
+  });
+}
+
+// Create and show a zoom modal for a mermaid SVG.
+function openMermaidModal(svg) {
+  // Remove any existing modal first
+  const existing = document.getElementById('mermaid-modal');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'mermaid-modal';
+  overlay.className = 'mermaid-modal-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-label', 'Diagram zoom');
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'mermaid-modal-close';
+  closeBtn.textContent = '✕';
+  closeBtn.setAttribute('aria-label', 'Close zoom');
+  closeBtn.addEventListener('click', closeMermaidModal);
+  overlay.appendChild(closeBtn);
+
+  // Clone the SVG so the original stays in the page
+  const clone = svg.cloneNode(true);
+  // Remove any stale event listeners / data from the clone
+  overlay.appendChild(clone);
+
+  document.body.appendChild(overlay);
+  // Trigger reflow for transition
+  requestAnimationFrame(() => overlay.classList.add('open'));
+
+  const close = () => {
+    overlay.classList.remove('open');
+    setTimeout(() => overlay.remove(), 260);
+  };
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function handler(e) {
+    if (e.key === 'Escape') { document.removeEventListener('keydown', handler); close(); }
+  });
+}
+
+function closeMermaidModal() {
+  const modal = document.getElementById('mermaid-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    setTimeout(() => modal.remove(), 260);
   }
 }
 
@@ -725,6 +843,8 @@ themeBtn.addEventListener('click', () => {
       const pr = mermaid.run({ nodes: Array.from(document.querySelectorAll('.page.active .mermaid')) });
       if (pr && typeof pr.catch === 'function') pr.catch(e => console.warn('mermaid:', e));
     } catch (e) { console.warn('mermaid:', e); }
+    // Re-wrap newly rendered SVGs for zoom
+    requestAnimationFrame(() => wrapMermaidZoom(document.querySelector('.page.active')));
   }
 });
 document.documentElement.setAttribute('data-theme', 'light');
