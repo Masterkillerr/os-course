@@ -1,6 +1,6 @@
 ---
 next: 03-Arranque-y-Seguridad
-prev: 02-Sistemas-de-Archivos
+prev: 02c-ReFS-y-atributos
 title: "📊 Estructuras de Datos y Sistemas de Archivos"
 sidebar_title: "📊 Estructuras de Datos"
 order: 70

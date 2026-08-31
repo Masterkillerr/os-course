@@ -9,13 +9,16 @@ To add a class/topic: drop a new Robles/NN-Topic.md file with frontmatter
     sidebar_title: "🔥 Emoji Title"
     order: 65
     unit: "Unidad 2 — Almacenamiento y Arranque"   # or null/omitted to
-                                                    # continue the previous unit
+                                                    # continue the previous
+                                                    # unit
+    parent: "NN-Topic"        # (optional) stem of parent page for subpages
     ---
 
 then rerun. Page order is `order` (ascending); a `unit` value starts a new
 sidebar section heading — omit it (or set null) to fall under the previous
-page's unit. Nothing else needs editing: nav, wikimap, and page count all
-follow from the vault automatically.
+page's unit. A `parent` value indents the page under its parent in the nav.
+Nothing else needs editing: nav, wikimap, and page count all follow from the
+vault automatically.
 
 Page markdown itself is NOT embedded into index.html — the browser fetches
 Robles/<stem>.md lazily per page (see index.html's loadPage()). This script
@@ -64,6 +67,7 @@ def load_pages():
             "stem": path.stem,
             "title": title,
             "unit": fm.get("unit"),
+            "parent": fm.get("parent"),
             "order": float(fm["order"]),
         })
     pages.sort(key=lambda p: p["order"])
@@ -82,10 +86,15 @@ def slug_key(s: str) -> str:
 def build_nav(pages):
     lines = ['  <div class="brand">📚 Sistemas Operativos</div>']
     n = 0
+    last_unit = None
     for p in pages:
-        if p["unit"]:
-            lines.append(f"\n  <h2>{p['unit']}</h2>")
-        lines.append(f'  <a class="nav-item" data-page="{n}"><span class="num">{n:02d}</span> {p["title"]}</a>')
+        unit = p.get("unit")
+        if unit and unit != last_unit:
+            lines.append(f"\n  <h2>{unit}</h2>")
+            last_unit = unit
+        cls = "nav-item nav-item-child" if p.get("parent") else "nav-item"
+        indent = '    ' if p.get("parent") else ''
+        lines.append(f'  <a class="{cls}" data-page="{n}">{indent}<span class="num">{n:02d}</span> {p["title"]}</a>')
         n += 1
     lines.append("\n  <h2>Profesor</h2>")
     return "\n".join(lines)

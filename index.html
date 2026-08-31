@@ -121,6 +121,15 @@ body {
   font-size: 13px;
   color: var(--text-muted);
 }
+
+/* ===== Indented child pages in sidebar ===== */
+.nav-item-child {
+  padding-left: 28px !important;
+  font-size: 13px;
+}
+.nav-item-child .num {
+  font-size: 10px;
+}
 .sidebar .brand {
   padding: 4px 20px 14px;
   font-weight: 700;
@@ -498,21 +507,29 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
   <a class="nav-item" data-page="1"><span class="num">01</span> 📘 Introducción a los S.O.</a>
   <a class="nav-item" data-page="2"><span class="num">02</span> 🧠 Fundamentos del SO</a>
   <a class="nav-item" data-page="3"><span class="num">03</span> 🧠 Procesos y Kernel</a>
-  <a class="nav-item" data-page="4"><span class="num">04</span> 📅 Planificación (Gantt)</a>
-  <a class="nav-item" data-page="5"><span class="num">05</span> 🤖 Android y Dalvik</a>
+  <a class="nav-item nav-item-child" data-page="4">    <span class="num">04</span> 🧠 Procesos y Threads</a>
+  <a class="nav-item nav-item-child" data-page="5">    <span class="num">05</span> 🧠 Memoria, E/S y Sincronización</a>
+  <a class="nav-item nav-item-child" data-page="6">    <span class="num">06</span> 🧠 Virtualización, Kernel y Conceptos</a>
+  <a class="nav-item" data-page="7"><span class="num">07</span> 📅 Planificación (Gantt)</a>
+  <a class="nav-item" data-page="8"><span class="num">08</span> 🤖 Android y Dalvik</a>
 
   <h2>Unidad 2 — Almacenamiento y Arranque</h2>
-  <a class="nav-item" data-page="6"><span class="num">06</span> 💾 Sistemas de Archivos</a>
-  <a class="nav-item" data-page="7"><span class="num">07</span> 📊 Estructuras de Datos</a>
-  <a class="nav-item" data-page="8"><span class="num">08</span> 🛡️ Arranque y Seguridad</a>
-  <a class="nav-item" data-page="9"><span class="num">09</span> 🔐 TPM</a>
+  <a class="nav-item" data-page="9"><span class="num">09</span> 💾 Sistemas de Archivos</a>
+  <a class="nav-item nav-item-child" data-page="10">    <span class="num">10</span> 💾 FAT — File Allocation Table</a>
+  <a class="nav-item nav-item-child" data-page="11">    <span class="num">11</span> 💾 NTFS — New Technology File System</a>
+  <a class="nav-item nav-item-child" data-page="12">    <span class="num">12</span> 💾 ReFS, Atributos y Conceptos</a>
+  <a class="nav-item" data-page="13"><span class="num">13</span> 📊 Estructuras de Datos</a>
+  <a class="nav-item" data-page="14"><span class="num">14</span> 🛡️ Arranque y Seguridad</a>
+  <a class="nav-item" data-page="15"><span class="num">15</span> 🔐 TPM</a>
 
   <h2>Unidad 3 — Herramientas</h2>
-  <a class="nav-item" data-page="10"><span class="num">10</span> ⌨️ Línea de comandos</a>
+  <a class="nav-item" data-page="16"><span class="num">16</span> ⌨️ Línea de comandos</a>
+  <a class="nav-item nav-item-child" data-page="17">    <span class="num">17</span> ⌨️ CMD — Comandos esenciales</a>
+  <a class="nav-item nav-item-child" data-page="18">    <span class="num">18</span> ⌨️ PowerShell — cmdlets y ejemplos</a>
 
   <h2>Unidad 4 — Contexto de Industria</h2>
-  <a class="nav-item" data-page="11"><span class="num">11</span> 🪟 Historia de Windows</a>
-  <a class="nav-item" data-page="12"><span class="num">12</span> 📊 Mercado de OS</a>
+  <a class="nav-item" data-page="19"><span class="num">19</span> 🪟 Historia de Windows</a>
+  <a class="nav-item" data-page="20"><span class="num">20</span> 📊 Mercado de OS</a>
 
   <h2>Profesor</h2>
 </nav>

@@ -3,67 +3,128 @@
     {
       "stem": "00-Indice",
       "title": "🗂️ Índice",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "07-Introduccion-SO",
       "title": "📘 Introducción a los S.O.",
-      "unit": "Unidad 1 — Fundamentos"
+      "unit": "Unidad 1 — Fundamentos",
+      "parent": null
     },
     {
       "stem": "09-Fundamentos-del-SO",
       "title": "🧠 Fundamentos del SO",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "09b-Procesos-Memoria-Kernel",
       "title": "🧠 Procesos y Kernel",
-      "unit": null
+      "unit": null,
+      "parent": null
+    },
+    {
+      "stem": "09b-Procesos",
+      "title": "🧠 Procesos y Threads",
+      "unit": null,
+      "parent": "09b-Procesos-Memoria-Kernel"
+    },
+    {
+      "stem": "09c-Memoria-y-Sincronizacion",
+      "title": "🧠 Memoria, E/S y Sincronización",
+      "unit": null,
+      "parent": "09b-Procesos-Memoria-Kernel"
+    },
+    {
+      "stem": "09d-Virtualizacion-Kernel",
+      "title": "🧠 Virtualización, Kernel y Conceptos",
+      "unit": null,
+      "parent": "09b-Procesos-Memoria-Kernel"
     },
     {
       "stem": "11-Planificacion-Procesos",
       "title": "📅 Planificación (Gantt)",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "10-Android-Dalvik",
       "title": "🤖 Android y Dalvik",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "02-Sistemas-de-Archivos",
       "title": "💾 Sistemas de Archivos",
-      "unit": "Unidad 2 — Almacenamiento y Arranque"
+      "unit": "Unidad 2 — Almacenamiento y Arranque",
+      "parent": null
+    },
+    {
+      "stem": "02a-FAT",
+      "title": "💾 FAT — File Allocation Table",
+      "unit": "Unidad 2 — Almacenamiento y Arranque",
+      "parent": "02-Sistemas-de-Archivos"
+    },
+    {
+      "stem": "02b-NTFS",
+      "title": "💾 NTFS — New Technology File System",
+      "unit": "Unidad 2 — Almacenamiento y Arranque",
+      "parent": "02-Sistemas-de-Archivos"
+    },
+    {
+      "stem": "02c-ReFS-y-atributos",
+      "title": "💾 ReFS, Atributos y Conceptos",
+      "unit": "Unidad 2 — Almacenamiento y Arranque",
+      "parent": "02-Sistemas-de-Archivos"
     },
     {
       "stem": "04-Estructuras-de-Datos",
       "title": "📊 Estructuras de Datos",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "03-Arranque-y-Seguridad",
       "title": "🛡️ Arranque y Seguridad",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "01-TPM",
       "title": "🔐 TPM",
-      "unit": null
+      "unit": null,
+      "parent": null
     },
     {
       "stem": "08-Linea-de-Comandos",
       "title": "⌨️ Línea de comandos",
-      "unit": "Unidad 3 — Herramientas"
+      "unit": "Unidad 3 — Herramientas",
+      "parent": null
+    },
+    {
+      "stem": "08a-CMD",
+      "title": "⌨️ CMD — Comandos esenciales",
+      "unit": "Unidad 3 — Herramientas",
+      "parent": "08-Linea-de-Comandos"
+    },
+    {
+      "stem": "08b-PowerShell",
+      "title": "⌨️ PowerShell — cmdlets y ejemplos",
+      "unit": "Unidad 3 — Herramientas",
+      "parent": "08-Linea-de-Comandos"
     },
     {
       "stem": "05-Historia-Windows",
       "title": "🪟 Historia de Windows",
-      "unit": "Unidad 4 — Contexto de Industria"
+      "unit": "Unidad 4 — Contexto de Industria",
+      "parent": null
     },
     {
       "stem": "06-Mercado-OS",
       "title": "📊 Mercado de OS",
-      "unit": null
+      "unit": null,
+      "parent": null
     }
   ],
   "wikimap": {
@@ -83,41 +144,73 @@
     "🧠-Procesos-y-Kernel": 3,
     "procesos-y-kernel": 3,
     "09b-Procesos-Memoria-Kernel": 3,
-    "📅 Planificación (Gantt)": 4,
-    "📅-Planificación-(Gantt)": 4,
-    "planificacion-gantt": 4,
-    "11-Planificacion-Procesos": 4,
-    "🤖 Android y Dalvik": 5,
-    "🤖-Android-y-Dalvik": 5,
-    "android-y-dalvik": 5,
-    "10-Android-Dalvik": 5,
-    "💾 Sistemas de Archivos": 6,
-    "💾-Sistemas-de-Archivos": 6,
-    "sistemas-de-archivos": 6,
-    "02-Sistemas-de-Archivos": 6,
-    "📊 Estructuras de Datos": 7,
-    "📊-Estructuras-de-Datos": 7,
-    "estructuras-de-datos": 7,
-    "04-Estructuras-de-Datos": 7,
-    "🛡️ Arranque y Seguridad": 8,
-    "🛡️-Arranque-y-Seguridad": 8,
-    "arranque-y-seguridad": 8,
-    "03-Arranque-y-Seguridad": 8,
-    "🔐 TPM": 9,
-    "🔐-TPM": 9,
-    "tpm": 9,
-    "01-TPM": 9,
-    "⌨️ Línea de comandos": 10,
-    "⌨️-Línea-de-comandos": 10,
-    "linea-de-comandos": 10,
-    "08-Linea-de-Comandos": 10,
-    "🪟 Historia de Windows": 11,
-    "🪟-Historia-de-Windows": 11,
-    "historia-de-windows": 11,
-    "05-Historia-Windows": 11,
-    "📊 Mercado de OS": 12,
-    "📊-Mercado-de-OS": 12,
-    "mercado-de-os": 12,
-    "06-Mercado-OS": 12
+    "🧠 Procesos y Threads": 4,
+    "🧠-Procesos-y-Threads": 4,
+    "procesos-y-threads": 4,
+    "09b-Procesos": 4,
+    "🧠 Memoria, E/S y Sincronización": 5,
+    "🧠-Memoria,-E/S-y-Sincronización": 5,
+    "memoria-e-s-y-sincronizacion": 5,
+    "09c-Memoria-y-Sincronizacion": 5,
+    "🧠 Virtualización, Kernel y Conceptos": 6,
+    "🧠-Virtualización,-Kernel-y-Conceptos": 6,
+    "virtualizacion-kernel-y-conceptos": 6,
+    "09d-Virtualizacion-Kernel": 6,
+    "📅 Planificación (Gantt)": 7,
+    "📅-Planificación-(Gantt)": 7,
+    "planificacion-gantt": 7,
+    "11-Planificacion-Procesos": 7,
+    "🤖 Android y Dalvik": 8,
+    "🤖-Android-y-Dalvik": 8,
+    "android-y-dalvik": 8,
+    "10-Android-Dalvik": 8,
+    "💾 Sistemas de Archivos": 9,
+    "💾-Sistemas-de-Archivos": 9,
+    "sistemas-de-archivos": 9,
+    "02-Sistemas-de-Archivos": 9,
+    "💾 FAT — File Allocation Table": 10,
+    "💾-FAT-—-File-Allocation-Table": 10,
+    "fat-file-allocation-table": 10,
+    "02a-FAT": 10,
+    "💾 NTFS — New Technology File System": 11,
+    "💾-NTFS-—-New-Technology-File-System": 11,
+    "ntfs-new-technology-file-system": 11,
+    "02b-NTFS": 11,
+    "💾 ReFS, Atributos y Conceptos": 12,
+    "💾-ReFS,-Atributos-y-Conceptos": 12,
+    "refs-atributos-y-conceptos": 12,
+    "02c-ReFS-y-atributos": 12,
+    "📊 Estructuras de Datos": 13,
+    "📊-Estructuras-de-Datos": 13,
+    "estructuras-de-datos": 13,
+    "04-Estructuras-de-Datos": 13,
+    "🛡️ Arranque y Seguridad": 14,
+    "🛡️-Arranque-y-Seguridad": 14,
+    "arranque-y-seguridad": 14,
+    "03-Arranque-y-Seguridad": 14,
+    "🔐 TPM": 15,
+    "🔐-TPM": 15,
+    "tpm": 15,
+    "01-TPM": 15,
+    "⌨️ Línea de comandos": 16,
+    "⌨️-Línea-de-comandos": 16,
+    "linea-de-comandos": 16,
+    "08-Linea-de-Comandos": 16,
+    "⌨️ CMD — Comandos esenciales": 17,
+    "⌨️-CMD-—-Comandos-esenciales": 17,
+    "cmd-comandos-esenciales": 17,
+    "08a-CMD": 17,
+    "⌨️ PowerShell — cmdlets y ejemplos": 18,
+    "⌨️-PowerShell-—-cmdlets-y-ejemplos": 18,
+    "powershell-cmdlets-y-ejemplos": 18,
+    "08b-PowerShell": 18,
+    "🪟 Historia de Windows": 19,
+    "🪟-Historia-de-Windows": 19,
+    "historia-de-windows": 19,
+    "05-Historia-Windows": 19,
+    "📊 Mercado de OS": 20,
+    "📊-Mercado-de-OS": 20,
+    "mercado-de-os": 20,
+    "06-Mercado-OS": 20
   }
 }

@@ -1,6 +1,6 @@
 ---
 next: 06-Mercado-OS
-prev: 08-Linea-de-Comandos
+prev: 08b-PowerShell
 title: "🪟 Historia de Windows"
 sidebar_title: "🪟 Historia de Windows"
 order: 110

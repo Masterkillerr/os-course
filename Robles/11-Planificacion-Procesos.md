@@ -1,6 +1,6 @@
 ---
 next: 10-Android-Dalvik
-prev: 09b-Procesos-Memoria-Kernel
+prev: 09d-Virtualizacion-Kernel
 title: "📅 Planificación de Procesos — Ejercicios Gantt"
 sidebar_title: "📅 Planificación (Gantt)"
 order: 40
