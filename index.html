@@ -779,9 +779,10 @@ function openMermaidModal(svg) {
   closeBtn.addEventListener('click', closeMermaidModal);
   overlay.appendChild(closeBtn);
 
-  // Clone the SVG so the original stays in the page
+  // Clone the SVG and strip duplicate IDs to avoid conflicts with the original
   const clone = svg.cloneNode(true);
   clone.id = 'mermaid-zoom-svg';
+  clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
   overlay.appendChild(clone);
 
   // Zoom controls
@@ -809,7 +810,6 @@ function openMermaidModal(svg) {
   overlay.appendChild(controls);
 
   document.body.appendChild(overlay);
-  // Trigger reflow for transition
   requestAnimationFrame(() => overlay.classList.add('open'));
 
   const close = () => {
