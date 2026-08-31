@@ -653,7 +653,7 @@ function flipCard(el) {
 }
 
 // Per-page post-processing: anchors, mermaid, syntax highlight, math.
-function postProcess(pageEl) {
+async function postProcess(pageEl) {
   // assign heading anchors (slugified) for TOC links — once per page
   if (!pageEl.dataset.headingsDone) {
     const seen = {};
@@ -680,13 +680,12 @@ function postProcess(pageEl) {
     if (mermaidDivs.length && !pageEl.dataset.mermaidDone) {
       pageEl.dataset.mermaidDone = '1';
       try {
-        const pr = mermaid.run({ nodes: Array.from(mermaidDivs) });
-        if (pr && typeof pr.catch === 'function') pr.catch(e => console.warn('mermaid:', e));
+        await mermaid.run({ nodes: Array.from(mermaidDivs) });
       } catch (e) { console.warn('mermaid:', e); }
+      // SVGs are now rendered — wrap them for zoom-on-click
+      wrapMermaidZoom(pageEl);
     }
   }
-  // Wrap rendered mermaid SVGs in clickable zoom triggers
-  wrapMermaidZoom(pageEl);
   // highlight non-mermaid code
   if (window.hljs) {
     pageEl.querySelectorAll('pre > code:not(.language-mermaid)').forEach(b => {
@@ -807,7 +806,7 @@ async function gotoPage(idx) {
   document.getElementById('crumbs').innerHTML = 'Clase 2 — <b>' + titles[idx] + '</b>';
   document.getElementById('content').scrollTop = 0;
   document.getElementById('sidebar').classList.remove('open');
-  postProcess(page);
+  postProcess(page).catch(e => console.warn('postProcess:', e));
 }
 
 // nav clicks
@@ -829,7 +828,7 @@ function applyHljs(next) {
   if (light) light.disabled = (next === 'dark');
   if (dark) dark.disabled = (next !== 'dark');
 }
-themeBtn.addEventListener('click', () => {
+themeBtn.addEventListener('click', async () => {
   const cur = document.documentElement.getAttribute('data-theme');
   const next = cur === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
@@ -840,11 +839,10 @@ themeBtn.addEventListener('click', () => {
     mermaid.initialize({ theme: next === 'dark' ? 'dark' : 'default' });
     document.querySelectorAll('.page.active .mermaid').forEach(m => { m.innerHTML = ''; m.removeAttribute('data-mermaid-done'); });
     try {
-      const pr = mermaid.run({ nodes: Array.from(document.querySelectorAll('.page.active .mermaid')) });
-      if (pr && typeof pr.catch === 'function') pr.catch(e => console.warn('mermaid:', e));
+      await mermaid.run({ nodes: Array.from(document.querySelectorAll('.page.active .mermaid')) });
     } catch (e) { console.warn('mermaid:', e); }
     // Re-wrap newly rendered SVGs for zoom
-    requestAnimationFrame(() => wrapMermaidZoom(document.querySelector('.page.active')));
+    wrapMermaidZoom(document.querySelector('.page.active'));
   }
 });
 document.documentElement.setAttribute('data-theme', 'light');
