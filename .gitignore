@@ -5,3 +5,5 @@
 *.exe
 audios/
 .obsidian/
+specs/
+split_pages.py

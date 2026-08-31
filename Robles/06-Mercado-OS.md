@@ -14,8 +14,8 @@ tiempo_clase: "11:14 - 13:55"
 # 📊 Mercado de Sistemas Operativos
 
 > [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Mercado de Sistemas Operativos (cuota, tendencias, geopolítica)  
+> **Clase 2** — Mercado de Sistemas Operativos
+> **Tema:** Mercado de Sistemas Operativos (cuota, tendencias, geopolítica)
 > **Ver también:** [[05-Historia-Windows|🪟 Historia de Windows]]
 
 > [!tip] Prerrequisitos

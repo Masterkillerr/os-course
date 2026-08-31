@@ -14,8 +14,8 @@ tiempo_clase: "13:55 - 18:18"
 # 🪟 Historia de Windows
 
 > [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Historia de Windows (Desktop y Server)  
+> **Clase 2** — Historia de Windows
+> **Tema:** Historia de Windows (Desktop y Server)
 > **Ver también:** [[06-Mercado-OS|📊 Mercado de OS]]
 
 > [!tip] Prerrequisitos

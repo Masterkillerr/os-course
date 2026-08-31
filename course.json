@@ -16,6 +16,11 @@
       "unit": null
     },
     {
+      "stem": "09b-Procesos-Memoria-Kernel",
+      "title": "🧠 Procesos y Kernel",
+      "unit": null
+    },
+    {
       "stem": "11-Planificacion-Procesos",
       "title": "📅 Planificación (Gantt)",
       "unit": null
@@ -31,6 +36,11 @@
       "unit": "Unidad 2 — Almacenamiento y Arranque"
     },
     {
+      "stem": "02b-Windows-Versiones",
+      "title": "💾 Windows y Estructuras",
+      "unit": null
+    },
+    {
       "stem": "04-Estructuras-de-Datos",
       "title": "📊 Estructuras de Datos",
       "unit": null
@@ -41,14 +51,29 @@
       "unit": null
     },
     {
+      "stem": "03b-Seguridad-Avanzada",
+      "title": "🛡️ Seguridad Avanzada",
+      "unit": null
+    },
+    {
       "stem": "01-TPM",
       "title": "🔐 TPM",
+      "unit": null
+    },
+    {
+      "stem": "01b-BitLocker-Criptografia",
+      "title": "🔐 BitLocker y Criptografía",
       "unit": null
     },
     {
       "stem": "08-Linea-de-Comandos",
       "title": "⌨️ Línea de comandos",
       "unit": "Unidad 3 — Herramientas"
+    },
+    {
+      "stem": "08b-PowerShell-Avanzado",
+      "title": "⌨️ PowerShell Avanzado",
+      "unit": null
     },
     {
       "stem": "05-Historia-Windows",
@@ -74,41 +99,61 @@
     "🧠-Fundamentos-del-SO": 2,
     "fundamentos-del-so": 2,
     "09-Fundamentos-del-SO": 2,
-    "📅 Planificación (Gantt)": 3,
-    "📅-Planificación-(Gantt)": 3,
-    "planificacion-gantt": 3,
-    "11-Planificacion-Procesos": 3,
-    "🤖 Android y Dalvik": 4,
-    "🤖-Android-y-Dalvik": 4,
-    "android-y-dalvik": 4,
-    "10-Android-Dalvik": 4,
-    "💾 Sistemas de Archivos": 5,
-    "💾-Sistemas-de-Archivos": 5,
-    "sistemas-de-archivos": 5,
-    "02-Sistemas-de-Archivos": 5,
-    "📊 Estructuras de Datos": 6,
-    "📊-Estructuras-de-Datos": 6,
-    "estructuras-de-datos": 6,
-    "04-Estructuras-de-Datos": 6,
-    "🛡️ Arranque y Seguridad": 7,
-    "🛡️-Arranque-y-Seguridad": 7,
-    "arranque-y-seguridad": 7,
-    "03-Arranque-y-Seguridad": 7,
-    "🔐 TPM": 8,
-    "🔐-TPM": 8,
-    "tpm": 8,
-    "01-TPM": 8,
-    "⌨️ Línea de comandos": 9,
-    "⌨️-Línea-de-comandos": 9,
-    "linea-de-comandos": 9,
-    "08-Linea-de-Comandos": 9,
-    "🪟 Historia de Windows": 10,
-    "🪟-Historia-de-Windows": 10,
-    "historia-de-windows": 10,
-    "05-Historia-Windows": 10,
-    "📊 Mercado de OS": 11,
-    "📊-Mercado-de-OS": 11,
-    "mercado-de-os": 11,
-    "06-Mercado-OS": 11
+    "🧠 Procesos y Kernel": 3,
+    "🧠-Procesos-y-Kernel": 3,
+    "procesos-y-kernel": 3,
+    "09b-Procesos-Memoria-Kernel": 3,
+    "📅 Planificación (Gantt)": 4,
+    "📅-Planificación-(Gantt)": 4,
+    "planificacion-gantt": 4,
+    "11-Planificacion-Procesos": 4,
+    "🤖 Android y Dalvik": 5,
+    "🤖-Android-y-Dalvik": 5,
+    "android-y-dalvik": 5,
+    "10-Android-Dalvik": 5,
+    "💾 Sistemas de Archivos": 6,
+    "💾-Sistemas-de-Archivos": 6,
+    "sistemas-de-archivos": 6,
+    "02-Sistemas-de-Archivos": 6,
+    "💾 Windows y Estructuras": 7,
+    "💾-Windows-y-Estructuras": 7,
+    "windows-y-estructuras": 7,
+    "02b-Windows-Versiones": 7,
+    "📊 Estructuras de Datos": 8,
+    "📊-Estructuras-de-Datos": 8,
+    "estructuras-de-datos": 8,
+    "04-Estructuras-de-Datos": 8,
+    "🛡️ Arranque y Seguridad": 9,
+    "🛡️-Arranque-y-Seguridad": 9,
+    "arranque-y-seguridad": 9,
+    "03-Arranque-y-Seguridad": 9,
+    "🛡️ Seguridad Avanzada": 10,
+    "🛡️-Seguridad-Avanzada": 10,
+    "seguridad-avanzada": 10,
+    "03b-Seguridad-Avanzada": 10,
+    "🔐 TPM": 11,
+    "🔐-TPM": 11,
+    "tpm": 11,
+    "01-TPM": 11,
+    "🔐 BitLocker y Criptografía": 12,
+    "🔐-BitLocker-y-Criptografía": 12,
+    "bitlocker-y-criptografia": 12,
+    "01b-BitLocker-Criptografia": 12,
+    "⌨️ Línea de comandos": 13,
+    "⌨️-Línea-de-comandos": 13,
+    "linea-de-comandos": 13,
+    "08-Linea-de-Comandos": 13,
+    "⌨️ PowerShell Avanzado": 14,
+    "⌨️-PowerShell-Avanzado": 14,
+    "powershell-avanzado": 14,
+    "08b-PowerShell-Avanzado": 14,
+    "🪟 Historia de Windows": 15,
+    "🪟-Historia-de-Windows": 15,
+    "historia-de-windows": 15,
+    "05-Historia-Windows": 15,
+    "📊 Mercado de OS": 16,
+    "📊-Mercado-de-OS": 16,
+    "mercado-de-os": 16,
+    "06-Mercado-OS": 16
   }
 }

@@ -14,7 +14,8 @@ tiempo_clase: null
 # 📅 Planificación de Procesos — Ejercicios Gantt
 
 > [!info] Módulo
-> **Tema:** Ejercicios prácticos de planificación de CPU, con diagramas tipo Gantt de 32 unidades de tiempo.
+> **Clase 2** — Ejercicios de Planificación de CPU
+> **Tema:** Ejercicios prácticos de planificación de CPU, con diagramas tipo Gantt de 32 unidades de tiempo
 > **Ver también:** [[09-Fundamentos-del-SO|🧠 Fundamentos del SO]]
 
 > [!warning] Formato de examen probable

@@ -14,8 +14,8 @@ tiempo_clase: "27:45 - 30:53"
 # 📊 Estructuras de Datos y Sistemas de Archivos
 
 > [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Estructuras de Datos aplicadas a Sistemas de Archivos  
+> **Unidad 2 — Almacenamiento y Arranque**
+> **Tema:** Estructuras de Datos aplicadas a Sistemas de Archivos
 > **Ver también:** [[02-Sistemas-de-Archivos|💾 Sistemas de archivos]], [[01-TPM|🔐 TPM]]
 
 > [!tip] Prerrequisitos
