@@ -294,27 +294,6 @@ Si quieres migrar a Estados Unidos, ¿qué stack tecnológico deberías aprender
 > **Respuesta:** **\.NET (C#, ASP.NET), Java, JavaScript/TypeScript y Go** son más demandados en EE.UU. El stack varía por región.
 
 </details>
-## Arquitectura de Android y Dalvik
-
-Android es el SO móvil dominante, pero su interior difiere de un SO de escritorio. En vez de la JVM, usa **Dalvik** (y su sucesor ART), una máquina virtual diseñada para recursos limitados.
-
-```mermaid
-graph TD
-    J[.java fuente] --> JC[javac]
-    JC --> C[.class bytecode]
-    C --> DX[dx / d8 optimizador]
-    DX --> DEX[.dex Dalvik Executable]
-    DEX --> D[Dalvik / ART VM]
-    D --> K[Kernel de Linux]
-```
-
-- **JVM vs Dalvik:** en Java todas las apps corren sobre la *misma* VM; en Android **cada app corre en su propia VM aislada** (más aislamiento, más recursos).
-- **`.dex`**: los `.class` se empaquetan en un único `.dex` (ocupa ~la mitad que el `.jar` equivalente) porque el móvil tiene recursos limitados.
-- **Zygote**: una VM base precargada que arranca el resto de VMs de forma rápida.
-- **SDK de Android ≠ JDK**: Android implementa los paquetes de Java de forma completa, parcial o nula (p. ej. **Swing** no existe en Android). Por eso algunas clases del JDK no están disponibles.
-
-> [!warning] Android no es Java
-> Aunque se programa con APIs de Java, Android **no es Java**: usa su propia VM (Dalvik/ART), su formato `.dex` y un subconjunto del JDK.
 
 ---
 
