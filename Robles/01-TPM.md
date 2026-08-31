@@ -25,21 +25,6 @@ tiempo_clase: "00:01 - 01:51"
 
 ---
 
-
-# 🔐 TPM — Trusted Platform Module
-
-> [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Trusted Platform Module  
-> **Ver también:** [[02-Sistemas-de-Archivos|💾 Sistemas de archivos]], [[03-Arranque-y-Seguridad|🛡️ Arranque y seguridad]]
-
-> [!tip] Prerrequisitos
-> - Conceptos básicos de hardware
-> - Qué es un sistema operativo
-> - Conceptos básicos de criptografía (opcional)
-
----
-
 ## 📋 Tabla de contenidos
 
 - [[#¿Qué-es-el-TPM]]

@@ -13,19 +13,11 @@ tiempo_clase: null
 
 # ⌨️ Línea de Comandos (CMD y PowerShell)
 
-> [!info] Objetivo
-> Conocer las dos consolas de Windows (CMD y PowerShell), sus comandos esenciales, y cómo automatizar tareas con el Programador de tareas.
-
----
-
-
-# ⌨️ Línea de comandos, PowerShell y automatización
-
 > [!info] Módulo
 > **Unidad 3 — Herramientas**
 > **Tema:** CMD, PowerShell, cmdlets, Programador de tareas, schtasks
 > **Ver también:** [[09-Fundamentos-del-SO|🧠 Fundamentos del SO]]
->
+
 > [!info] Objetivo
 > Conocer las dos consolas de Windows (CMD y PowerShell), sus comandos esenciales, y cómo automatizar tareas con el Programador de tareas. Equivalentes a la terminal de Linux o macOS.
 

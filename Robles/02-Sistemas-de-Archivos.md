@@ -25,21 +25,6 @@ tiempo_clase: "18:18 - 46:33"
 
 ---
 
-
-# 💾 Sistemas de Archivos
-
-> [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Sistemas de Archivos (FAT, NTFS, ReFS, exFAT)  
-> **Ver también:** [[01-TPM|🔐 TPM]], [[03-Arranque-y-Seguridad|🛡️ Arranque y seguridad]]
-
-> [!tip] Prerrequisitos
-> - Conceptos de almacenamiento (disco, SSD, USB)
-> - Qué es un byte / bit
-> - Conceptos básicos de matemáticas (potencias de 2)
-
----
-
 ## 📋 Tabla de contenidos
 
 - [[#Estructura-de-un-medio-de-almacenamiento]]

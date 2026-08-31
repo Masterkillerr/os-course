@@ -36,11 +36,6 @@
       "unit": "Unidad 2 — Almacenamiento y Arranque"
     },
     {
-      "stem": "02b-Windows-Versiones",
-      "title": "💾 Windows y Estructuras",
-      "unit": null
-    },
-    {
       "stem": "04-Estructuras-de-Datos",
       "title": "📊 Estructuras de Datos",
       "unit": null
@@ -51,29 +46,14 @@
       "unit": null
     },
     {
-      "stem": "03b-Seguridad-Avanzada",
-      "title": "🛡️ Seguridad Avanzada",
-      "unit": null
-    },
-    {
       "stem": "01-TPM",
       "title": "🔐 TPM",
-      "unit": null
-    },
-    {
-      "stem": "01b-BitLocker-Criptografia",
-      "title": "🔐 BitLocker y Criptografía",
       "unit": null
     },
     {
       "stem": "08-Linea-de-Comandos",
       "title": "⌨️ Línea de comandos",
       "unit": "Unidad 3 — Herramientas"
-    },
-    {
-      "stem": "08b-PowerShell-Avanzado",
-      "title": "⌨️ PowerShell Avanzado",
-      "unit": null
     },
     {
       "stem": "05-Historia-Windows",
@@ -115,45 +95,29 @@
     "💾-Sistemas-de-Archivos": 6,
     "sistemas-de-archivos": 6,
     "02-Sistemas-de-Archivos": 6,
-    "💾 Windows y Estructuras": 7,
-    "💾-Windows-y-Estructuras": 7,
-    "windows-y-estructuras": 7,
-    "02b-Windows-Versiones": 7,
-    "📊 Estructuras de Datos": 8,
-    "📊-Estructuras-de-Datos": 8,
-    "estructuras-de-datos": 8,
-    "04-Estructuras-de-Datos": 8,
-    "🛡️ Arranque y Seguridad": 9,
-    "🛡️-Arranque-y-Seguridad": 9,
-    "arranque-y-seguridad": 9,
-    "03-Arranque-y-Seguridad": 9,
-    "🛡️ Seguridad Avanzada": 10,
-    "🛡️-Seguridad-Avanzada": 10,
-    "seguridad-avanzada": 10,
-    "03b-Seguridad-Avanzada": 10,
-    "🔐 TPM": 11,
-    "🔐-TPM": 11,
-    "tpm": 11,
-    "01-TPM": 11,
-    "🔐 BitLocker y Criptografía": 12,
-    "🔐-BitLocker-y-Criptografía": 12,
-    "bitlocker-y-criptografia": 12,
-    "01b-BitLocker-Criptografia": 12,
-    "⌨️ Línea de comandos": 13,
-    "⌨️-Línea-de-comandos": 13,
-    "linea-de-comandos": 13,
-    "08-Linea-de-Comandos": 13,
-    "⌨️ PowerShell Avanzado": 14,
-    "⌨️-PowerShell-Avanzado": 14,
-    "powershell-avanzado": 14,
-    "08b-PowerShell-Avanzado": 14,
-    "🪟 Historia de Windows": 15,
-    "🪟-Historia-de-Windows": 15,
-    "historia-de-windows": 15,
-    "05-Historia-Windows": 15,
-    "📊 Mercado de OS": 16,
-    "📊-Mercado-de-OS": 16,
-    "mercado-de-os": 16,
-    "06-Mercado-OS": 16
+    "📊 Estructuras de Datos": 7,
+    "📊-Estructuras-de-Datos": 7,
+    "estructuras-de-datos": 7,
+    "04-Estructuras-de-Datos": 7,
+    "🛡️ Arranque y Seguridad": 8,
+    "🛡️-Arranque-y-Seguridad": 8,
+    "arranque-y-seguridad": 8,
+    "03-Arranque-y-Seguridad": 8,
+    "🔐 TPM": 9,
+    "🔐-TPM": 9,
+    "tpm": 9,
+    "01-TPM": 9,
+    "⌨️ Línea de comandos": 10,
+    "⌨️-Línea-de-comandos": 10,
+    "linea-de-comandos": 10,
+    "08-Linea-de-Comandos": 10,
+    "🪟 Historia de Windows": 11,
+    "🪟-Historia-de-Windows": 11,
+    "historia-de-windows": 11,
+    "05-Historia-Windows": 11,
+    "📊 Mercado de OS": 12,
+    "📊-Mercado-de-OS": 12,
+    "mercado-de-os": 12,
+    "06-Mercado-OS": 12
   }
 }

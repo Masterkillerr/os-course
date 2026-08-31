@@ -25,21 +25,6 @@ tiempo_clase: "58:49 - 01:47:01"
 
 ---
 
-
-# 🛡️ Arranque y Seguridad
-
-> [!info] Módulo
-> **Clase 2** — TPM y Sistemas de Archivos  
-> **Tema:** Arranque y Seguridad (POST, UEFI, Secure Boot, BitLocker)  
-> **Ver también:** [[01-TPM|🔐 TPM]], [[02-Sistemas-de-Archivos|💾 Sistemas de archivos]]
-
-> [!tip] Prerrequisitos
-> - TPM (funciones y propósito)
-> - Sistemas de archivos (FAT, NTFS)
-> - Conceptos de firmware (ROM, BIOS, UEFI)
-
----
-
 ## 📋 Tabla de contenidos
 
 - [[#Secuencia-de-arranque]]

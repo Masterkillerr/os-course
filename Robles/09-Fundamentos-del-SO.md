@@ -28,17 +28,6 @@ tiempo_clase: null
 
 - [[#¿Qué es un Sistema Operativo?]]
 - [[#Arquitectura por capas]]
-- [[#Modo-kernel-anillos-HAL-y-syscall]]
-- [[#Procesos y Threads]]
-- [[#Herramientas-de-inspección-de-procesos]]
-- [[#Gestión de memoria]]
-- [[#Entrada/Salida (E/S)]]
-- [[#Sincronización y concurrencia]]
-- [[#Virtualización]]
-- [[#Tipos de kernel]]
-- [[#Mono-vs-Multi-(proceso-tarea-usuario)]]
-- [[#📝 Autoevaluación]]
-- [[#⚠️ Errores comunes]]
 
 ---
 
@@ -67,3 +56,6 @@ graph TD
 El kernel aísla al hardware; las capas superiores ofrecen la interfaz y los servicios que usan las aplicaciones.
 
 ---
+
+> [!info] Continúa en
+> [[09b-Procesos-Memoria-Kernel|🧠 Procesos y Kernel]] — procesos, memoria, E/S, sincronización, virtualización y tipos de kernel.
