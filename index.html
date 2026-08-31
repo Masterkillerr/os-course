@@ -301,7 +301,7 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(0,0,0,0.85);
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,9 +327,9 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
   position: absolute;
   top: 16px;
   right: 20px;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #fff;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
   font-size: 22px;
   width: 40px;
   height: 40px;
@@ -341,8 +341,8 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
   transition: background .15s, border-color .15s;
 }
 .mermaid-modal-close:hover {
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(255,255,255,0.6);
+  background: var(--code-bg);
+  border-color: var(--accent);
 }
 
 /* TOC box */
