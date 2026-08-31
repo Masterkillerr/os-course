@@ -1,7 +1,9 @@
 ---
+next: 02-Sistemas-de-Archivos
+prev: 11-Planificacion-Procesos
 title: "🤖 Arquitectura Android y Dalvik"
 sidebar_title: "🤖 Android y Dalvik"
-order: 25
+order: 50
 unit: null
 clase: 3
 tema: "Máquinas virtuales: JVM vs Dalvik, WebKit vs Blink"

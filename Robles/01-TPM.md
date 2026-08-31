@@ -1,7 +1,9 @@
 ---
+next: 08-Linea-de-Comandos
+prev: 03-Arranque-y-Seguridad
 title: "🔐 TPM — Trusted Platform Module"
 sidebar_title: "🔐 TPM"
-order: 60
+order: 90
 unit: null
 clase: 2
 tema: "Trusted Platform Module"

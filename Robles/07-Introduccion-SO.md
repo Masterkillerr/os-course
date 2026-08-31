@@ -1,4 +1,6 @@
 ---
+next: 09-Fundamentos-del-SO
+prev: 00-Indice
 title: "📘 Introducción a los Sistemas Operativos"
 sidebar_title: "📘 Introducción a los S.O."
 order: 10

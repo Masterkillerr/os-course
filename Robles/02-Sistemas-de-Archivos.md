@@ -1,7 +1,9 @@
 ---
+next: 04-Estructuras-de-Datos
+prev: 10-Android-Dalvik
 title: "💾 Sistemas de Archivos"
 sidebar_title: "💾 Sistemas de Archivos"
-order: 30
+order: 60
 unit: "Unidad 2 — Almacenamiento y Arranque"
 clase: 2
 tema: "Sistemas de Archivos (FAT, NTFS, ReFS, exFAT)"

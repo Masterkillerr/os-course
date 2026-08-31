@@ -1,7 +1,9 @@
 ---
+next: 10-Android-Dalvik
+prev: 09b-Procesos-Memoria-Kernel
 title: "📅 Planificación de Procesos — Ejercicios Gantt"
 sidebar_title: "📅 Planificación (Gantt)"
-order: 22
+order: 40
 unit: null
 clase: 2
 tema: "Ejercicios de planificación: monoprogramado, multiprogramación, quantum, multiproceso"

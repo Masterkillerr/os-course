@@ -1,4 +1,6 @@
 ---
+next: 07-Introduccion-SO
+prev: null
 title: "🗂️ Índice — Curso de Sistemas Operativos"
 sidebar_title: "🗂️ Índice"
 order: 0

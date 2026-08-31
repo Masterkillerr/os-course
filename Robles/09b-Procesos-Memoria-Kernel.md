@@ -1,7 +1,9 @@
 ---
+next: 11-Planificacion-Procesos
+prev: 09-Fundamentos-del-SO
 title: "🧠 Fundamentos del SO — Procesos, Memoria y Kernel"
 sidebar_title: "🧠 Procesos y Kernel"
-order: 21
+order: 30
 unit: null
 clase: 2
 tema: "Procesos, memoria, E/S, sincronización, virtualización y tipos de kernel"

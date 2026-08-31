@@ -90,6 +90,37 @@ body {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
+
+/* ===== Page-level prev/next navigation ===== */
+.page-nav {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+}
+.page-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background .12s;
+}
+.page-nav a:hover {
+  background: var(--accent-soft);
+}
+.page-nav-placeholder {
+  font-size: 13px;
+  color: var(--text-muted);
+}
 .sidebar .brand {
   padding: 4px 20px 14px;
   font-weight: 700;
@@ -893,7 +924,39 @@ async function gotoPage(idx) {
   document.getElementById('crumbs').innerHTML = 'Clase 2 — <b>' + titles[idx] + '</b>';
   document.getElementById('content').scrollTop = 0;
   document.getElementById('sidebar').classList.remove('open');
+
+  // Inject prev/next navigation
+  injectPageNav(idx, page);
+
   postProcess(page).catch(e => console.warn('postProcess:', e));
+}
+
+function injectPageNav(idx, page) {
+  const pages = window.__COURSE__.pages;
+  const current = pages[idx];
+  const prev = current.prev && pages.find(p => p.stem === current.prev);
+  const next = current.next && pages.find(p => p.stem === current.next);
+
+  const nav = document.createElement('nav');
+  nav.className = 'page-nav';
+  let html = '<div class="page-nav-inner">';
+  if (prev) {
+    html += `<a class="page-nav-prev" data-page="${pages.indexOf(prev)}">← ${prev.title}</a>`;
+  } else {
+    html += `<span class="page-nav-placeholder"></span>`;
+  }
+  if (next) {
+    html += `<a class="page-nav-next" data-page="${pages.indexOf(next)}">${next.title} →</a>`;
+  } else {
+    html += `<span class="page-nav-placeholder"></span>`;
+  }
+  html += '</div>';
+  nav.innerHTML = html;
+  page.prepend(nav);
+
+  nav.querySelectorAll('a[data-page]').forEach(a => {
+    a.addEventListener('click', () => gotoPage(+a.dataset.page));
+  });
 }
 
 // nav clicks

@@ -1,4 +1,6 @@
 ---
+next: 09b-Procesos-Memoria-Kernel
+prev: 07-Introduccion-SO
 title: "🧠 Fundamentos del Sistema Operativo"
 sidebar_title: "🧠 Fundamentos del SO"
 order: 20

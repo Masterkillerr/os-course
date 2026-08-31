@@ -1,7 +1,9 @@
 ---
+next: 05-Historia-Windows
+prev: 01-TPM
 title: "⌨️ Línea de Comandos (CMD y PowerShell)"
 sidebar_title: "⌨️ Línea de comandos"
-order: 70
+order: 100
 unit: "Unidad 3 — Herramientas"
 clase: 2
 tema: "Línea de comandos, PowerShell y automatización"

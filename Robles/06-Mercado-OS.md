@@ -1,7 +1,9 @@
 ---
+next: null
+prev: 05-Historia-Windows
 title: "📊 Mercado de Sistemas Operativos"
 sidebar_title: "📊 Mercado de OS"
-order: 90
+order: 120
 unit: null
 clase: 2
 tema: "Mercado de Sistemas Operativos (cuota, tendencias, geopolítica)"

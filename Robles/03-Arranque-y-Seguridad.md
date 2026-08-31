@@ -1,7 +1,9 @@
 ---
+next: 01-TPM
+prev: 04-Estructuras-de-Datos
 title: "🛡️ Arranque y Seguridad"
 sidebar_title: "🛡️ Arranque y Seguridad"
-order: 50
+order: 80
 unit: null
 clase: 2
 tema: "Arranque y Seguridad (POST, UEFI, Secure Boot, Core Isolation)"

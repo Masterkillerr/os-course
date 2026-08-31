@@ -1,7 +1,9 @@
 ---
+next: 06-Mercado-OS
+prev: 08-Linea-de-Comandos
 title: "🪟 Historia de Windows"
 sidebar_title: "🪟 Historia de Windows"
-order: 80
+order: 110
 unit: "Unidad 4 — Contexto de Industria"
 clase: 2
 tema: "Historia de Windows (Desktop y Server)"

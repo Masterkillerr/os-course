@@ -1,7 +1,9 @@
 ---
+next: 03-Arranque-y-Seguridad
+prev: 02-Sistemas-de-Archivos
 title: "📊 Estructuras de Datos y Sistemas de Archivos"
 sidebar_title: "📊 Estructuras de Datos"
-order: 40
+order: 70
 unit: null
 clase: 2
 tema: "Estructuras de Datos aplicadas a Sistemas de Archivos"
