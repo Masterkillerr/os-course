@@ -779,10 +779,19 @@ function openMermaidModal(svg) {
   closeBtn.addEventListener('click', closeMermaidModal);
   overlay.appendChild(closeBtn);
 
-  // Clone the SVG and strip duplicate IDs to avoid conflicts with the original
+  // Clone the SVG and rewrite its internal <style> selectors from the old ID
+  // to the new ID so CSS rules (fill, stroke, node colors) still apply.
   const clone = svg.cloneNode(true);
+  const oldId = svg.id;
   clone.id = 'mermaid-zoom-svg';
-  clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+  const styleEl = clone.querySelector('style');
+  if (styleEl && oldId) {
+    // Replace all occurrences of the old ID in the CSS text
+    // Escape special regex chars in the ID
+    const escapedOldId = oldId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const newCss = styleEl.textContent.replaceAll(escapedOldId, 'mermaid-zoom-svg');
+    styleEl.textContent = newCss;
+  }
   overlay.appendChild(clone);
 
   // Zoom controls
