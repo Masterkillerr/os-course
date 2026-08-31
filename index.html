@@ -317,11 +317,8 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
   max-height: 85vh;
   width: auto;
   height: auto;
-  transform: scale(0.9);
-  transition: transform .25s ease;
-}
-.mermaid-modal-overlay.open svg {
-  transform: scale(1);
+  transition: transform .2s ease;
+  transform-origin: center center;
 }
 .mermaid-modal-close {
   position: absolute;
@@ -343,6 +340,40 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
 .mermaid-modal-close:hover {
   background: var(--code-bg);
   border-color: var(--accent);
+}
+.mermaid-modal-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.mermaid-modal-controls button {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.mermaid-modal-controls button:hover {
+  background: var(--code-bg);
+  border-color: var(--accent);
+}
+.mermaid-modal-controls .zoom-level {
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 48px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 /* TOC box */
@@ -724,10 +755,16 @@ function wrapMermaidZoom(pageEl) {
 }
 
 // Create and show a zoom modal for a mermaid SVG.
+let _mermaidModalSvg = null;
+let _mermaidModalScale = 1;
+
 function openMermaidModal(svg) {
   // Remove any existing modal first
   const existing = document.getElementById('mermaid-modal');
   if (existing) existing.remove();
+
+  _mermaidModalSvg = svg;
+  _mermaidModalScale = 1;
 
   const overlay = document.createElement('div');
   overlay.id = 'mermaid-modal';
@@ -744,8 +781,32 @@ function openMermaidModal(svg) {
 
   // Clone the SVG so the original stays in the page
   const clone = svg.cloneNode(true);
-  // Remove any stale event listeners / data from the clone
+  clone.id = 'mermaid-zoom-svg';
   overlay.appendChild(clone);
+
+  // Zoom controls
+  const controls = document.createElement('div');
+  controls.className = 'mermaid-modal-controls';
+
+  const minusBtn = document.createElement('button');
+  minusBtn.textContent = '−';
+  minusBtn.setAttribute('aria-label', 'Zoom out');
+  minusBtn.addEventListener('click', () => setModalZoom(-0.25));
+
+  const level = document.createElement('span');
+  level.className = 'zoom-level';
+  level.id = 'mermaid-zoom-level';
+  level.textContent = '100%';
+
+  const plusBtn = document.createElement('button');
+  plusBtn.textContent = '+';
+  plusBtn.setAttribute('aria-label', 'Zoom in');
+  plusBtn.addEventListener('click', () => setModalZoom(0.25));
+
+  controls.appendChild(minusBtn);
+  controls.appendChild(level);
+  controls.appendChild(plusBtn);
+  overlay.appendChild(controls);
 
   document.body.appendChild(overlay);
   // Trigger reflow for transition
@@ -754,11 +815,25 @@ function openMermaidModal(svg) {
   const close = () => {
     overlay.classList.remove('open');
     setTimeout(() => overlay.remove(), 260);
+    _mermaidModalSvg = null;
+    _mermaidModalScale = 1;
   };
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', function handler(e) {
     if (e.key === 'Escape') { document.removeEventListener('keydown', handler); close(); }
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); setModalZoom(0.25); }
+    if (e.key === '-') { e.preventDefault(); setModalZoom(-0.25); }
   });
+}
+
+function setModalZoom(delta) {
+  const svg = document.getElementById('mermaid-zoom-svg');
+  const level = document.getElementById('mermaid-zoom-level');
+  if (!svg || !level) return;
+  _mermaidModalScale = Math.max(0.25, Math.min(5, _mermaidModalScale + delta));
+  svg.style.transform = `scale(${_mermaidModalScale})`;
+  svg.style.transformOrigin = 'center center';
+  level.textContent = Math.round(_mermaidModalScale * 100) + '%';
 }
 
 function closeMermaidModal() {
@@ -766,6 +841,8 @@ function closeMermaidModal() {
   if (modal) {
     modal.classList.remove('open');
     setTimeout(() => modal.remove(), 260);
+    _mermaidModalSvg = null;
+    _mermaidModalScale = 1;
   }
 }
 
