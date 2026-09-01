@@ -70,6 +70,54 @@ graph LR
 > [!note] ¿En qué lenguaje está escrito Windows?
 > Es un híbrido de **C, C++, C# / Visual C++**; el **núcleo es C**. (Para contraste: Java desciende de C++.)
 
+> [!info] Captura del profesor: el kernel como enlace (documento COMPLEMENTO, pág. 1)
+> Diagrama de **3 niveles** con flechas de doble punta verticales entre cada
+> nivel:
+> - Arriba, una caja ancha **roja/rosa**: `Applications`
+> - En medio, una caja ancha **azul/lila**: `Kernel`
+> - Abajo, **tres cajas verdes** en fila: `CPU` · `Memory` · `Devices`
+>
+> Cada caja verde tiene su propia flecha ↕ hacia `Kernel`; `Applications` tiene
+> una sola flecha ↕ hacia `Kernel`. Texto de la diapositiva: *"El **kernel** es
+> considerado el elemento principal de los sistemas operativos, y es el enlace
+> entre el procesamiento de datos y los programas. Por lo tanto, muchos
+> consideran que es el cerebro de la computadora en temas de software."*
+>
+> Las 5 funciones listadas al pie (literal):
+> - Permitir acceso al Hardware I/O
+> - Administrar la memoria para los distintos programas
+> - Responsable de gestionar el tiempo de la CPU con los programas
+> - Mantiene la seguridad de toda la información del computador
+> - Controla todo el hardware que hace parte del computador
+
+> [!info] Captura del profesor: detalle interno de cada tipo de kernel (COMPLEMENTO, págs. 1–4)
+> El documento COMPLEMENTO desglosa qué queda **dentro** y qué se **delega**
+> en cada tipo — lo que el diagrama 2×2 solo insinúa:
+>
+> | Tipo | Interno (en el núcleo) | Externo / delegado | Ejemplos literales |
+> |---|---|---|---|
+> | **Monolítico (Mononúcleo)** | Todo: manejo de memoria y hardware, driver–archivos del SO, sistema de archivos del usuario. *"Se ejecuta todo en modo privilegiado"*, *"un solo programa tiene todo"* | — | DOS, Linux, Android, Unix, Solarix |
+> | **Micronúcleo (Microkernel)** | Gestión básica de memoria · Planificación de procesos · Comunicación entre componentes | Sistema de archivos · Controladores de dispositivos · Bibliotecas del sistema (vía **IPC**) | QNX, Symbian, Genode, AIX, Minix, Hurd, L4, ChorusOS, RedoxOS, Zircon |
+> | **Híbrido** | Micronúcleo **+ código en el espacio central** para que las operaciones sean más rápidas | Servicios menos críticos en espacio de usuario | Microsoft Windows NT, XNU (Mac OS X), DragonFlyBSD, ReactOS |
+> | **Nanonúcleo** | Gestión básica de memoria · Comunicación entre procesos | Planificación de procesos · Sistema de archivos · Controladores · Bibliotecas del sistema | macOS y GNU Hurd |
+> | **Exonúcleo** | Solo recursos básicos de hardware: administración de CPU y gestión de memoria física | Todo lo demás, en **bibliotecas de usuario especializadas** | MIT Exokernel, OpenBSD (tipo Unix), Nemesis, ExOS |
+>
+> Dos frases del documento que el profesor resalta en mayúsculas:
+> - Nanonúcleos y Exonúcleos **"HACEN PARTE DE LOS MICRONÚCLEOS – MICROKERNEL"**.
+> - *"Existe también una clasificación como Piconúcleo - PicoKernel"*.
+>
+> Y el principio que define al micronúcleo, el **MINIMALISMO de LIEDTKE**:
+> *"Un elemento es aceptable dentro del kernel solamente si al moverlo fuera
+> pierde funcionalidad el kernel"*.
+
+> [!warning] Para memorizar — el par que más se confunde
+> **Nanonúcleo vs Micronúcleo**: la única diferencia en el reparto interno/
+> externo es la **planificación de procesos** — está **dentro** en el
+> micronúcleo y **fuera** en el nanonúcleo. Ambos dejan dentro *gestión básica
+> de memoria* y *comunicación entre procesos*. Nanonúcleo y exonúcleo **no son
+> categorías paralelas** al micronúcleo: el documento dice que forman parte
+> de él.
+
 > [!info] Captura del profesor: Monolítico vs MicroKernel, con logos reales (naps.com.mx)
 > Dos diagramas lado a lado, cada uno con 3 filas horizontales (de arriba abajo):
 >

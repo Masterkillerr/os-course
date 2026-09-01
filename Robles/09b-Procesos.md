@@ -45,6 +45,41 @@ graph TD
     CPU -->|planificador| P2
 ```
 
+> [!info] Captura del profesor: "PROGRAMA (pasivo) → PROCESO (activo)" con el disco de P1–P5
+> Diapositiva titulada *"… explicación antes de explicar Tipos S.O."*. A la
+> izquierda, un **disco gris en perspectiva 3D** rotulado **"S.O."** en su
+> borde frontal y **"PROCESOS"** en el centro de la superficie; sobre él,
+> **5 pastillas ovaladas de colores** con las etiquetas y posiciones exactas:
+>
+> | Etiqueta | Color | Posición sobre el disco |
+> |---|---|---|
+> | **P1** | azul/morado | arriba-izquierda |
+> | **P2** | amarillo oliva | arriba-derecha |
+> | **P4** | naranja/terracota | izquierda |
+> | **P3** | turquesa | derecha |
+> | **P5** | magenta | abajo-centro |
+>
+> A la derecha, el texto literal de la diapositiva, en 4 párrafos:
+> 1. *"Un PROGRAMA se construye a partir de un código en un lenguaje de
+>    programación que se compila y se enlaza para crear un ejecutable."*
+> 2. *"Este PROGRAMA se considera un actor PASIVO, el cual para ser ACTIVO se
+>    debe ejecutar el cual será cargado a través del S.O. en la memoria de
+>    trabajo del equipo."*
+> 3. *"Al pasar a ser un actor ACTIVO se convierte en PROCESO"*
+> 4. *"Un SISTEMA OPERATIVO ejecuta uno o varios procesos a través de la
+>    capacidad de memoria, el cual ocupa un espacio que puede ser fijo o
+>    variable y puede o no cargarse por completo o una parte."*
+
+> [!warning] Para memorizar — riesgo de examen
+> La cadena exacta es **código → se compila → se enlaza → ejecutable
+> (PROGRAMA, actor PASIVO) → el S.O. lo carga en memoria de trabajo → PROCESO
+> (actor ACTIVO)**. Trampas típicas:
+> - Invertir pasivo/activo: el **programa** es el pasivo, el **proceso** el activo.
+> - Olvidar el paso **"se enlaza"** (linking) entre compilar y ejecutable.
+> - Decir que el proceso siempre se carga completo: la diapositiva dice
+>   explícitamente que el espacio puede ser **fijo o variable** y que puede
+>   cargarse **por completo o solo una parte**.
+
 > [!warning] Multitarea cooperativa vs preventiva
 > **Cooperativa:** cada proceso conserva la CPU hasta que la cede (una falla congela el equipo). **Preventiva:** el reloj del sistema interrumpe periódicamente y el SO elige el siguiente proceso (tiempo compartido).
 

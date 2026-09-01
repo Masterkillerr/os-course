@@ -42,6 +42,53 @@ graph LR
     RAM -.->|swap bajo demanda| DISK
 ```
 
+> [!info] Captura del profesor: "Estructura del S.O. — Linux" (slideserve), el mapa interno del núcleo
+> Diagrama de bloques del kernel Linux dividido en **tres bandas rotuladas al
+> margen derecho**: `Modo usuario` (arriba), `Alto nivel del núcleo` (centro) y
+> `Bajo nivel del núcleo` (abajo), con `HARDWARE` como barra **negra** al pie.
+> De arriba abajo, con sus colores exactos:
+>
+> 1. Barra **rosa** ancha: `Interfaz de llamadas de alto nivel` → es la banda
+>    **Modo usuario**.
+> 2. Barra **azul clara** ancha: `Validación de argumentos de las llamadas al sistema`
+> 3. Barra **azul oscura**, más corta y centrada: `Conmutador de sistemas de archivo`
+> 4. Fila de cajas **azul celeste** (de izquierda a derecha):
+>    `Manejador de memoria` (la más ancha y alta) · `Manejador de procesos` ·
+>    `Manejador de archivos` (encima de tres columnas verticales estrechas:
+>    `Sistemas` / `de` / `archivo`) · `Manejador de terminales` ·
+>    `Interfaz de sockets y streams` sobre `Pila de red` ·
+>    y una columna vertical estrecha `Bibliotecas del kernel`.
+> 5. A la derecha de esa fila, tres cajas **verde azulado (teal)** apiladas:
+>    `Manejador de callouts` · `Estructuras del núcleo (alto nivel)` ·
+>    `Estructuras de datos compartidas entre el alto y el bajo nivel` — esta
+>    última **cruza la línea amarilla** que separa alto de bajo nivel.
+> 6. Barra **roja** ancha: `Manejadores de dispositivo` — es la frontera; justo
+>    debajo corre la **línea amarilla horizontal** de separación.
+> 7. Fila de cajas **verde menta** (banda **Bajo nivel del núcleo**):
+>    un bloque de tres renglones apilados —`Manejador de interrupciones` /
+>    `Manejador de traps de llamadas al sistema` / `Manejador de excepciones`—
+>    y a su derecha: `Tabla de dispatch` · `Manejador de procesos de bajo nivel` ·
+>    `Callout de bajo nivel` · `Cambio de contexto`.
+> 8. Barra **negra** al fondo: `HARDWARE`.
+
+> [!warning] Para memorizar — riesgo de examen (fill-in-the-blank)
+> Reconstrúyelo **de abajo hacia arriba**: `HARDWARE` → bajo nivel
+> (interrupciones / traps / excepciones + dispatch + procesos de bajo nivel +
+> callout + **cambio de contexto**) → `Manejadores de dispositivo` (la barra
+> roja, la frontera) → alto nivel (memoria / procesos / archivos / terminales /
+> red) → `Conmutador de sistemas de archivo` → `Validación de argumentos` →
+> `Interfaz de llamadas de alto nivel` → modo usuario.
+>
+> Trampas:
+> - **`Cambio de contexto` va en el BAJO nivel**, no junto al "Manejador de
+>   procesos" del alto nivel — hay un manejador de procesos en cada banda.
+> - El **Manejador de memoria** es de **alto** nivel (es la caja más grande de
+>   esa fila), pese a "sonar" a hardware.
+> - La única caja que **atraviesa** la frontera es *Estructuras de datos
+>   compartidas entre el alto y el bajo nivel* — por eso se llama así.
+> - `Manejadores de dispositivo` (roja) NO está en el bajo nivel: es la banda
+>   que los separa.
+
 ---
 
 ## Entrada/Salida (E/S)
