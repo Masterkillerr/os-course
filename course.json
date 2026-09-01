@@ -115,6 +115,12 @@
       "parent": "08-Linea-de-Comandos"
     },
     {
+      "stem": "12-Practicas-Monitoreo-y-Mantenimiento",
+      "title": "🛠️ Prácticas — Monitoreo y Mantenimiento",
+      "unit": "Unidad 3 — Herramientas",
+      "parent": null
+    },
+    {
       "stem": "05-Historia-Windows",
       "title": "🪟 Historia de Windows",
       "unit": "Unidad 4 — Contexto de Industria",
@@ -204,13 +210,17 @@
     "⌨️-PowerShell-—-cmdlets-y-ejemplos": 18,
     "powershell-cmdlets-y-ejemplos": 18,
     "08b-PowerShell": 18,
-    "🪟 Historia de Windows": 19,
-    "🪟-Historia-de-Windows": 19,
-    "historia-de-windows": 19,
-    "05-Historia-Windows": 19,
-    "📊 Mercado de OS": 20,
-    "📊-Mercado-de-OS": 20,
-    "mercado-de-os": 20,
-    "06-Mercado-OS": 20
+    "🛠️ Prácticas — Monitoreo y Mantenimiento": 19,
+    "🛠️-Prácticas-—-Monitoreo-y-Mantenimiento": 19,
+    "practicas-monitoreo-y-mantenimiento": 19,
+    "12-Practicas-Monitoreo-y-Mantenimiento": 19,
+    "🪟 Historia de Windows": 20,
+    "🪟-Historia-de-Windows": 20,
+    "historia-de-windows": 20,
+    "05-Historia-Windows": 20,
+    "📊 Mercado de OS": 21,
+    "📊-Mercado-de-OS": 21,
+    "mercado-de-os": 21,
+    "06-Mercado-OS": 21
   }
 }
