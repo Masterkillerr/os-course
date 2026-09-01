@@ -90,6 +90,18 @@ body {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
+.nav-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  vertical-align: -3px;
+}
+.brand .nav-icon {
+  width: 17px;
+  height: 17px;
+  vertical-align: -3px;
+  margin-right: 2px;
+}
 
 /* ===== Page-level prev/next navigation ===== */
 .page-nav {
@@ -500,37 +512,37 @@ html[data-theme="dark"] .mermaid foreignObject div { color: #e8e8e8 !important; 
 <body>
 
 <nav class="sidebar" id="sidebar">
-  <div class="brand">📚 Sistemas Operativos</div>
-  <a class="nav-item" data-page="0"><span class="num">00</span> 🗂️ Índice</a>
+  <div class="brand"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg> Sistemas Operativos</div>
+  <a class="nav-item" data-page="0"><span class="num">00</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M10 2v8l3-3 3 3V2"/></svg> Índice</a>
 
   <h2>Unidad 1 — Fundamentos</h2>
-  <a class="nav-item" data-page="1"><span class="num">01</span> 📘 Introducción a los S.O.</a>
-  <a class="nav-item" data-page="2"><span class="num">02</span> 🧠 Fundamentos del SO</a>
-  <a class="nav-item" data-page="3"><span class="num">03</span> 🧠 Procesos y Kernel</a>
-  <a class="nav-item nav-item-child" data-page="4">    <span class="num">04</span> 🧠 Procesos y Threads</a>
-  <a class="nav-item nav-item-child" data-page="5">    <span class="num">05</span> 🧠 Memoria, E/S y Sincronización</a>
-  <a class="nav-item nav-item-child" data-page="6">    <span class="num">06</span> 🧠 Virtualización, Kernel y Conceptos</a>
-  <a class="nav-item" data-page="7"><span class="num">07</span> 📅 Planificación (Gantt)</a>
-  <a class="nav-item" data-page="8"><span class="num">08</span> 🤖 Android y Dalvik</a>
+  <a class="nav-item" data-page="1"><span class="num">01</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg> Introducción a los S.O.</a>
+  <a class="nav-item" data-page="2"><span class="num">02</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg> Fundamentos del SO</a>
+  <a class="nav-item" data-page="3"><span class="num">03</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg> Procesos y Kernel</a>
+  <a class="nav-item nav-item-child" data-page="4">    <span class="num">04</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg> Procesos y Threads</a>
+  <a class="nav-item nav-item-child" data-page="5">    <span class="num">05</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg> Memoria, E/S y Sincronización</a>
+  <a class="nav-item nav-item-child" data-page="6">    <span class="num">06</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg> Virtualización, Kernel y Conceptos</a>
+  <a class="nav-item" data-page="7"><span class="num">07</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h5"/><path d="M17.5 17.5 16 16.25V14"/><circle cx="16" cy="16" r="6"/></svg> Planificación (Gantt)</a>
+  <a class="nav-item" data-page="8"><span class="num">08</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> Android y Dalvik</a>
 
   <h2>Unidad 2 — Almacenamiento y Arranque</h2>
-  <a class="nav-item" data-page="9"><span class="num">09</span> 💾 Sistemas de Archivos</a>
-  <a class="nav-item nav-item-child" data-page="10">    <span class="num">10</span> 💾 FAT — File Allocation Table</a>
-  <a class="nav-item nav-item-child" data-page="11">    <span class="num">11</span> 💾 NTFS — New Technology File System</a>
-  <a class="nav-item nav-item-child" data-page="12">    <span class="num">12</span> 💾 ReFS, Atributos y Conceptos</a>
-  <a class="nav-item" data-page="13"><span class="num">13</span> 📊 Estructuras de Datos</a>
-  <a class="nav-item" data-page="14"><span class="num">14</span> 🛡️ Arranque y Seguridad</a>
-  <a class="nav-item" data-page="15"><span class="num">15</span> 🔐 TPM</a>
+  <a class="nav-item" data-page="9"><span class="num">09</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg> Sistemas de Archivos</a>
+  <a class="nav-item nav-item-child" data-page="10">    <span class="num">10</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg> FAT — File Allocation Table</a>
+  <a class="nav-item nav-item-child" data-page="11">    <span class="num">11</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg> NTFS — New Technology File System</a>
+  <a class="nav-item nav-item-child" data-page="12">    <span class="num">12</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg> ReFS, Atributos y Conceptos</a>
+  <a class="nav-item" data-page="13"><span class="num">13</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg> Estructuras de Datos</a>
+  <a class="nav-item" data-page="14"><span class="num">14</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg> Arranque y Seguridad</a>
+  <a class="nav-item" data-page="15"><span class="num">15</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> TPM</a>
 
   <h2>Unidad 3 — Herramientas</h2>
-  <a class="nav-item" data-page="16"><span class="num">16</span> ⌨️ Línea de comandos</a>
-  <a class="nav-item nav-item-child" data-page="17">    <span class="num">17</span> ⌨️ CMD — Comandos esenciales</a>
-  <a class="nav-item nav-item-child" data-page="18">    <span class="num">18</span> ⌨️ PowerShell — cmdlets y ejemplos</a>
-  <a class="nav-item" data-page="19"><span class="num">19</span> 🛠️ Prácticas — Monitoreo y Mantenimiento</a>
+  <a class="nav-item" data-page="16"><span class="num">16</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/></svg> Línea de comandos</a>
+  <a class="nav-item nav-item-child" data-page="17">    <span class="num">17</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/></svg> CMD — Comandos esenciales</a>
+  <a class="nav-item nav-item-child" data-page="18">    <span class="num">18</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"/><path d="M11 13h4"/><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/></svg> PowerShell — cmdlets y ejemplos</a>
+  <a class="nav-item" data-page="19"><span class="num">19</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg> Prácticas — Monitoreo y Mantenimiento</a>
 
   <h2>Unidad 4 — Contexto de Industria</h2>
-  <a class="nav-item" data-page="20"><span class="num">20</span> 🪟 Historia de Windows</a>
-  <a class="nav-item" data-page="21"><span class="num">21</span> 📊 Mercado de OS</a>
+  <a class="nav-item" data-page="20"><span class="num">20</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Historia de Windows</a>
+  <a class="nav-item" data-page="21"><span class="num">21</span> <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg> Mercado de OS</a>
 
   <h2>Profesor</h2>
 </nav>
