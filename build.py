@@ -112,6 +112,8 @@ def load_pages():
             "title": title,
             "unit": fm.get("unit"),
             "parent": fm.get("parent"),
+            "prev": fm.get("prev"),
+            "next": fm.get("next"),
             "order": float(fm["order"]),
         })
     pages.sort(key=lambda p: p["order"])

@@ -4,133 +4,177 @@
       "stem": "00-Indice",
       "title": "🗂️ Índice",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": null,
+      "next": "07-Introduccion-SO"
     },
     {
       "stem": "07-Introduccion-SO",
       "title": "📘 Introducción a los S.O.",
       "unit": "Unidad 1 — Fundamentos",
-      "parent": null
+      "parent": null,
+      "prev": "00-Indice",
+      "next": "09-Fundamentos-del-SO"
     },
     {
       "stem": "09-Fundamentos-del-SO",
       "title": "🧠 Fundamentos del SO",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "07-Introduccion-SO",
+      "next": "09b-Procesos-Memoria-Kernel"
     },
     {
       "stem": "09b-Procesos-Memoria-Kernel",
       "title": "🧠 Procesos y Kernel",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "09-Fundamentos-del-SO",
+      "next": "09b-Procesos"
     },
     {
       "stem": "09b-Procesos",
       "title": "🧠 Procesos y Threads",
       "unit": null,
-      "parent": "09b-Procesos-Memoria-Kernel"
+      "parent": "09b-Procesos-Memoria-Kernel",
+      "prev": "09b-Procesos-Memoria-Kernel",
+      "next": "09c-Memoria-y-Sincronizacion"
     },
     {
       "stem": "09c-Memoria-y-Sincronizacion",
       "title": "🧠 Memoria, E/S y Sincronización",
       "unit": null,
-      "parent": "09b-Procesos-Memoria-Kernel"
+      "parent": "09b-Procesos-Memoria-Kernel",
+      "prev": "09b-Procesos",
+      "next": "09d-Virtualizacion-Kernel"
     },
     {
       "stem": "09d-Virtualizacion-Kernel",
       "title": "🧠 Virtualización, Kernel y Conceptos",
       "unit": null,
-      "parent": "09b-Procesos-Memoria-Kernel"
+      "parent": "09b-Procesos-Memoria-Kernel",
+      "prev": "09c-Memoria-y-Sincronizacion",
+      "next": "11-Planificacion-Procesos"
     },
     {
       "stem": "11-Planificacion-Procesos",
       "title": "📅 Planificación (Gantt)",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "09d-Virtualizacion-Kernel",
+      "next": "10-Android-Dalvik"
     },
     {
       "stem": "10-Android-Dalvik",
       "title": "🤖 Android y Dalvik",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "11-Planificacion-Procesos",
+      "next": "02-Sistemas-de-Archivos"
     },
     {
       "stem": "02-Sistemas-de-Archivos",
       "title": "💾 Sistemas de Archivos",
       "unit": "Unidad 2 — Almacenamiento y Arranque",
-      "parent": null
+      "parent": null,
+      "prev": "10-Android-Dalvik",
+      "next": "02a-FAT"
     },
     {
       "stem": "02a-FAT",
       "title": "💾 FAT — File Allocation Table",
       "unit": "Unidad 2 — Almacenamiento y Arranque",
-      "parent": "02-Sistemas-de-Archivos"
+      "parent": "02-Sistemas-de-Archivos",
+      "prev": "02-Sistemas-de-Archivos",
+      "next": "02b-NTFS"
     },
     {
       "stem": "02b-NTFS",
       "title": "💾 NTFS — New Technology File System",
       "unit": "Unidad 2 — Almacenamiento y Arranque",
-      "parent": "02-Sistemas-de-Archivos"
+      "parent": "02-Sistemas-de-Archivos",
+      "prev": "02a-FAT",
+      "next": "02c-ReFS-y-atributos"
     },
     {
       "stem": "02c-ReFS-y-atributos",
       "title": "💾 ReFS, Atributos y Conceptos",
       "unit": "Unidad 2 — Almacenamiento y Arranque",
-      "parent": "02-Sistemas-de-Archivos"
+      "parent": "02-Sistemas-de-Archivos",
+      "prev": "02b-NTFS",
+      "next": "04-Estructuras-de-Datos"
     },
     {
       "stem": "04-Estructuras-de-Datos",
       "title": "📊 Estructuras de Datos",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "02c-ReFS-y-atributos",
+      "next": "03-Arranque-y-Seguridad"
     },
     {
       "stem": "03-Arranque-y-Seguridad",
       "title": "🛡️ Arranque y Seguridad",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "04-Estructuras-de-Datos",
+      "next": "01-TPM"
     },
     {
       "stem": "01-TPM",
       "title": "🔐 TPM",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "03-Arranque-y-Seguridad",
+      "next": "08-Linea-de-Comandos"
     },
     {
       "stem": "08-Linea-de-Comandos",
       "title": "⌨️ Línea de comandos",
       "unit": "Unidad 3 — Herramientas",
-      "parent": null
+      "parent": null,
+      "prev": "01-TPM",
+      "next": "08a-CMD"
     },
     {
       "stem": "08a-CMD",
       "title": "⌨️ CMD — Comandos esenciales",
       "unit": "Unidad 3 — Herramientas",
-      "parent": "08-Linea-de-Comandos"
+      "parent": "08-Linea-de-Comandos",
+      "prev": "08-Linea-de-Comandos",
+      "next": "08b-PowerShell"
     },
     {
       "stem": "08b-PowerShell",
       "title": "⌨️ PowerShell — cmdlets y ejemplos",
       "unit": "Unidad 3 — Herramientas",
-      "parent": "08-Linea-de-Comandos"
+      "parent": "08-Linea-de-Comandos",
+      "prev": "08a-CMD",
+      "next": "05-Historia-Windows"
     },
     {
       "stem": "12-Practicas-Monitoreo-y-Mantenimiento",
       "title": "🛠️ Prácticas — Monitoreo y Mantenimiento",
       "unit": "Unidad 3 — Herramientas",
-      "parent": null
+      "parent": null,
+      "prev": null,
+      "next": null
     },
     {
       "stem": "05-Historia-Windows",
       "title": "🪟 Historia de Windows",
       "unit": "Unidad 4 — Contexto de Industria",
-      "parent": null
+      "parent": null,
+      "prev": "08b-PowerShell",
+      "next": "06-Mercado-OS"
     },
     {
       "stem": "06-Mercado-OS",
       "title": "📊 Mercado de OS",
       "unit": null,
-      "parent": null
+      "parent": null,
+      "prev": "05-Historia-Windows",
+      "next": null
     }
   ],
   "wikimap": {

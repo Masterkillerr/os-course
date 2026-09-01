@@ -1019,10 +1019,14 @@ function injectPageNav(idx, page) {
   html += next ? `<a class="page-nav-next" data-page="${pages.indexOf(next)}">${next.title} →</a>` : '<span></span>';
   html += '</div>';
   nav.innerHTML = html;
+  const navBottom = nav.cloneNode(true);
   page.prepend(nav);
+  page.append(navBottom);
 
-  nav.querySelectorAll('a[data-page]').forEach(a => {
-    a.addEventListener('click', () => gotoPage(+a.dataset.page));
+  [nav, navBottom].forEach(n => {
+    n.querySelectorAll('a[data-page]').forEach(a => {
+      a.addEventListener('click', () => gotoPage(+a.dataset.page));
+    });
   });
 }
 
