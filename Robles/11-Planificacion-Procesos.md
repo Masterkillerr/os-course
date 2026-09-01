@@ -64,6 +64,48 @@ Todos los ejercicios comparten la misma estructura:
 
 ## Monoprogramado-Monotarea
 
+```mermaid
+gantt
+    title Monoprogramado — ejecución secuencial (sin solapamiento)
+    dateFormat X
+    axisFormat %s
+    section Proceso A (5 jobs, 3 I/O)
+    A₁ :a1, 1, 2
+    A-I/O :a2, after a1, 1
+    A₂ :a3, after a2, 2
+    A-I/O :a4, after a3, 1
+    A₃ :a5, after a4, 2
+    A-I/O :a6, after a5, 1
+    A₄ :a7, after a6, 2
+    A₅ :a8, after a7, 1
+    section Proceso B (7 jobs, 1 I/O)
+    B₁ :b1, after a8, 2
+    B-I/O :b2, after b1, 1
+    B₂ :b3, after b2, 2
+    B₃ :b4, after b3, 2
+    B₄ :b5, after b4, 2
+    B₅ :b6, after b5, 2
+    B₆ :b7, after b6, 1
+    B₇ :b8, after b7, 1
+    section Proceso C (6 jobs, 3 I/O)
+    C₁ :c1, after b8, 2
+    C-I/O :c2, after c1, 1
+    C₂ :c3, after c2, 2
+    C₃ :c4, after c3, 2
+    C₄ :c5, after c4, 2
+    C-I/O :c6, after c5, 1
+    C₅ :c7, after c6, 2
+    C₆ :c8, after c7, 1
+    section Proceso D (5 jobs, 3 I/O)
+    D₁ :d1, after c8, 2
+    D-I/O :d2, after d1, 1
+    D₂ :d3, after d2, 2
+    D₃ :d4, after d3, 2
+    D₄ :d5, after d4, 2
+    D-I/O :d6, after d5, 1
+    D₅ :d7, after d6, 1
+```
+
 > [!info] Captura del profesor: ejercicio resuelto (versión 1, sin T.E./T.O.)
 > Tabla con 4 procesos, cada uno ejecuta **secuencialmente** (uno termina del
 > todo antes de que empiece el siguiente) — sin solaparse nunca en el tiempo:
@@ -103,6 +145,43 @@ Todos los ejercicios comparten la misma estructura:
 
 ## Multiprogramación-Multitarea
 
+```mermaid
+gantt
+    title Multiprogramación — bloques intercalados (CPU nunca ociosa)
+    dateFormat X
+    axisFormat %s
+    section Proceso A (5 jobs, 3 I/O)
+    A₁ :a1, 1, 1
+    A₂ :a2, after a1, 1
+    A₃ :a3, after a2, 1
+    A₄ :a4, after a3, 1
+    A₅ :a5, after a4, 1
+    section Proceso B (7 jobs, 1 I/O)
+    B₁ :b1, after a1, 1
+    B₂ :b2, after a1, 1
+    B-I/O :b3, after b2, 1
+    B₃ :b4, after b3, 1
+    B₄ :b5, after b4, 1
+    B₅ :b6, after b5, 1
+    B₆ :b7, after b6, 1
+    B₇ :b8, after b7, 1
+    section Proceso C (6 jobs, 3 I/O)
+    C₁ :c1, after a2, 1
+    C₂ :c2, after c1, 1
+    C₃ :c3, after c2, 1
+    C-I/O :c4, after c3, 1
+    C₄ :c5, after c4, 1
+    C₅ :c6, after c5, 1
+    C₆ :c7, after c6, 1
+    section Proceso D (5 jobs, 3 I/O)
+    D₁ :d1, after a3, 1
+    D₂ :d2, after d1, 1
+    D₃ :d3, after d2, 1
+    D-I/O :d4, after d3, 1
+    D₄ :d5, after d4, 1
+    D₅ :d6, after d5, 1
+```
+
 > [!info] Captura del profesor: multiprogramación, ejemplo 1
 > Misma tabla de 4 procesos (A: 5-3, B: 7-1, C: 6-3, D: 5-3, total 23/10),
 > pero ahora **los bloques de ejecución SÍ se solapan/intercalan** en el
@@ -131,6 +210,34 @@ Todos los ejercicios comparten la misma estructura:
 
 ## Multiprogramación con Quantum
 
+```mermaid
+gantt
+    title Multiprogramación con Quantum de 2 — cambios de contexto en naranja
+    dateFormat X
+    axisFormat %s
+    section Proceso A (4 jobs, 2 I/O)
+    A₁ :a1, 1, 2
+    A₂ :a2, after a1, 2
+    A-I/O :a3, after a2, 1
+    A₃ :a4, after a3, 2
+    A₄ :a5, after a4, 1
+    section Proceso B (5 jobs, 2 I/O)
+    B₁ :b1, after a1, 2
+    B₂ :b2, after b1, 2
+    B-I/O :b3, after b2, 1
+    B₃ :b4, after b3, 2
+    B₄ :b5, after b4, 2
+    B₅ :b6, after b5, 1
+    section Proceso C (3 jobs, 0 I/O)
+    C₁ :c1, after a2, 2
+    C₂ :c2, after c1, 2
+    C₃ :c3, after c2, 2
+    section Proceso D (2 jobs, 1 I/O)
+    D₁ :d1, after a3, 2
+    D₂ :d2, after d1, 2
+    D-I/O :d3, after d2, 1
+```
+
 > [!info] Captura del profesor: multiprogramación con Quantum de 2 unidades
 > Nota del profesor en la diapositiva: *"ALGO MÁS REAL A LO QUE TENEMOS EN LA
 > ACTUALIDAD EN EL USO DE LA CPU — SE DEFINE COMO EL TIEMPO DE USO DEL
@@ -155,6 +262,47 @@ Todos los ejercicios comparten la misma estructura:
 ---
 
 ## Multiproceso (1 core, 4 hilos)
+
+```mermaid
+gantt
+    title Multiproceso (1 core, 4 hilos) — cada proceso en su carril
+    dateFormat X
+    axisFormat %s
+    section Thread 1 — Proceso A (5 jobs, 3 I/O)
+    A₁ :a1, 1, 2
+    A-I/O :a2, after a1, 1
+    A₂ :a3, after a2, 2
+    A₃ :a4, after a3, 1
+    A₄ :a5, after a4, 2
+    A-I/O :a6, after a5, 1
+    A₅ :a7, after a6, 1
+    section Thread 2 — Proceso B (7 jobs, 1 I/O)
+    B₁ :b1, 2, 1
+    B-I/O :b2, after b1, 1
+    B₂ :b3, after b2, 2
+    B₃ :b4, after b3, 1
+    B₄ :b5, after b4, 2
+    B₅ :b6, after b5, 2
+    B₆ :b7, after b6, 1
+    B₇ :b8, after b7, 1
+    section Thread 3 — Proceso C (6 jobs, 3 I/O)
+    C₁ :c1, 3, 1
+    C-I/O :c2, after c1, 1
+    C₂ :c3, after c2, 2
+    C₃ :c4, after c3, 1
+    C₄ :c5, after c4, 2
+    C-I/O :c6, after c5, 1
+    C₅ :c7, after c6, 2
+    C₆ :c8, after c7, 1
+    section Thread 4 — Proceso D (5 jobs, 3 I/O)
+    D₁ :d1, 4, 2
+    D-I/O :d2, after d1, 1
+    D₂ :d3, after d2, 2
+    D₃ :d4, after d3, 2
+    D-I/O :d5, after d4, 1
+    D₄ :d6, after d5, 2
+    D₅ :d7, after d6, 1
+```
 
 > [!info] Captura del profesor: "Para comprender mejor... los Hilos con un buen planificador siempre respetan el hilo al proceso asociado"
 > Escenario: **1 CORE, 4 HILOS** — cada uno de los 4 procesos (A/B/C/D, con
@@ -198,6 +346,46 @@ Todos los ejercicios comparten la misma estructura:
 ---
 
 ## Multiprocesamiento — plantilla en blanco
+
+```mermaid
+gantt
+    title Multiprocesamiento — plantilla en blanco (examen)
+    dateFormat X
+    axisFormat %s
+    section Proceso A (5 jobs, 3 I/O)
+    A₁ :a1, 1, 2
+    A₂ :a2, after a1, 2
+    A₃ :a3, after a2, 1
+    A-I/O :a4, after a3, 1
+    A₄ :a5, after a4, 2
+    A-I/O :a6, after a5, 1
+    A₅ :a7, after a6, 1
+    section Proceso B (6 jobs, 4 I/O)
+    B₁ :b1, 2, 2
+    B₂ :b2, after b1, 2
+    B₃ :b3, after b2, 2
+    B₄ :b4, after b3, 2
+    B-I/O :b5, after b4, 1
+    B₅ :b6, after b5, 2
+    B₆ :b7, after b6, 1
+    B-I/O :b8, after b7, 1
+    section Proceso C (3 jobs, 3 I/O)
+    C₁ :c1, 3, 1
+    C-I/O :c2, after c1, 1
+    C₂ :c3, after c2, 2
+    C₃ :c4, after c3, 1
+    section Proceso D (9 jobs, 2 I/O)
+    D₁ :d1, 4, 2
+    D₂ :d2, after d1, 2
+    D₃ :d3, after d2, 2
+    D₄ :d4, after d3, 2
+    D₅ :d5, after d4, 2
+    D₆ :d6, after d5, 2
+    D₇ :d7, after d6, 2
+    D₈ :d8, after d7, 2
+    D₉ :d9, after d8, 1
+    D-I/O :d10, after d9, 1
+```
 
 > [!warning] Posible formato de examen — esta diapositiva NO está resuelta
 > El profesor deja esta tabla **completamente vacía** (sin ninguna celda
