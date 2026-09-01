@@ -1010,20 +1010,13 @@ function injectPageNav(idx, page) {
   const current = pages[idx];
   const prev = current.prev && pages.find(p => p.stem === current.prev);
   const next = current.next && pages.find(p => p.stem === current.next);
+  if (!prev && !next) return;
 
   const nav = document.createElement('nav');
   nav.className = 'page-nav';
   let html = '<div class="page-nav-inner">';
-  if (prev) {
-    html += `<a class="page-nav-prev" data-page="${pages.indexOf(prev)}">← ${prev.title}</a>`;
-  } else {
-    html += `<span class="page-nav-placeholder"></span>`;
-  }
-  if (next) {
-    html += `<a class="page-nav-next" data-page="${pages.indexOf(next)}">${next.title} →</a>`;
-  } else {
-    html += `<span class="page-nav-placeholder"></span>`;
-  }
+  html += prev ? `<a class="page-nav-prev" data-page="${pages.indexOf(prev)}">← ${prev.title}</a>` : '<span></span>';
+  html += next ? `<a class="page-nav-next" data-page="${pages.indexOf(next)}">${next.title} →</a>` : '<span></span>';
   html += '</div>';
   nav.innerHTML = html;
   page.prepend(nav);
