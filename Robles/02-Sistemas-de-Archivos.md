@@ -36,6 +36,8 @@ tiempo_clase: "18:18 - 46:33"
 ---
 
 ## Estructura de un medio de almacenamiento
+
+```mermaid
 graph TD
     A[Disco Duro / SSD / Pendrive] --> B[Sector de Arranque]
     A --> C[Sistema de Archivos]

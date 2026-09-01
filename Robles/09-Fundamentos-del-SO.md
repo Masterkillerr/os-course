@@ -20,7 +20,7 @@ tiempo_clase: null
 > **Clase 2** — Fundamentos del Sistema Operativo
 > **Tema:** Conceptos centrales: procesos, memoria, E/S, sincronización, virtualización, tipos de kernel
 > **Ver también:** [[07-Introduccion-SO|📘 Introducción a los S.O.]]
->
+
 > [!info] Objetivo
 > Conceptos centrales que el SO gestiona en tiempo de ejecución: procesos, memoria, E/S, concurrencia y virtualización, más los tipos de kernel. Base para entender cualquier SO moderno.
 
