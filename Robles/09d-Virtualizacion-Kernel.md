@@ -97,7 +97,7 @@ graph LR
 > | Tipo | Interno (en el núcleo) | Externo / delegado | Ejemplos literales |
 > |---|---|---|---|
 > | **Monolítico (Mononúcleo)** | Todo: manejo de memoria y hardware, driver–archivos del SO, sistema de archivos del usuario. *"Se ejecuta todo en modo privilegiado"*, *"un solo programa tiene todo"* | — | DOS, Linux, Android, Unix, Solarix |
-> | **Micronúcleo (Microkernel)** | Gestión básica de memoria · Planificación de procesos · Comunicación entre componentes | Sistema de archivos · Controladores de dispositivos · Bibliotecas del sistema (vía **IPC**) | QNX, Symbian, Genode, AIX, Minix, Hurd, L4, ChorusOS, RedoxOS, Zircon |
+> | **Micronúcleo (Microkernel)** | Gestión básica de memoria · Planificación de procesos · Comunicación entre componentes | Sistema de archivos · Controladores de dispositivos · Bibliotecas del sistema (vía **IPC**) | Frase de cabecera: *"QNIX «Sistemas operativo tipo UNIX pero en tiempo real para sistemas EMBEBIDOS – ósea para máquinas particulares como Video Consolas, Tablet, etc», Symbian, Genode."* Y la lista completa en 3 columnas: **AIX · AmigaOS · Amoeba · Minix · Hurd · MorphOS · NeXTSTEP · L4 · Netkernel · RaOS · RadiOS · ChorusOS · QNX · SO3 · Symbian · SymbOS · Zircon · AmayaOS · RedoxOS** |
 > | **Híbrido** | Micronúcleo **+ código en el espacio central** para que las operaciones sean más rápidas | Servicios menos críticos en espacio de usuario | Microsoft Windows NT, XNU (Mac OS X), DragonFlyBSD, ReactOS |
 > | **Nanonúcleo** | Gestión básica de memoria · Comunicación entre procesos | Planificación de procesos · Sistema de archivos · Controladores · Bibliotecas del sistema | macOS y GNU Hurd |
 > | **Exonúcleo** | Solo recursos básicos de hardware: administración de CPU y gestión de memoria física | Todo lo demás, en **bibliotecas de usuario especializadas** | MIT Exokernel, OpenBSD (tipo Unix), Nemesis, ExOS |
@@ -195,8 +195,13 @@ graph LR
 ### Modos de ejecución: los 4 conceptos con ejemplos reales
 
 > [!info] Captura del profesor: Monoprogramación / Monoprocesamiento / Multiprogramación / Multiprocesamiento
-> Diagrama de 4 cajas verdes en cuadrícula 2×2, con flecha horizontal
-> Monoprogramación→Monoprocesamiento y Multiprogramación→Multiprocesamiento:
+> Diapositiva **"MODOS DE EJECUCIÓN DE LOS S.O."**. Cuadrícula 2×2 sobre fondo
+> blanco: cada cuadrante tiene un **título en pastilla verde oscuro con texto
+> negro** y, debajo, una **caja verde claro** con la definición. Las flechas
+> negras son **horizontales y van de izquierda a derecha en cada fila**: de la
+> caja de Monoprogramación a la de Monoprocesamiento y **de ésta hacia fuera
+> del diagrama** (otra flecha al borde derecho); igual en la fila inferior,
+> Multiprogramación → Multiprocesamiento → fuera.
 >
 > | Concepto | Definición literal de la diapositiva | Ejemplo |
 > |---|---|---|
@@ -211,12 +216,22 @@ graph LR
 > de la CPU*.
 
 > [!info] Captura del profesor: la analogía del mesero/restaurante
-> Misma cuadrícula 2×2, ahora con dibujos de mesero(s) y mesa(s):
-> - **Monoprogramación**: 1 mesero, 1 mesa (1 solo cliente sentado).
-> - **Monoprocesamiento**: 1 mesero (marcado "CPU"), pero ahora 2 mesas — el
->   mesero atiende ambas alternando (números 1 y 2 sobre las mesas).
-> - **Multiprogramación**: varios meseros, 1 grupo de mesas juntas.
-> - **Multiprocesamiento**: varios meseros, varios grupos de mesas separados.
+> Misma diapositiva **"MODOS DE EJECUCIÓN DE LOS S.O."**, cuadrícula 2×2 con
+> dibujos de mesero(s) y mesa(s) — títulos en negro, sin pastilla verde
+> (nótese la errata del profesor: escribe **"Monoprocesamciento"**):
+> - **Monoprogramación**: **1 mesero**, **1 mesa** con 1 solo cliente sentado.
+> - **Monoprocesamiento**: **1 solo mesero**, rotulado **`CPU`** en verde a su
+>   izquierda, atendiendo **2 mesas** numeradas **1** y **2** en rojo — el
+>   mismo mesero alterna entre ambas.
+> - **Multiprogramación**: **1 solo mesero** también, atendiendo una mesa con
+>   2 clientes más otra mesa aparte con 1 cliente (varios "programas" en
+>   memoria, un único mesero/CPU que los intercala).
+> - **Multiprocesamiento**: **varios meseros** (4 en total) repartidos entre
+>   dos grupos de mesas separados — hay más de una "CPU" sirviendo a la vez.
+>
+> **La trampa visual**: el número de **meseros** es lo que distingue
+> mono/multi**procesamiento**; el número de **mesas/clientes** distingue
+> mono/multi**programación**. Multiprogramación sigue teniendo un solo mesero.
 
 > [!info] Captura del profesor: comparación 50% vs 100% de utilización (P1/P2)
 > Dos líneas de tiempo apiladas, la de arriba **sin multiprogramación**: el

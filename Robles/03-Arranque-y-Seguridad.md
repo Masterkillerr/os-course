@@ -64,21 +64,26 @@ graph TD
 > Todo se carga en la **RAM** (área de trabajo del procesador). Si la RAM se llena, el sistema se vuelve lento.
 
 > [!info] Captura del profesor: arquitectura y flujo de arranque de Microsoft Pluton
-> Fuente: `2 TPM introducción y seguridd del dispositivo.pdf`, diapositiva
-> "Flujo de Carga del FIRMWARE". Dos diagramas:
+> Fuente: `2 TPM introducción y seguridd del dispositivo.pdf`, **pág. 25**. La
+> página lleva **dos diagramas de fondo negro/azul**; el rótulo **"Flujo de
+> Carga del FIRMWARE"** va **entre ambos**, como título del **segundo**.
 >
-> **Diagrama de arquitectura** (dos bloques apilados con doble flecha entre
-> ellos):
-> - **Bloque de software** (arriba): caja "Sistema operativo Windows"
->   contiene dos sub-cajas lado a lado: `Controladores de Plutón` y
->   `Firmware de Plutón`. Nota al lado: *"Durante el inicio de Windows, se
->   utiliza en su lugar la última versión del firmware de Plutón, si está
->   disponible."*
-> - **Bloque de hardware y firmware** (abajo): caja "CPU (sistema en chip)"
->   contiene: `Procesador de seguridad Plutón`, un icono de `CPU Núcleos`, y
->   (resaltado en naranja) `Firmware de Microsoft Plutón`. Nota al lado:
->   *"En el arranque del sistema, el firmware de Microsoft Plutón se carga
->   desde el almacenamiento Flash."*
+> **Diagrama superior — arquitectura**: dos bloques grises apilados, unidos por
+> una **única flecha vertical de doble punta situada a la izquierda** (no entre
+> los centros).
+> - **`Bloque de software`** (arriba; el rótulo va **al pie** del bloque gris):
+>   contiene una caja azul **`Sistema operativo Windows`** con dos sub-cajas
+>   lado a lado: **`Controladores de plutón`** y **`Firmware de plutón`**. A su
+>   derecha, **fuera** del bloque, una caja gris de nota unida por flecha:
+>   *"Durante el inicio de Windows, se utiliza en su lugar la última versión
+>   del firmware de Plutón, si está disponible."*
+> - **`Bloque de hardware y firmware`** (abajo, rótulo también al pie):
+>   contiene una caja azul **`CPU (sistema en chip)`** con, a la izquierda, un
+>   **icono de chip/procesador** y debajo **`Procesador de seguridad Plutón`**,
+>   y bajo éste la caja resaltada en **naranja** **`Firmware de Microsoft
+>   Plutón`**; a la derecha, una caja aparte **`CPU  Núcleos`**. Nota externa a
+>   la derecha: *"En el arranque del sistema, el firmware de Microsoft Plutón
+>   se carga desde el almacenamiento Flash."*
 >
 > **Flujo de arranque** (secuencia lineal con una decisión):
 > ```

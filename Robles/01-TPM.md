@@ -83,14 +83,29 @@ graph TD
 | **vTPM** | Dentro de VM | Hyper-V, VMware, QEMU | Media |
 
 > [!info] Captura del profesor: TPM físico
-> La diapositiva "Físicamente" muestra dos fotos de hardware real, lado a lado:
-> - **Izquierda, etiquetada "TPN Integrado"** (TPM integrado): una placa pequeña
->   suelta con un chip cuadrado central, tornillos/pines dorados, marcada
->   "MADE IN CHINA".
-> - **Derecha, etiquetada "TPM Discreto"**: una esquina de motherboard mostrando
->   un chip TPM soldado junto a los puertos USB (etiquetados "USB910"/"USB1112"
->   en la placa), con un pin-header de 20 pines cerca — el punto de conexión
->   físico para un módulo TPM discreto add-on.
+> El apartado **`a. Físicamente:`** del documento (pág. 1) muestra dos fotos de
+> hardware real, lado a lado, con el **rótulo debajo** de cada una:
+> - **Izquierda, rotulada "TPN Integrado"** (errata del documento: "TPN" por
+>   "TPM"): primer plano de una placa base verde/azul con un **circuito
+>   integrado rectangular** serigrafiado en el centro, una **fila de pines
+>   dorados** en el borde inferior y el texto vertical **"MADE IN CHINA"** a la
+>   izquierda; alrededor, condensadores y otros componentes soldados.
+> - **Derecha, rotulada "TPM Discreto"**: esquina de una motherboard negra con
+>   sus cabeceras de pines junto a los conectores rotulados **`USB910`** y
+>   **`USB1112`**, y un **módulo TPM add-on** (placa verde pequeña) **insertado
+>   en su cabecera de pines**, además del propio chip marcado `TPM` soldado a
+>   la placa.
+>
+> Texto que introduce las fotos, verbatim: *"El TPM es un chip que se encuentra
+> integrado en la placa base de un ordenador. Este chip funciona como un cofre
+> de seguridad para almacenar claves y realizar operaciones criptográficas. A
+> nivel físico, el TPM se encuentra soldado en la placa base o puede estar
+> integrado en un chip separado."*
+>
+> Debajo, bajo el encabezado *"Existen otros:"*: **fTPM** *TPM Firmware,
+> integrados al Firmware del BIOS/UEFI – Ahora en CPU (Microsoft Pluton)* ·
+> **vTPM** *- TPM Hypervisor, incluido como software para entornos virtuales* ·
+> **TPM por Software**.
 
 > [!warning] Nota histórica
 > Intel Pluton y AMD fTPM surgieron como respuesta a vulnerabilidades encontradas en implementaciones anteriores de TPM discreto, donde se detectaron canales de comunicación entre el TPM y otros componentes que podían ser explotados.

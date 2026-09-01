@@ -53,13 +53,26 @@ graph LR
 ```
 
 > [!info] Captura del profesor: diagrama JVM (arquitecturajava.com)
-> El PDF muestra una caja apaisada en forma de "U" etiquetada **"Java Virtual
-> Machine"**: entra `.java (source code)` (celda azul) arriba, baja a `.class
-> (binary code)` (celda verde) dentro de la U, sale hacia abajo a `Native Code`
-> (celda gris) y de ahí a una caja final `Operating System`. El mismo esquema
-> se repite para Dalvik con una caja intermedia extra `.dev (binary code)`
-> (verde oscuro) dentro de la U "Android Virtual Machine (Dalvik)", terminando
-> en `Linux Kernel` en vez de `Operating System` genérico.
+> **Diagrama JVM** (arriba, en su propia página): una caja apaisada en forma de
+> **"U"** rotulada **`Java Virtual Machine`** en su borde inferior. De arriba
+> abajo, unidos por **flechas punteadas**:
+> - `.java (source code)` — celda **azul claro**, **fuera y encima** de la U.
+> - `.class (binary code)` — celda **verde claro**, **dentro** de la U.
+> - `Native Code` — celda **gris**, ya fuera y debajo de la U.
+> - `Operating System` — caja blanca ancha, al final.
+>
+> **Diagrama Dalvik** (página siguiente): mismo esquema pero con **cuatro**
+> celdas antes del final, y la posición de las cajas cambia:
+> - `.java (source code)` — azul claro, fuera.
+> - `.class (binary code)` — verde claro, **también fuera de la U** (a
+>   diferencia del diagrama JVM, donde estaba dentro).
+> - `.dev (binary code)` — **verde oscuro**, la única celda **dentro** de la U,
+>   rotulada `Android Virtual Machine (Dalvik)`. *(El diagrama original escribe
+>   `.dev`; el texto del mismo documento lo llama `.dex` — Dalvik Executable.
+>   Es una errata de la fuente, transcrita tal cual.)*
+> - `Native Code` — gris, fuera.
+> - `Linux Kernel` — caja blanca final, en lugar del `Operating System`
+>   genérico de la JVM.
 
 ---
 

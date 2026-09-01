@@ -130,9 +130,17 @@ graph TD
 > primera captura y **1** en la segunda, con **Base: Hexadecimal** seleccionado
 > (Decimal sin marcar) y los botones *Aceptar* / *Cancelar*.
 >
-> Comandos rotulados en la diapositiva, verbatim:
-> - **Por CMD:** `reg query HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled`
-> - `reg add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f`
+> Comandos rotulados en las diapositivas, verbatim y en su sitio exacto:
+> - Primera diapositiva (titulada **"Limite 260 RUTAS"**, valor **0**): arriba,
+>   **Por CMD:** `reg query HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled`;
+>   al pie, en grande, `robocopy "\\?\C:\LAB_LONGPATH" "C:\DESTINO_LARGO" /E /COPYALL /R:1 /W:1`
+>   (con el prefijo `\\?\` resaltado en **rojo**).
+> - Segunda diapositiva (titulada **"Limite 260 caracteres RUTAS"**, valor
+>   **1**): repite la línea `reg query` y añade debajo
+>   `reg add HKLM\SYSTEM\CurrentControlSet\Control\FileSystem /v LongPathsEnabled /t REG_DWORD /d 1 /f`,
+>   y al pie la misma línea de `robocopy`. Muestra además, **abajo a la
+>   izquierda, una miniatura** de la primera captura (el mismo Editor del
+>   Registro en pequeño), a modo de "antes y después".
 > - `robocopy "\\?\C:\LAB_LONGPATH" "C:\DESTINO_LARGO" /E /COPYALL /R:1 /W:1`
 >   (el prefijo `\\?\` aparece con el `?` en rojo).
 

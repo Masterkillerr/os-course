@@ -188,7 +188,10 @@ gantt
 > tiempo — a diferencia de monoprogramado. Dos variantes en la misma
 > diapositiva:
 > - Arriba: **T.E. = 100,0%**, `21/23 = 1`, T.O. = 0,0%
-> - Abajo (B cambia a 7 jobs-1 I/O): **T.E. = 91,0%**, `21/23 = 1`, T.O. = 0,0%
+> - Abajo: **misma tabla de datos** (A 5-3, B 7-1, C 6-3, D 5-3, total 23/10) —
+>   lo único que cambia es el trazado: la fila de Process D incorpora unas
+>   celdas **verde claro** extra y el resultado impreso es **T.E. = 91,0%**,
+>   con las mismas celdas de apoyo `21/23 = 1` y T.O. = 0,0%
 >
 > *(Nota: los dos T.O. de 0,0% con T.E. distinto de 100% son inconsistentes en
 > la diapositiva original — probablemente una celda sin actualizar en la
@@ -198,13 +201,24 @@ gantt
 
 > [!info] Captura del profesor: "EJERCICIOS DE MULTI — otro color"
 > Mismo formato pero con paleta magenta/azul en vez de verde/amarillo (para
-> distinguirlo visualmente del ejercicio anterior). Tabla: A: 5 Jobs-7 I/O,
-> B: 7 Jobs-6 I/O, C: 6 Jobs-6 I/O *(fila dice "4 jobs-4 I/O" en la columna
-> Jobs/IO pero el detalle dice "6 jobs-6 I/O")*, D: 4 Jobs-8 I/O — total
-> **19/21**. **T.E. = 83%** (`19/22 = 0,8636364`), **T.O. = 13,6%** (con
-> "86,4%" repetido a la derecha, mismo patrón de inconsistencia de celda que
-> el ejercicio anterior). Segunda tabla idéntica en la misma diapositiva con
-> D cambiado a "3 Jobs - 4 I/O", mismos totales y resultado.
+> distinguirlo visualmente del ejercicio anterior; la banda de cabecera
+> `Execution A-B-C-D/IO` es **cian**, y la primera tabla lleva además el
+> rótulo rojo **`problem`**). Columnas Jobs/I/O y su detalle (nótese que **no
+> concuerdan** en C y D, tal cual en la diapositiva):
+>
+> | Proceso | Jobs | I/O | Detalle escrito |
+> |---|---|---|---|
+> | A | 5 | 7 | 5 Jobs - 7 I/O |
+> | B | 7 | 6 | 7 Jobs - 6 I/O |
+> | C | 4 | 4 | 6 Jobs - 6 I/O |
+> | D | 3 | 4 | 4 Jobs - 8 I/O |
+> | **TOTAL** | **19** | **21** | |
+>
+> **T.E. = 83%** (`19/22 = 0,8636364`), **T.O. = 13,6%** (con "86,4%" repetido
+> a la derecha, mismo patrón de inconsistencia de celda que el ejercicio
+> anterior). Segunda tabla en la misma diapositiva: idénticas columnas
+> Jobs/I/O y totales, solo cambia el detalle de D a **"3 Jobs - 4 I/O"** y el
+> trazado de las barras; mismos T.E./T.O.
 
 ---
 
@@ -269,39 +283,21 @@ gantt
     dateFormat X
     axisFormat %s
     section Thread 1 — Proceso A (5 jobs, 3 I/O)
-    A₁ :a1, 1, 2
-    A-I/O :a2, after a1, 1
-    A₂ :a3, after a2, 2
-    A₃ :a4, after a3, 1
-    A₄ :a5, after a4, 2
-    A-I/O :a6, after a5, 1
-    A₅ :a7, after a6, 1
+    A₁ A₂ :a1, 0, 2
+    A-I/O ×3 :crit, a2, 2, 3
+    A₃ A₄ A₅ :a3, 5, 3
     section Thread 2 — Proceso B (7 jobs, 1 I/O)
-    B₁ :b1, 2, 1
-    B-I/O :b2, after b1, 1
-    B₂ :b3, after b2, 2
-    B₃ :b4, after b3, 1
-    B₄ :b5, after b4, 2
-    B₅ :b6, after b5, 2
-    B₆ :b7, after b6, 1
-    B₇ :b8, after b7, 1
+    B₁ B₂ :b1, 0, 2
+    B-I/O :crit, b2, 2, 1
+    B₃ B₄ B₅ B₆ B₇ :b3, 3, 5
     section Thread 3 — Proceso C (6 jobs, 3 I/O)
-    C₁ :c1, 3, 1
-    C-I/O :c2, after c1, 1
-    C₂ :c3, after c2, 2
-    C₃ :c4, after c3, 1
-    C₄ :c5, after c4, 2
-    C-I/O :c6, after c5, 1
-    C₅ :c7, after c6, 2
-    C₆ :c8, after c7, 1
+    C₁ :c1, 0, 1
+    C-I/O ×3 :crit, c2, 1, 3
+    C₂ C₃ C₄ C₅ C₆ :c3, 4, 5
     section Thread 4 — Proceso D (5 jobs, 3 I/O)
-    D₁ :d1, 4, 2
-    D-I/O :d2, after d1, 1
-    D₂ :d3, after d2, 2
-    D₃ :d4, after d3, 2
-    D-I/O :d5, after d4, 1
-    D₄ :d6, after d5, 2
-    D₅ :d7, after d6, 1
+    D₁ :d1, 0, 1
+    D-I/O ×3 :crit, d2, 1, 3
+    D₂ D₃ D₄ D₅ :d3, 4, 4
 ```
 
 > [!info] Captura del profesor: "Para comprender mejor... los Hilos con un buen planificador siempre respetan el hilo al proceso asociado"
@@ -311,32 +307,38 @@ gantt
 > C, Thread 4 = Process D), coloreado igual que su proceso (verde/celeste/
 > azul/rojo).
 >
-> La tabla tiene columnas **CPU 1 a CPU 8** (los "ciclos de CPU" del core,
-> no 8 cores físicos) más un **CLOCK**, y filas separadas por **I/O CANAL 1-4**
-> (uno por proceso, en amarillo) debajo de los 4 threads.
+> Banda verde superior, literal: *"Para comprender un poco mejor debemos
+> entender que los Hilos con un buen planificador siempre respetan el hilo al
+> proceso asociado"*. Debajo, otra banda verde: **`Multiproceso   1 CORE 4
+> HILOS`** (el "1 CORE 4 HILOS" en **rojo**), y sobre la cuadrícula la banda
+> **`PROCESADOR  1 CORE 4 HILOS  -  Execution A-B-C-D/IO`**.
 >
-> Ejecución real mostrada, columna por columna (CPU 1-9; CPU 10-15 vacías):
+> La cuadrícula tiene una columna **`CLOCK`** y luego 15 columnas numeradas:
+> las **8 primeras** llevan encima el rótulo **`CPU`** (son ciclos del mismo
+> core, no 8 procesadores); las columnas **9-15** ya no lo llevan. Debajo de
+> los 4 threads van cuatro filas **`I/O CANAL 1-4`**, todas en amarillo.
 >
-> | CPU | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+> Ejecución exacta, columna por columna (columnas 10-15 vacías):
+>
+> | Fila | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 > |---|---|---|---|---|---|---|---|---|---|
-> | Thread 1 (A, verde) | A1 | A2 | | | | *(naranja)* | A3 | A4 | A5 |
-> | Thread 2 (B, celeste) | | B1 | B2 | | *(naranja)* | B3 | B4 | B5 | B6 |
-> | Thread 3 (C, azul) | | | C1 | | | | C2 | C3 | C4 |
-> | Thread 4 (D, rojo) | | | D1 | | | | D2 | D3 | |
+> | **THREAD 1** (A, verde oscuro) | A1 | A2 | | | | A3 | A4 | A5 | |
+> | **THREAD 2** (B, cian) | B1 | B2 | | B3 | B4 | B5 | B6 | B7 | |
+> | **THREAD 3** (C, azul) | C1 | | | | C2 | C3 | C4 | C5 | C6 |
+> | **THREAD 4** (D, rojo) | D1 | | | | D2 | D3 | D4 | D5 | |
+> | **I/O CANAL 1** | | | A1 | A2 | A3 | | | | |
+> | **I/O CANAL 2** | | | B1 | | | | | | |
+> | **I/O CANAL 3** | | C1 | C2 | C3 | | | | | |
+> | **I/O CANAL 4** | | D1 | D2 | D3 | | | | | |
 >
-> (B7 y C5/C6 caen fuera de esta tabla de 9 columnas, más a la derecha en la
-> diapositiva — el patrón se mantiene: cada thread retoma justo donde
-> quedó, con una celda naranja de cambio de contexto cada vez que el core
-> pasa de un thread a otro.)
+> **No hay ninguna celda naranja en esta diapositiva** (el naranja de cambio
+> de contexto pertenece solo a la de *Multiprogramación con Quantum*): aquí el
+> hueco de cada thread se debe a que está en su canal de I/O, no a un cambio
+> de contexto.
 >
-> - **I/O CANAL 1** (para A): `A1 A2 A3` — **I/O CANAL 2** (para B): `B1` —
->   **I/O CANAL 3** (para C): `C1 C2 C3` — **I/O CANAL 4** (para D): `D1 D2 D3`
-> - Nótese que los 4 canales de I/O corren **en columnas distintas entre sí**
->   (canal 1 usa CPU 3-5, canal 3 usa CPU 3-5 también pero es un canal físico
->   distinto — los canales de I/O SÍ pueden solaparse entre sí, a diferencia
->   del CPU que es un único recurso compartido).
->
-> Pie de diapositiva: *"El cuadro naranja significa el cambio de contexto"*.
+> Los 4 canales de I/O **sí se solapan entre sí** (canales 3 y 4 usan las
+> columnas 2-4 a la vez, el canal 1 las 3-5), porque son canales físicos
+> distintos; la CPU, en cambio, es un único recurso compartido.
 >
 > **Idea clave del ejercicio**: aunque hay 4 hilos "corriendo", solo hay
 > **1 core físico** — la tabla de 8 "CPU" columnas son ciclos de tiempo del
