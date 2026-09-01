@@ -30,6 +30,23 @@ tiempo_clase: null
 > [!info] Anterior
 > [[08-Linea-de-Comandos|⌨️ Línea de Comandos (CMD y PowerShell)]] — visión general
 
+```mermaid
+graph TD
+    INICIO[💻 Símbolo del sistema<br/>cmd.exe] --> NAV[📂 Navegación<br/>cd, dir, tree, pushd/popd]
+    INICIO --> FILES[📄 Manejo de archivos<br/>mkdir, rmdir, copy, xcopy, move, del]
+    INICIO --> VISUAL[👁️ Visualización<br/>type, more, echo, find, findstr, fc]
+    INICIO --> RED[🌐 Red y conectividad<br/>ping, ipconfig, tracert, nslookup, netstat]
+    INICIO --> PROC[⚙️ Procesos y tareas<br/>tasklist, taskkill, start, shutdown, schtasks]
+    INICIO --> INFO[ℹ️ Información del sistema<br/>systeminfo, wmic, driverquery, chkdsk, sfc]
+    INICIO --> AVAN[🔧 Avanzados y utilidades<br/>reg, assoc, ftype, compact, mklink, whoami, hostname]
+```
+
+> [!info] ¿Cómo leer este diagrama?
+> `cmd.exe` es el intérprete de comandos de Windows (heredado de MS-DOS).
+> Los comandos se agrupan en **7 categorías funcionales**: navegación,
+> manipulación de archivos, visualización de contenido, redes, gestión de
+> procesos, información del sistema y herramientas avanzadas.
+
 ### 1️⃣ Navegación de directorios y archivos
 | Comando | Descripción | Ejemplo |
 |---|---|---|
@@ -107,6 +124,25 @@ tiempo_clase: null
 | `mklink` | Enlaces simbólicos | `mklink /D Link CarpetaDestino` |
 | `whoami` | Usuario actual | `whoami` |
 | `hostname` | Nombre del equipo | `hostname` |
+
+```mermaid
+graph LR
+    REG[📋 Registro<br/>`reg`] --> ADM[Administración]
+    ASSOC[📎 Asociaciones<br/>`assoc`/`ftype`] --> ADM
+    COMP[📦 Compresión<br/>`compact`] --> ADM
+    LINK[🔗 Enlaces simbólicos<br/>`mklink`] --> ADM
+    USR[👤 Usuario<br/>`whoami`/`hostname`] --> ADM
+    ADM --> SYS[🖥️ Sistema<br/>`sfc`/`dism`/`chkdsk`]
+```
+
+> [!info] Resumen rápido
+> - **Navegación:** `cd`, `dir`, `tree`, `pushd`/`popd`
+> - **Archivos:** `mkdir`, `rmdir`, `copy`, `xcopy`, `robocopy`, `move`, `del`, `ren`, `attrib`
+> - **Visualización:** `type`, `more`, `echo`, `find`, `findstr`, `fc`
+> - **Red:** `ping`, `ipconfig`, `tracert`, `netstat`, `nslookup`, `arp`, `net`, `pathping`
+> - **Procesos:** `tasklist`, `taskkill`, `start`, `shutdown`, `schtasks`
+> - **Info del sistema:** `systeminfo`, `wmic`, `driverquery`, `chkdsk`, `sfc`, `dism`, `diskpart`, `powercfg`, `fsutil`
+> - **Avanados:** `reg`, `assoc`, `ftype`, `compact`, `mklink`, `whoami`, `hostname`
 
 ---
 
