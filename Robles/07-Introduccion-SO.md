@@ -153,39 +153,86 @@ Un SO se divide en dos modos de ejecución protegidos: **modo usuario** (donde c
 aplicaciones) y **modo kernel** (donde el sistema tiene acceso total al hardware). El **HAL**
 (*Hardware Abstraction Layer*) aísla al kernel del hardware concreto.
 
+> [!info] Captura del profesor: "Estructura del S.O." — diagrama de arquitectura Windows NT
+> Diagrama de bloques a página completa, **user mode** arriba de una línea horizontal
+> etiquetada `User mode` / `Kernel mode`, **kernel mode** abajo. De arriba a abajo:
+>
+> **User mode**, 4 columnas (izquierda a derecha):
+> - **System Processes**: `Service control mgr.` · `LSASS` · `Winlogon` · `Session manager`
+> - **Services**: `SvcHost.exe` · `WinMgt.exe` · `SpoolSv.exe` · `Services.exe`
+> - **Applications**: `Task Manager` · `Explorer` · `User application` · `Subsystem DLLs`
+> - **Environment Subsystems**: `Windows` · `OS/2` · `POSIX` · `Windows DLLs`
+>
+> Debajo de las 4 columnas, una barra horizontal de ancho completo: **`NTDLL.DLL`**.
+>
+> **Kernel mode** (debajo de la línea `User mode` / `Kernel mode`), de arriba a abajo:
+> - `System threads` (caja aparte, alineada a la izquierda)
+> - Barra horizontal de ancho completo: **`System Service Dispatcher`**
+> - Barra horizontal de ancho completo, rotulada **`(Kernel mode callable interfaces)`**,
+>   que contiene 9 cajas en fila: `I/O Mgr` (con subtexto `Device & File Sys. Drivers`) ·
+>   `Object Mgr` · `Plug and Play Mgr` · `Security Reference Monitor` · `Virtual Memory` ·
+>   `Processes & Threads` · `Configuration Mgr (registry)` · `Local Procedure Call`
+> - A la derecha de esa barra, fuera de ella, una columna aparte: **`Windows USER, GDI`**
+>   sobre **`Graphics drivers`**
+> - Barra horizontal de ancho completo: **`Kernel`**
+> - Barra horizontal de ancho completo: **`Hardware Abstraction Layer (HAL)`**
+>
+> Al pie, fuera de las cajas: `Hardware interfaces (buses, I/O devices, interrupts,
+> interval timers, DMA, memory cache control, etc.)`.
+>
+> Fuentes citadas en la diapositiva: `learn.microsoft.com/.../overview-of-windows-components`
+> y `social.technet.microsoft.com/.../architecture-of-windows-10.aspx`.
+
 ```mermaid
 graph TD
     subgraph UM["MODO USUARIO (User mode)"]
-        SP["System Processes<br/>Service Control Mgr · LSASS<br/>Winlogon · Session Mgr"]
-        SV["Services<br/>Svchost · WinMgmt · SpoolSv · Services.exe"]
-        AP["Applications<br/>Task Manager · Explorer · subsystem DLLs"]
-        ES["Environment Subsystems<br/>Windows · OS/2 · POSIX"]
-        NT["NTDLL.DLL"]
+        SP["System Processes<br/>Service control mgr. · LSASS<br/>Winlogon · Session manager"]
+        SV["Services<br/>SvcHost.exe · WinMgt.exe<br/>SpoolSv.exe · Services.exe"]
+        AP["Applications<br/>Task Manager · Explorer<br/>User application · Subsystem DLLs"]
+        ES["Environment Subsystems<br/>Windows · OS/2 · POSIX · Windows DLLs"]
     end
+    NT["NTDLL.DLL"]
     subgraph KM["MODO KERNEL (Kernel mode)"]
         ST["System threads"]
         SD["System Service Dispatcher"]
-        IO["I/O Manager<br/>(device & file-system drivers, cache, PnP)"]
-        RS["Reference Monitor · Security"]
-        VM["Virtual Memory"]
-        PT["Processes & Threads"]
-        CM["Configuration Mgr (registry) · LPC"]
-        UG["Windows USER · GDI · Graphics drivers"]
+        subgraph KCI["(Kernel mode callable interfaces)"]
+            IO["I/O Mgr<br/>Device & File Sys. Drivers"]
+            OM["Object Mgr"]
+            PP["Plug and Play Mgr"]
+            RS["Security Reference Monitor"]
+            VM["Virtual Memory"]
+            PT["Processes & Threads"]
+            CM["Configuration Mgr (registry)"]
+            LP["Local Procedure Call"]
+        end
+        UG["Windows USER, GDI<br/>Graphics drivers"]
         KN["Kernel"]
-        HAL["HAL — Hardware Abstraction Layer"]
+        HAL["Hardware Abstraction Layer (HAL)"]
     end
-    UM --> SD
-    SD --> KM
-    KM --> HW["Hardware interfaces<br/>buses · I/O devices · interrupts · timers · DMA · cache control"]
+    UM --> NT --> SD
+    SD --> KCI
+    KCI --> KN
+    UG --> KN
+    KN --> HAL
+    HAL --> HW["Hardware interfaces<br/>buses · I/O devices · interrupts · timers · DMA · cache control"]
     style UM fill:#e8f0fe
     style KM fill:#fde8e8
     style HAL fill:#fff3cd
 ```
 
+> [!warning] Para memorizar — riesgo de examen
+> Orden de reconstrucción de abajo hacia arriba: **HAL → Kernel → (Kernel mode callable
+> interfaces, 8 cajas) → System Service Dispatcher → NTDLL.DLL → 4 columnas de user mode**.
+> Trampas comunes: `Object Mgr` y `Plug and Play Mgr` suelen olvidarse (son 2 de las 8 cajas
+> de la banda de interfaces, no van sueltas); `Windows USER, GDI / Graphics drivers` está
+> **fuera** de la banda de interfaces, como columna aparte a la derecha; `NTDLL.DLL` es una
+> barra propia entre user mode y kernel mode, no una caja más de las 4 columnas.
+
 > [!note] Crédito
-> Diagrama adaptado de *Inside Microsoft Windows 2000, 3rd Edition* (ISBN 0-7356-1021-5),
-> © 2000 David A. Solomon y Mark E. Russinovich. Las aplicaciones nunca tocan el hardware
-> directamente: pasan por `NTDLL.DLL` → *System Service Dispatcher* → modo kernel.
+> Diagrama de arquitectura de Windows NT, citado en la diapositiva del profesor desde
+> Microsoft Learn (`overview-of-windows-components`) y TechNet (`architecture-of-windows-10`).
+> Las aplicaciones nunca tocan el hardware directamente: pasan por `NTDLL.DLL` →
+> *System Service Dispatcher* → modo kernel.
 
 ---
 
