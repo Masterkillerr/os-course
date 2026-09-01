@@ -107,6 +107,44 @@ de archivos, el almacenamiento secundario, las comunicaciones y la seguridad.
 > un ordenador: programas, archivos y dispositivos. Tiene una interfaz gráfica basada en ventanas,
 > menús y controles, y es el sistema operativo más usado en el mundo de la informática personal.
 
+> [!info] Captura del profesor: diagrama "Objetivos / Vistas" — el S.O. envolviendo al HW
+> Rectángulo exterior de borde **azul** rotulado **HW** (etiqueta azul a la
+> izquierda, dentro del borde). Dentro de él, un rectángulo redondeado de borde
+> **rojo** rotulado **S.O.** (etiqueta roja, también a la izquierda). Dentro del
+> rojo, **tres círculos apilados verticalmente**, unidos entre sí por una línea,
+> cada uno con su caja **azul** de contenido a la derecha:
+>
+> | Círculo (de arriba abajo) | Color | Caja azul a su derecha |
+> |---|---|---|
+> | **Programas del Sistema** | verde claro | `Programas de ordenes` · `Programas de Ayudas` · `Interpretador de Comandos` |
+> | **Desarrollo** | amarillo/naranja | `IDE` · `Enlazador` · `Depurador` · `Compilador` |
+> | **Aplicaciones** | durazno / rosa claro | `Nómina` · `Contabilidad` · `Cartera … Etc` |
+>
+> Texto de la izquierda de la diapositiva, verbatim:
+> - **Objetivos:**
+>   - *Hacer que la máquina sea fácil de utilizar, tanto por los usuarios finales,
+>     como por los desarrolladores y administradores del sistema.*
+>   - *Hacer que el funcionamiento del H/S sea lo más eficiente posible.*
+> - **Vistas:** *Máquina ampliada* · *Gestor de recursos*
+
+> [!info] Captura del profesor: sándwich "Applications / Operating System" (slideplayer)
+> Diagrama en inglés, 4 filas, de arriba abajo:
+> 1. Barra 3D **magenta/fucsia** ancha: **Applications**
+> 2. Tres cajas blancas con borde negro: `Process` · `File system` · `Virtual memory`
+> 3. Barra 3D **verde lima** ancha: **Operating System**
+> 4. Tres cajas blancas con borde negro: `CPU` · `HDD/SSD` · `RAM`
+>
+> La misma imagen se reutiliza en dos diapositivas: una titulada **Funciones**
+> y otra titulada **Características Adicionales**.
+
+> [!warning] Para memorizar — riesgo de examen
+> El orden del sándwich se invierte con frecuencia. Reconstrucción **de arriba
+> abajo**: Applications → (Process, File system, Virtual memory) → Operating
+> System → (CPU, HDD/SSD, RAM). Trampas: las tres cajas de **abstracciones**
+> (Process / File system / Virtual memory) van **encima** del OS, no debajo; las
+> tres de **hardware** (CPU / HDD/SSD / RAM) van al fondo. Colores: Applications
+> = **magenta**, Operating System = **verde**.
+
 ---
 
 ## Arquitectura de un Sistema Operativo
@@ -234,6 +272,56 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 > [!important] Pregunta típica de examen
 > No confundir esta clasificación (tipo de SO) con la del perfil Comunidad/Empresas/Desarrolladores/Educación
 > más abajo — son dos ejes distintos de "clasificación del sistema operativo".
+
+> [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
+> Marco blanco redondeado de borde gris. A la derecha, en **vertical**, el
+> rótulo **"Clasificación de los S.O."**. Dentro, **cinco bandas redondeadas
+> apiladas**, cada una con su etiqueta de eje a la izquierda (en cursiva
+> azul/versalitas) y su contenido dentro de la banda. De arriba abajo, con su
+> color exacto:
+>
+> | Eje (izquierda) | Color de la banda | Contenido de la banda |
+> |---|---|---|
+> | *TAREAS* | azul marino (el más oscuro) | **Monotarea** / *Monoprogramado* — **Multitarea** / *Multiprogramado* |
+> | *PROCESADOR* | azul oscuro | **Multiprocesamiento** — **Monoprocesamiento** |
+> | *USUARIOS* | azul intenso | **Multiusuario** — **Monousuario** |
+> | *TIEMPO* | azul/violeta claro | **Tiempo Real** — **Tratamiento por Lotes** |
+> | *ENTORNO* | verde turquesa | **Texto** — **Gráfico** |
+>
+> En la banda de TAREAS, el sinónimo va debajo de cada término y en cursiva
+> más pequeña (Monotarea → *Monoprogramado*; Multitarea → *Multiprogramado*).
+
+> [!warning] Para memorizar — riesgo de examen (fill-in-the-blank)
+> Reconstrucción **de arriba abajo**, mnemotecnia por los 5 ejes:
+> **TA-PRO-U-TI-EN** → *TAREAS · PROCESADOR · USUARIOS · TIEMPO · ENTORNO*.
+>
+> Trampas frecuentes:
+> - Confundir la banda **TAREAS** (Mono/Multi**tarea**, = programas en memoria)
+>   con la banda **PROCESADOR** (Mono/Multi**procesamiento**, = número de CPU).
+> - En PROCESADOR el orden impreso es **Multi antes que Mono** (al revés que en
+>   TAREAS y USUARIOS, donde va Mono primero).
+> - *Tiempo Real* y *Tratamiento por Lotes* pertenecen al eje **TIEMPO**, no a
+>   un eje "tipo de SO" aparte.
+> - El eje **ENTORNO** (Texto / Gráfico) es el que más se olvida.
+
+> [!info] Captura del profesor: la otra clasificación, en texto (diapositiva "Tipos")
+> Misma clase, diapositiva rotulada **Tipos** que reutiliza a la izquierda el
+> diagrama de 9 discos (`1. HW` … `9. APPLICATIONS`, con *Mode Kernel Layer 3-5 /
+> Ring 0* en verde y *Mode User Layer 6-9 / Ring 3* en azul) y debajo, en
+> pequeño: *"Y OLD .."* — **Tiempo Real** · **Por Lotes** — **.BAT**.
+> A la derecha, cuatro criterios, verbatim:
+> - **Según el usuario:** *Multiusuario:* permite que varios usuarios ejecuten
+>   simultáneamente sus programas. *Monousuario:* solamente permite ejecutar los
+>   programas de un usuario a la vez.
+> - **Según la gestión de tareas - procesos:** *Monotarea / Monoprogramado:*
+>   solamente permite ejecutar una tarea o un proceso a la vez.
+>   *Multitarea / Multiprogramado:* puede ejecutar varias tareas y varios
+>   procesos al mismo tiempo.
+> - **Según la gestión de recursos:** *Centralizado:* solo permite utilizar los
+>   recursos de un solo ordenador. *Distribuido:* permite ejecutar los procesos
+>   de más de un ordenador al mismo tiempo.
+> - **Según el procesamiento:** *Monoproceso:* tiene un solo procesador por
+>   proceso. *Multiproceso:* tiene uno o varios procesadores por proceso o procesos.
 
 ### Por perfil de usuario (ecosistema Microsoft)
 
@@ -378,6 +466,46 @@ graph TD
 - **Xcode:** IDE de Apple para macOS/iOS/watchOS/tvOS.
 - **Aqua:** interfaz gráfica (GUI); **POSIX**: estándar Unix de la capa de programación.
 
+> [!info] Captura del profesor: tabla comparativa Windows / macOS / Linux (kernel y capa gráfica)
+> Diapositiva con los tres logos en fila arriba (**Windows** azul de 4 paneles,
+> **Finder** de macOS, **Tux** el pingüino de Linux) y debajo una tabla blanca
+> de 4 columnas:
+>
+> | Sistema | Kernel | Capa gráfica base | Entorno |
+> |---|---|---|---|
+> | Windows | NT | GDI / DirectX | Explorer |
+> | macOS | XNU | Quartz / Metal | Aqua |
+> | Linux | Linux | X11 o Wayland | GNOME / KDE / etc |
+
+> [!info] Captura del profesor: "Arquitectura Mac OS X" (4 capas de colores)
+> Diagrama con título **"Arquitectura Mac OS X"**, cuatro bloques apilados de
+> arriba abajo, cada uno con su rótulo **debajo** del bloque:
+> - Bloque **naranja**: `Aqua` · `Dashboard` · `Spotlight` · `Accesibilidad`
+>   → rótulo **Interfaz de usuario**
+> - Bloque **verde**: `Cocoa` · `Carbon` · `Java` → rótulo **Entornos de aplicación**
+> - Bloque **celeste** (2 filas): `Core Animation` · `Core Image` · `Core Video`
+>   · `Quick Time`, y debajo `OpenGL` · `Quartz` · `Core Audio`
+>   → rótulo **Gráficos y medios**
+> - Bloque **azul** único: `Darwin` → rótulo **Core**
+>
+> A la izquierda de la misma diapositiva, la pila en texto con flechas ↓:
+> *Aplicaciones → Frameworks (AppKit, SwiftUI, Metal) → Core Services → Core OS
+> → Darwin → XNU Kernel → Mach + BSD + IOKit → Hardware*.
+>
+> Y en la diapositiva de *Arquitectura APPLE*, la columna **iOS** en paralelo:
+> *Aplicaciones (Swift / Objective-C) → Frameworks (UIKit, Foundation) →
+> Core OS → Darwin → XNU Kernel → Mach + BSD* (sin `Core Services` ni `IOKit`,
+> a diferencia de macOS).
+
+> [!warning] Para memorizar — riesgo de examen
+> - **Kernel ≠ capa gráfica ≠ entorno**: Windows = NT / GDI-DirectX / Explorer;
+>   macOS = XNU / Quartz-Metal / Aqua; Linux = Linux / X11-Wayland / GNOME-KDE.
+>   El error típico es poner *Aqua* como kernel de macOS (es el **entorno**) o
+>   *Darwin* en lugar de **XNU** (Darwin es el SO base; XNU es su kernel).
+> - En las pilas de Apple, la diferencia **iOS vs macOS** son exactamente dos
+>   niveles: macOS tiene **Core Services** (iOS no lo lista) y termina en
+>   **Mach + BSD + IOKit → Hardware**, mientras iOS termina en **Mach + BSD**.
+
 ---
 
 ## Middleware
@@ -403,6 +531,79 @@ Ejemplos: IBM WebSphere, Oracle Fusion Middleware, Azure Service Fabric, Red Hat
 | 4ª Tiempo compartido | 1979– | Gestión de memoria/procesos/red/seguridad; sistemas distribuidos. |
 | 5ª Móviles | 2000– | SO móviles, nube, virtualización. |
 | 6ª Nuevas tecnologías | 2010– | Contenedores, IoT, Big Data, Blockchain, IA, VR/AR, computación cuántica. |
+
+> [!info] Captura del profesor: 1ª generación Batch — diagrama Users → Operator → Batch → Computer
+> Diapositiva **"1era G. Batch (Lotes)"**, *"Leía los programas a través de
+> tarjetas perforadas"*, **1945-1954** (en rojo), **Tubos/Lámparas**. Incluye la
+> foto de una **tarjeta perforada** beige.
+>
+> Diagrama (fondo blanco, izquierda→derecha):
+> - Columna de **cuatro óvalos rosa claro** rotulados `User` (uno bajo otro).
+> - De cada uno sale una flecha etiquetada *job* hacia un **círculo verde
+>   oliva** central rotulado `Operator`.
+> - Del `Operator` salen **dos** flechas etiquetadas *jobs* hacia dos cajas
+>   amarillas rotuladas `Batch` (una arriba, otra abajo).
+> - Ambas cajas `Batch` apuntan a un **rectángulo rosa/salmón** rotulado `Computer`.
+>
+> Características, verbatim: *SO muy simples, limitados a administrar memoria y
+> procesador · Se programaban en lenguaje de máquina o ensamblador · Existía la
+> monoprogramación (CPU sola con un solo proceso) · No existía la
+> multiprogramación ni el multiprocesamiento · Los usuarios interactuaban a
+> través de tarjetas perforadas o cintas de papel.*
+
+> [!info] Captura del profesor: 3ª generación — ciclo Job Queue / Ready Queue / CPU / I/O
+> Diapositiva **"3era G. Sistemas Multiprogramados"**, **1963-1971** (en rojo),
+> **Circuitos Integrados**, **OS/360**, **MULTICS** *(Multiplexed Information and
+> Computing Service)* en verde.
+>
+> Diagrama de cajas azul claro con flechas azules:
+> - `Job Queue` → `Ready Queue` → **óvalo azul** `CPU` → flecha rotulada `Exit`
+>   hacia la derecha.
+> - Desde `CPU` baja el flujo a `I/O Waiting Queue` → `I/O` (caja con esquina
+>   doblada, a la izquierda) → **sube de nuevo** a `Ready Queue`.
+> - Una **flecha punteada** superior va desde la salida de `CPU` de vuelta a
+>   `Ready Queue` (retorno directo sin pasar por E/S).
+>
+> Características: *Inicia el sistema operativo UNICS luego UNIX pero en
+> ensamblador · Se estabiliza la multiprogramación · Se inician los tiempos
+> compartidos (Multiusuario).*
+
+> [!info] Captura del profesor: 4ª generación — Users → Software → Operating System → Hardware
+> Diapositiva **"4daG. Tiempo Compartido"**, *"1 Sola Pastilla CPU"*,
+> **1979 a la fecha** (en rojo).
+>
+> Diagrama de tres bloques verdes apilados:
+> 1. Arriba, tres cajas verde oscuro en fila: `User 1` · `User 2` · `User n`,
+>    cada una con una flecha negra hacia abajo.
+> 2. Bloque verde grande rotulado `Software` a la izquierda, que **contiene**
+>    dos cajas verde claro lado a lado: `System Softwares` y `Application
+>    Softwares`; ambas apuntan hacia abajo a una caja **gris** rotulada
+>    `Operating System` (dentro del mismo bloque verde).
+> 3. Del `Operating System` baja una flecha al bloque verde inferior rotulado
+>    `Hardware` a la izquierda, que contiene tres cajas: `CPU` · `RAM` · `I/O`.
+>
+> Nota de la generación 2ª (misma serie): **SPOOL** = *Simultaneous Peripherial
+> Operation On-Line*, **1954-1963**, **Transistores**, **SOS (SHARE Operating
+> System)**, con foto en blanco y negro de un **UNIVAC** y un carrete de cinta
+> magnética.
+
+> [!warning] Para memorizar — riesgo de examen
+> Los tres diagramas se confunden entre sí. Regla rápida por el **elemento
+> central** de cada uno:
+> - **1ª Batch** → el centro es el **`Operator`** (círculo), y los usuarios
+>   entregan *job*, no *jobs*: **job** entra al operador, **jobs** salen de él
+>   hacia los `Batch`.
+> - **3ª Multiprogramados** → el centro es la **`CPU`** (único óvalo del
+>   diagrama) y lo definitorio es el **ciclo de vuelta** vía `I/O Waiting Queue`
+>   → `I/O` → `Ready Queue`. La única salida es `Exit`.
+> - **4ª Tiempo compartido** → el centro es el **`Operating System`** (única
+>   caja **gris** entre bloques verdes), con los usuarios **arriba** y el
+>   hardware **abajo**.
+>
+> Fechas que se cruzan: 1ª **1945-1954** (tubos), 2ª **1954-1963**
+> (transistores, SPOOL), 3ª **1963-1971** (circuitos integrados), 4ª **1979 a la
+> fecha**, 5ª **2000 a la fecha** (móviles, N CPU x pastilla), 6ª **2010 a la
+> fecha** (nuevas tecnologías, N CPU x pastilla de diferentes CORE).
 
 ---
 
