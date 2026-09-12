@@ -90,6 +90,7 @@ graph TD
 | `nslookup` | Consultar DNS | `nslookup ejemplo.com` |
 | `arp` | Tabla ARP | `arp -a` |
 | `net` | Usuarios, shares, grupos | `net user` / `net share` |
+| `telnet` | Conectarse a un puerto remoto | `telnet 192.168.1.1 23` (si instalado) |
 | `pathping` | Mezcla ping + tracert | `pathping google.com` |
 
 ### 5️⃣ Procesos y tareas
