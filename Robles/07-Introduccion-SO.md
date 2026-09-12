@@ -273,9 +273,112 @@ graph TD
     BIOS --> CPU
 ```
 
----
+> [!info] Captura del profesor: diagrama "PROCESADOR (CPU) – COMPONENTES INTERNOS" + "BOARD (PLACA BASE)"
+> Imagen completa dividida en dos secciones. Transcripción verbatim de todo el texto visible:
+>
+> **SECCIÓN 1 — PROCESADOR (CPU) – COMPONENTES INTERNOS**
+>
+> 1. **UNIDAD DE CONTROL (CU):** Obtiene instrucciones · Las decodifica · Genera señales de control · Coordina todas las unidades
+> 2. **UNIDAD ARITMÉTICO LÓGICA (ALU):** Operaciones aritméticas (+, -, x, ÷) · Operaciones lógicas (AND, OR, NOT, XOR) · Comparaciones
+> 3. **MEMORIA CACHE:** L1 I-Cache (Instrucciones, 32 KB – 128 KB) · L1 D-Cache (Datos, 32 KB – 128 KB) · L2 Cache (Por núcleo, 256 KB – 2 MB) · L3 Cache (Compartida Entre núcleos, 2 MB – 64 MB o más) · INTERCONEXO INTERNO (BUS / RING / MESH) — Comunica todas las unidades internas del procesador
+> 4. **REGISTROS INTERNOS:**
+>    - *Registros Generales:* RAX RBX RCX RDX RSI RDI RBP RSP R8 – R15 ... (almacenan datos temporales)
+>    - *Registro de Instrucción:* IP / RIP (Instruction Pointer) — Apunta a la próxima instrucción a ejecutar
+>    - *Registros de Segmento:* CS DS SS ES FS GS — Definen segmentos de memoria
+>    - *Registros Índice:* Index Base Offset — Usados en direccionamiento de arreglos y estructuras
+>    - *Registro de Banderas (FLAGS):* CF ZF SF OF PF AF IF DF ... — Almacena el estado de la ALU y control del procesador
+>    - *Registros de Tareas / Control:* CR0 CR2 CR3 CR4 ... — Controlan tareas, memoria, protección, paginación, etc.
+> 5. **UNIDAD DE PUNTO FLOTANTE (FPU):** Operaciones matemáticas con números reales
+> 6. **UNIDAD VECTORIAL / SIMD:** SSE / AVX / AVX-512 / NEON — Procesamiento de múltiples datos en paralelo
+> 7. **GPU INTEGRADA:** Procesamiento gráfico (2D / 3D) · Aceleración de video y multimedia
+> 8. **NPU (NEURAL PROCESSING UNIT):** Aceleración de inteligencia artificial y aprendizaje automático
+> 9. **MOTOR DE SEGURIDAD:** SGX / TPM / AES — Cifrado, autenticación y protección de datos
+> 10. **CONTROLADOR DE MEMORIA:** DDR4 / DDR5 / LPDDR — Accede a RAM principal
+>
+> **SECCIÓN 2 — BOARD (PLACA BASE) – COMPONENTES PRINCIPALES**
+>
+> 1. **FUENTE DE ALIMENTACIÓN:** Convierte la energía AC/DC en voltajes regulados para la placa y los componentes
+> 2. **RELOJ DEL SISTEMA (CLOCK):** Genera las señales de reloj que sincronizan el funcionamiento de todos los componentes
+> 3. **PILA CMOS:** Batería (3V) · Mantiene la configuración del BIOS y el reloj en tiempo real · CR2032
+> 4. **ROM BIOS / UEFI:** Firmware que inicia el hardware (POST), carga el sistema operativo y configura la placa · BIOS
+> 5. **CPU / PROCESADOR:** Contiene todos los componentes internos mostrados en la sección superior
+> 6. **CHIPSET NORTE (Puente Norte):** Controlador de memoria · PCI Express / GPU · Alto rendimiento
+> 7. **CHIPSET SUR (Puente Sur):** Controla dispositivos de E/S · SATA, USB, audio, red, etc.
+> 8. **DMI / UMI / QPI**
+> 9. **MEMORIA PRINCIPAL (RAM):** Almacenamiento temporal de datos e instrucciones mientras el sistema está en ejecución
+> 10. **MEMORIA AUXILIAR:** SSD (Solid State Drive) — Almacenamiento rápido, Sin partes móviles (SATA / NVMe) · HDD (Hard Disk Drive) — Almacenamiento masivo Económico, Con partes móviles (SATA)
+> 11. **SLOTS DE EXPANSIÓN:** PCIe x16, x8, x1 — Para tarjetas gráficas, red, sonido, captura, controladoras, etc.
+> 12. **CONTROLADORES DE ENTRADA / SALIDA (I/O):** USB · SATA · Audio · Red (LAN) · Wi-Fi / Bluetooth · Otros (GPIO, SPI, I2C, etc.)
+> 13. **BUSES Y CONECTORES:** PCI Express · SATA · USB · I2C, SPI · Front Panel, etc.
+>
+> **Leyenda:** Señal de datos de alta velocidad · Señal de control / baja velocidad · Alimentación eléctrica · Conexión de almacenamiento
+>
+> <!-- captura: 1 RESUMEN ARQUI.png -->
 
-## Sistema Operativo a manejar: Windows
+> [!info] Captura del profesor: diagrama "PROCESADOR ACTUAL – INTEL® CORE™ ULTRA 7"
+> Imagen completa de arquitectura híbrida de alto rendimiento con IA integrada. Transcripción verbatim de todo el texto visible:
+>
+> **ENCABEZADO:** PROCESADOR ACTUAL – INTEL® CORE™ ULTRA 7 — "Arquitectura híbrida de alto rendimiento con IA integrada" — Logo: intel CORE ULTRA 7 — *(Imagen del chip)* intel CORE ULTRA 7
+>
+> **DIE INTERNO – ARQUITECTURA HÍBRIDA:**
+>
+> **P-CORES (Performance-cores):** P-Core (×8) · L2 Cache (por cluster)
+> **E-CORES (Efficient-cores):** E-Core (×8) · L2 Cache (por cluster)
+> **LP E-CORES (Low Power Efficient-cores):** LP E-Core (×6) · L2 Cache (por cluster)
+> **NPU (Neural Processing Unit):** Aceleración de IA
+> **GPU INTEGRADA:** Intel® Arc™ GPU, Xe² – LPG — Renderizado, IA, gráfica, aceleración multimedia
+> **MEDIA ENGINE:** Codificación / Decodificación — AV1, HEVC, H.264, VP9
+> **DISPLAY ENGINE:** MIPI, eDP, HDMI, DP
+> **L3 CACHE COMPARTIDA (Smart Cache)**
+>
+> **REGISTROS INTERNOS PRINCIPALES:**
+>
+> | Registro | Detalle |
+> |---|---|
+> | **Registro de Instrucción** | RIP (IP) – Instruction Pointer — Apunta a la próxima instrucción a ejecutar |
+> | **Registros Generales (64 bits)** | RAX RBX RCX RDX RSI RDI RBP RSP R8 – R15 |
+> | **Registros de Segmento** | CS DS SS ES FS GS |
+> | **Registros Índice** | Index Base Offset — Usados en direccionamiento de arreglos y estructuras |
+> | **Registro de Banderas (FLAGS)** | CF ZF SF OF AF TF IF DF ... — Almacena el estado de la ALU y control del procesador |
+> | **Registros de Control** | CR0 CR2 CR3 CR4 ... — Controlan memoria, protección, paginación, modo de operación |
+>
+> *Nota: Muchos registros son visibles por software; otros son internos y usados por la microarquitectura.*
+>
+> **COMPONENTES GENERALES DE TODO PROCESADOR:** Unidad de Control (CU) — Obtiene instrucciones de memoria, las decodifica y coordina la ejecución de todas las unidades · Unidad Aritmético Lógica (ALU) — Realiza operaciones aritméticas (+, -, *, /) y lógicas (AND, OR, XOR, NOT, desplazamientos, comparaciones) · Registros — Almacenamiento interno de muy alta velocidad para datos, direcciones e instrucciones · Memoria Caché — Memoria interna ultrarrápida que reduce la latencia de acceso a datos e instrucciones · Sistema de Interconexión — Buses internos y matriz que permiten la comunicación entre núcleos, caché, GPU, NPU y controladores · Predicción y Ejecución Fuera de Orden — Mejora el rendimiento de instrucciones ejecutadas fuera del orden secuencial · Gestión de Energía (Power Management) — Ajusta voltaje, frecuencia y estados de reposo para maximizar rendimiento y eficiencia · Seguridad Integrada — Incluye Intel® VT-x/VT-d, SGX, TPM, cifrado y arreglo seguro
+>
+> **UNIDAD DE CONTROL (detalle):** Decodificador de Instrucciones · Programador (Scheduler) · Unidad de Retiro (Retirement Unit)
+> **COLA DE MICRO-OPERACIONES (UOP CACHE):** Almacena uops decodificadas para reutilización rápida
+> **PREDICCIÓN DE SALTOS (BRANCH PREDICTOR)**
+> **BUFFER DE REORDENAMIENTO (REORDER BUFFER)**
+>
+> **BUS INTERNO / ANILLO (RING) – ALTA VELOCIDAD:**
+>
+> | Controlador | Detalle |
+> |---|---|
+> | CONTROLADOR DE MEMORIA | DDR5 / LPDDR5X |
+> | CONTROLADOR PCI EXPRESS | Gen 5.0 / 4.0 |
+> | CONTROLADOR DE ALMACENAMIENTO | SATA / PCIe / NVMe |
+> | TPM / SEGURIDAD | Intel® Platform Security Engine |
+> | GESTIÓN DE ENERGÍA | Relojes, Voltajes, Estados de reposo |
+>
+> **OTROS COMPONENTES IMPORTANTES:**
+> - **Reloj del Procesador:** Sincroniza todas las operaciones internas (frecuencia base y turbo)
+> - **Pipeline de Ejecución:** Múltiples etapas: Fetch → Decode → Execute → Write Back
+> - **Unidades de Ejecución:** ALU, FPU, Load/Store, SIMD (AVX-512), AES, etc.
+> - **Caché por Núcleo:** L1 (I-Cache y D-Cache) – muy rápida · L2 – por cluster · L3 – compartida entre todos los núcleos
+> - **Tecnologías Integradas:** Hyper-Threading (SMT), Turbo Boost, Speed Shift, Thermal Monitoring, IA Boost, Deep Learning Boost
+>
+> **TIPOS DE NÚCLEOS EN INTEL® CORE™ ULTRA 7:** P-CORES (Verde) — Alto rendimiento, Tareas exigentes · E-CORES (Azul) — Alta eficiencia, Tareas en segundo plano · LP E-CORES (Morado) — Bajo consumo, Máxima eficiencia energética
+>
+> **RESUMEN DE FUNCIONES:** Rendimiento — Híbrido y escalable · Eficiencia — Consumo optimizado · IA Integrada — NPU + GPU + CPU · Conectividad — PCIe, Wi-Fi, Thunderbolt
+>
+> **TECNOLOGÍAS CLAVE:** Intel 4 (7 nm) — Proceso de fabricación · Intel® Thread Director — Asigna tareas al núcleo ideal · Intel® Deep Learning Boost — Aceleración de IA · Intel® Arc™ GPU — Gráficos de próxima generación
+>
+> **NOTA FINAL:** La distribución exacta del die puede variar según el modelo y la generación, pero todos los procesadores modernos incluyen componentes similares.
+>
+> <!-- captura: 1 RESUMEN ARQUI 2.png -->
+
+---
 
 Este curso se basa **netamente en el Sistema Operativo Windows de Microsoft** (nivel comercial).
 
