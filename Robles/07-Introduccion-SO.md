@@ -421,6 +421,8 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 ### Por tipo de sistema operativo (clasificación clásica)
 
 | Tipo | Uso | Ejemplos |
+
+| Tipo | Uso | Ejemplos |
 |------|-----|----------|
 | **Tiempo Real (RTOS)** | Aplicaciones que requieren respuesta inmediata y control en tiempo real | Sistemas de control industrial, sistemas de navegación |
 | **Usuario Único (Single-user)** | Un solo usuario con acceso a todo el sistema a la vez | Computadoras personales |
