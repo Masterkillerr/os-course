@@ -395,14 +395,20 @@ UWP es el modelo de apps de Windows 10/11: una sola base (One SDK, One Store) qu
 familias de dispositivos. Sus servicios centrales incluyen UI adaptativa, entradas naturales,
 servicios en la nube, configuración, seguridad, administración y actualizaciones.
 
+<!-- captura: 2 Introducción COMPLEMENTO.png -->
+
+> [!info] Captura del profesor: ecosistema Microsoft (COMPLEMENTO)
+> Diagrama del ecosistema Microsoft: **Microsoft 365** se conecta a servicios centrales —
+> **User Interface** (interfaz), **Natural** (entradas naturales), **Configuration** (configuración),
+> **Updates** (actualizaciones), **Security** (seguridad), **Management** (administración) —
+> que a su vez conectan con dispositivos: **Surface Hub**, **Mobile Console** y **Dev Center**.
+> Muestra cómo Microsoft 365 integra todos los servicios en la nube sobre la plataforma Windows.
+
 ```mermaid
 graph TD
     UWP[UWP: One SDK / One Store / Cloud] --> D[Mobile]
     UWP --> PC[PC / Surface Hub]
     UWP --> CON[Console / Holographic]
-    UWP --> IOT[IoT / Dispositivos embebidos]
-```
-
 ---
 
 ## Clasificación general del S.O.
@@ -412,6 +418,7 @@ pregunta, no las confundas: una clasifica **por tipo de sistema operativo** (uso
 otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 
 ### Por tipo de sistema operativo (clasificación clásica)
+### Por tipo de sistema operativo (clasificación clásica)
 
 | Tipo | Uso | Ejemplos |
 |------|-----|----------|
@@ -419,8 +426,11 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 | **Usuario Único (Single-user)** | Un solo usuario con acceso a todo el sistema a la vez | Computadoras personales |
 | **De Red** | Administra recursos y comunicación entre computadoras en red | Servidores, routers |
 
-> [!important] Pregunta típica de examen
+> [!important] Pregunta típica de exámen
 > No confundir esta clasificación (tipo de SO) con la del perfil Comunidad/Empresas/Desarrolladores/Educación
+> más abajo — son dos ejes distintos de "clasificación del sistema operativo".
+
+> [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
 > más abajo — son dos ejes distintos de "clasificación del sistema operativo".
 
 > [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
