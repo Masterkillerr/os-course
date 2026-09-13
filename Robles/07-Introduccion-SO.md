@@ -430,10 +430,7 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 > más abajo — son dos ejes distintos de "clasificación del sistema operativo".
 
 > [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
-
-> [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
-> más abajo — son dos ejes distintos de "clasificación del sistema operativo".
-
+> Marco blanco redondeado de borde gris. A la derecha, en **vertical**, el
 > [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
 > Marco blanco redondeado de borde gris. A la derecha, en **vertical**, el
 > rótulo **"Clasificación de los S.O."**. Dentro, **cinco bandas redondeadas
