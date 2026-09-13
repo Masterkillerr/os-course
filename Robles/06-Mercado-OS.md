@@ -242,6 +242,23 @@ graph TD
 | ¿SO más usado en el mundo? | **Depende del dispositivo** |
 | ¿SO más usado en móviles? | **Android** |
 | ¿SO más usado en escritorio? | **Windows** |
+
+---
+
+> [!info] Captura del profesor: Tabla de modelos de servicio en la nube
+> Fuente: CLOUD.xlsx — comparativa de modelos de computación en la nube por nivel de control, responsabilidad del proveedor y ejemplos:
+>
+> | Tecnología | Descripción | Nivel de control | Responsabilidades del proveedor | Responsabilidades del cliente | Ejemplos |
+> |---|---|---|---|---|---|
+> | **PaaS** | Plataforma preconfigurada para desarrollar, ejecutar y administrar aplicaciones | Medio | Entorno de desarrollo, middleware, servidores, redes y almacenamiento | Sistema operativo, aplicaciones, datos y configuración | Heroku, Google App Engine, AWS Elastic Beanstalk |
+> | **IaaS** | Recursos informáticos básicos como servidores, almacenamiento y redes | Alto | Infraestructura completa, incluyendo hardware, software de virtualización y redes | Sistema operativo, aplicaciones, datos y configuración y gestión de la infraestructura | Amazon EC2, Google Compute Engine, Microsoft Azure |
+> | **SaaS** | Aplicaciones completas disponibles a través de internet | Bajo | Software, infraestructura y mantenimiento | Configuración de la aplicación, datos y usuarios | Salesforce, Microsoft Office 365, Google Workspace |
+> | **Serverless** | Entorno de ejecución para código sin necesidad de administrar servidores | — | Ejecución de código y escalabilidad automática | — | AWS Lambda, Google Cloud Functions, Azure Functions |
+> | **FaaS** | Funciones como servicio para ejecutar código sin estado en respuesta a eventos | — | Desarrollo y gestión del código | — | AWS Lambda, Google Cloud Functions, Azure Functions |
+> | **CaaS** | Contenedores como servicio para ejecutar aplicaciones en contenedores | — | Entorno de ejecución de contenedores, orquestación y escalabilidad | Desarrollo, gestión y configuración de las aplicaciones en contenedores | Amazon ECS, Google Kubernetes Engine, Azure Container Instances |
+> | **DBaaS** | Base de datos como servicio para gestionar bases de datos | — | Base de datos, infraestructura y mantenimiento | Configuración de la base de datos, datos y usuarios | — |
+>
+> ⚠️ **Importante para exámen:** La diferencia clave entre IaaS, PaaS y SaaS es **quién gestiona qué**: a menor responsabilidad del proveedor, más control tiene el cliente (IaaS = más control, SaaS = menos control). CaaS y DBaaS son subcategorías especializadas de IaaS/PaaS.
 | ¿SO más usado en servidores? | **Linux / Unix** |
 | ¿Windows 11 es un nuevo kernel? | No, es Windows 10 con interfaz nueva |
 | ¿Windows ME fue bueno? | No, es considerado el peor |
