@@ -418,9 +418,6 @@ pregunta, no las confundas: una clasifica **por tipo de sistema operativo** (uso
 otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 
 ### Por tipo de sistema operativo (clasificación clásica)
-### Por tipo de sistema operativo (clasificación clásica)
-
-| Tipo | Uso | Ejemplos |
 
 | Tipo | Uso | Ejemplos |
 |------|-----|----------|
@@ -431,6 +428,8 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 > [!important] Pregunta típica de exámen
 > No confundir esta clasificación (tipo de SO) con la del perfil Comunidad/Empresas/Desarrolladores/Educación
 > más abajo — son dos ejes distintos de "clasificación del sistema operativo".
+
+> [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
 
 > [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
 > más abajo — son dos ejes distintos de "clasificación del sistema operativo".
