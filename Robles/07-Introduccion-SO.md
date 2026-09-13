@@ -432,8 +432,6 @@ otra clasifica el **ecosistema de recursos de Microsoft por perfil de usuario**.
 > [!info] Captura del profesor: "Clasificación de los S.O." — diagrama de 5 bandas
 > Marco blanco redondeado de borde gris. A la derecha, en **vertical**, el
 > rótulo **"Clasificación de los S.O."**. Dentro, **cinco bandas redondeadas
-> Marco blanco redondeado de borde gris. A la derecha, en **vertical**, el
-> rótulo **"Clasificación de los S.O."**. Dentro, **cinco bandas redondeadas
 > apiladas**, cada una con su etiqueta de eje a la izquierda (en cursiva
 > azul/versalitas) y su contenido dentro de la banda. De arriba abajo, con su
 > color exacto:
